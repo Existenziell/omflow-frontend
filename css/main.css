@@ -1,0 +1,94 @@
+/* --------------------------------------------------------
+Style Sheet for Omflow World Map
+
+version: 0.8
+last modified: 13.11.2020 by Christof Bauer
+author: Christof Bauer
+email: bauer.christof@gmail.com
+----------------------------------------------------------*/
+
+@font-face {
+  font-family: 'Gotu';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/gotu-v1-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Gotu'), local('Gotu-Regular'),
+       url('../fonts/gotu-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/gotu-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/gotu-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/gotu-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/gotu-v1-latin-regular.svg#Gotu') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/lato-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('../fonts/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lato-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/lato-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lato-v16-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+body { 
+	margin: 0; 
+	padding: 0; 
+}
+
+#map { 
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	width: 100%; }
+
+.mapboxgl-popup {
+	font: 12px/20px 'Lato', 'Gotu', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	min-width: 300px;
+}
+
+.mapboxgl-popup-content {
+	padding: 5px 13px 5px;
+}
+
+.mapboxgl-popup-content a {
+	text-decoration: none;
+	color: #237a9a;
+}
+
+.popup-header {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 15px;
+}
+
+.popup-video {
+	/*float: left;*/
+}
+
+.popup-desc {
+	/*float: right;*/
+}
+
+.popup-ul {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+	font-size: 11px;
+	line-height: 14px;
+}

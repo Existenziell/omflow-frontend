@@ -1,0 +1,52 @@
+var places = {
+	"type": "geojson",
+	"data": {
+		"type": "FeatureCollection",
+		"features": [
+			{
+				"type": "Feature",
+				"properties": {
+					"description":
+					"<strong>Jeni Louise</strong><div><a href='https://omflow.as.me/jenilouise' target='_blank'><img src='img/jeni.png' /></a><br /><ul><li>Beginner Yin</li><li>Beginner Nidra</li><li>Beginner Hatha</li></ul></div>"				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-0.09, 51.5]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"description":
+					"<strong>Aswathy Vijayan</strong><div><a href='https://omflow.as.me/aswathyvijayan' target='_blank'><img src='img/aswathy.png' /></a><br /><ul><li>Beginner Hatha</li><li>Intermediate Hatha</li></ul></div>"				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [76.27, 10.85]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"description":
+					"<strong>Vanessa McDonald</strong><div><a href='https://omflow.as.me/vanessamcdonald' target='_blank'><img src='img/vanessa.png' /></a><br /><ul><li>Beginner Yin</li><li>Intermediate Yin</li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [133.0251, -25.4698]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"video":
+					"<div class='popup-video'><span class='popup-header'>Sanna Kaappola</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/34132895?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"description":
+					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/sannakaappola' target='_blank'>Omflow with Sanna</a></li><li>Intermediate Yin</li><li>Intermediate Vinyasa</li></ul></div>"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [25.7482, 61.9241]
+				}
+			}
+			
+		]
+	}
+};
