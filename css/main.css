@@ -69,12 +69,15 @@ body {
 .mapboxgl-popup-content a {
 	text-decoration: none;
 	color: #237a9a;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .popup-header {
 	font-weight: bold;
 	display: block;
 	margin-bottom: 15px;
+  font-size: 14px;
 }
 
 .popup-video {
