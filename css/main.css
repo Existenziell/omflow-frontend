@@ -7,6 +7,89 @@ author: Christof Bauer
 email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
 
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+
+}
+
+a {
+  text-decoration: none;
+}
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
 @font-face {
   font-family: 'Gotu';
   font-style: normal;
@@ -31,6 +114,19 @@ email: bauer.christof@gmail.com
        url('../fonts/lato-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
        url('../fonts/lato-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../fonts/lato-v16-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/roboto-v20-latin-100.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Thin'), local('Roboto-Thin'),
+       url('../fonts/roboto-v20-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto-v20-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin-100.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto-v20-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto-v20-latin-100.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
@@ -135,3 +231,82 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.overlay-button a span {
+  display: block;
+  font-size: 10px;
+}
+
+
+
+/* --------------------------------------------------------
+MatchMe
+----------------------------------------------------------*/
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FAF9F7;
+}
+
+#content {
+  width: 800px;
+  text-align: center;
+  font: 12px/20px 'Lato', 'Gotu', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+#content h1 {
+  font-size: 16px; 
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.learn-more {
+  color: #AFAFAF;
+}
+
+.styles-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  height: 100px;
+}
+
+.styles-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 45px;
+  border: 1px solid transparent;
+  color: #AFAFAF;
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: 100;
+  margin-left: -1px;
+}
+
+.styles-list li:hover {
+  border: 1px solid #999;
+  color: #333;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.continue {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.border {
+  border: 1px solid #999 !important;
+}
+
