@@ -20,6 +20,16 @@
 			zoom: 1
 		});
 
+		// Add geolocate control to the map.
+		map.addControl(
+			new mapboxgl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: true
+			})
+		);
+
 		// Map JSON data from places.json into JS object
 		var places = places;
 
@@ -56,15 +66,15 @@
 			var video = e.features[0].properties.video;
 			var description = e.features[0].properties.description;
 
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
+			// Ensure that if the map is zoomed out such that multiple
+			// copies of the feature are visible, the popup appears
+			// over the copy being pointed to.
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
 
-		// Populate the popup and set its coordinates based on the feature found.
-		popup
+			// Populate the popup and set its coordinates based on the feature found.
+			popup
 			.setLngLat(coordinates)
 			.setHTML(video + description)
 			.addTo(map);
@@ -73,16 +83,16 @@
 		// create DOM element and the marker
 		var el = document.createElement('div'); 
 		new mapboxgl.Marker(el)
-			.setLngLat([-77.0353, 38.8895])
+		.setLngLat([-77.0353, 38.8895])
 			.setPopup(popup) // sets a popup on this marker
 			.addTo(map);
 
-		map.on('mouseleave', 'places', function() {
-			map.getCanvas().style.cursor = '';
+			map.on('mouseleave', 'places', function() {
+				map.getCanvas().style.cursor = '';
 			// popup.remove();
 		});
-	});
-</script>
+		});
+	</script>
 
 </body>
 </html>
