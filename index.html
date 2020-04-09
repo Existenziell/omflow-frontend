@@ -4,20 +4,28 @@
 	<meta charset="utf-8" />
 	<title>Omflow World Map</title>
 	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<script language="javascript" src="places.json"></script> 
+	<script language="javascript" src="data/places.json"></script> 
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
+	<div id="overlay">
+		<div class="overlay-button">
+			<a href="javascript:void(0)" onclick="hideOverlay();">LOCATE AN OMIE</a>
+		</div>
+		<div class="overlay-button">
+			<a href="https://www.omflow.yoga/omflowsignup">LET'S OMFLOW</a>
+		</div>
+	</div>
 	<div id="map"></div>
 	<script>
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 		var map = new mapboxgl.Map({
 			container: 'map',
-			style: 'mapbox://styles/mapbox/light-v10',
-			center: [-77.04, 38.907],
-			zoom: 1
+			style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11
+			// center: [-77.04, 38.907],
+			zoom: 1.5
 		});
 
 		// Add geolocate control to the map.
@@ -36,62 +44,54 @@
 		map.on('load', function() {
 			map.addSource('places', places);
 			/* Image: An image is loaded and added to the map. */
-			map.loadImage("logo30.png", function(error, image) {
+			map.loadImage("img/logo30.png", function(error, image) {
 				if (error) throw error;
 				map.addImage("custom-marker", image);
 			});
 
-		// Add a layer showing the places.
-		map.addLayer({
-			'id': 'places',
-			'type': 'symbol',
-			'source': 'places',
-			'layout': {
-				'icon-image': 'custom-marker',
-				'icon-allow-overlap': true
-			}
+			// Add a layer showing the places.
+			map.addLayer({
+				'id': 'places',
+				'type': 'symbol',
+				'source': 'places',
+				'layout': {
+					'icon-image': 'custom-marker',
+					'icon-allow-overlap': true
+				}
+			});
+
+			// Create a popup, but don't add it to the map yet.
+			var popup = new mapboxgl.Popup({
+				closeButton: true,
+				closeOnClick: true,
+				offset: 5
+			});
+
+			map.on('mouseenter', 'places', function(e) {
+				map.getCanvas().style.cursor = 'pointer';
+
+				var coordinates = e.features[0].geometry.coordinates.slice();
+				var video = e.features[0].properties.video;
+				var description = e.features[0].properties.description;
+
+				// Ensure that if the map is zoomed out such that multiple
+				// copies of the feature are visible, the popup appears
+				// over the copy being pointed to.
+				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+					coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+				}
+
+				// Populate the popup and set its coordinates based on the feature found.
+				popup
+				.setLngLat(coordinates)
+				.setHTML(video + description)
+				.addTo(map);
+			});
 		});
 
-		// Create a popup, but don't add it to the map yet.
-		var popup = new mapboxgl.Popup({
-			closeButton: true,
-			closeOnClick: true,
-			offset: 5
-		});
-
-		map.on('mouseenter', 'places', function(e) {
-			map.getCanvas().style.cursor = 'pointer';
-
-			var coordinates = e.features[0].geometry.coordinates.slice();
-			var video = e.features[0].properties.video;
-			var description = e.features[0].properties.description;
-
-			// Ensure that if the map is zoomed out such that multiple
-			// copies of the feature are visible, the popup appears
-			// over the copy being pointed to.
-			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-			}
-
-			// Populate the popup and set its coordinates based on the feature found.
-			popup
-			.setLngLat(coordinates)
-			.setHTML(video + description)
-			.addTo(map);
-		});
-
-		// create DOM element and the marker
-		var el = document.createElement('div'); 
-		new mapboxgl.Marker(el)
-		.setLngLat([-77.0353, 38.8895])
-			.setPopup(popup) // sets a popup on this marker
-			.addTo(map);
-
-			map.on('mouseleave', 'places', function() {
-				map.getCanvas().style.cursor = '';
-			// popup.remove();
-		});
-		});
+		function hideOverlay() {
+			document.getElementById('overlay').style.display = 'none';
+		}
 	</script>
 
 </body>
