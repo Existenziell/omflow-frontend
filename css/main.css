@@ -310,3 +310,15 @@ MatchMe
   border: 1px solid #999 !important;
 }
 
+.back {
+  background: #FAF9F7 url("../img/back.png") no-repeat center; 
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
