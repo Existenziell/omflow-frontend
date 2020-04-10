@@ -7,9 +7,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Jeni Louise",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Jeni Louise</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Jeni Louise</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><a href='https://omflow.as.me/jenilouise' target='_blank'>Omflow with Jeni</a></li><li>Beginner Yin</li><li>Beginner Nidra</li><li>Beginner Hatha</li></ul></div>"				
 				},
@@ -21,9 +22,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Aswathy Vijayan",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Aswathy Vijayan</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Aswathy Vijayan</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><a href='https://omflow.as.me/aswathyvijayan' target='_blank'>Omflow with Aswathy</a></li><li>Beginner Hatha</li><li>Intermediate Hatha</li></ul></div>"				
 				},
@@ -35,9 +37,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Vanessa McDonald",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Vanessa McDonald</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Vanessa McDonald</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680749?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680749?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><a href='https://omflow.as.me/vanessamcdonald' target='_blank'>Omflow with Vanessa</a></li><li>Beginner Yin</li><li>Intermediate Yin</li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"				
 				},
@@ -49,9 +52,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Sanna Kaappola",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Sanna Kaappola</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Sanna Kaappola</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/sannakaappola' target='_blank'>Omflow with Sanna</a></li><li>Intermediate Yin</li><li>Intermediate Vinyasa</li></ul></div>"
 				},
@@ -63,9 +67,25 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Karolina Krzemianowska",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Casey McGann</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Karolina Krzemianowska</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680942?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
+					"description":
+					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/caseymcgann' target='_blank'>Omflow with Casey</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-76.606035, -1.186095]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Karolina Krzemianowska</span>",
+					"video":
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680942?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/karolinakrzemianowska' target='_blank'>Omflow with Karolina</a></li><li>New Hatha</li><li>Beginner Hatha</li><li>Intermediate Hatha</li></ul></div>"
 				},
@@ -77,9 +97,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Iva Buzhashka",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Iva Buzhashka</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Iva Buzhashka</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/ivabuzhashka' target='_blank'>Omflow with Iva</a></li><li>Beginner Yin</li><li>Intermediate Yin</li><li>Private 1:1 Yin</li></ul></div>"
 				},
@@ -91,9 +112,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Karen Stephen",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Karen Stephen</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Karen Stephen</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/karenstephen' target='_blank'>Omflow with Karen</a></li><li>New Vinyasa</li><li>Beginner Vinyasa</li></ul></div>"
 				},
@@ -105,9 +127,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Bo Letshwiti",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Bo Letshwiti</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Bo Letshwiti</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/bolets' target='_blank'>Omflow with Bo</a></li><li>Beginner Hatha</li><li>Intermediate Hatha</li><li>Intermediate Vinyasa</li><li>Private 1:1 Hatha or Vinyasa</li></ul></div>"
 				},
@@ -119,9 +142,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Inez Leniere",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Inez Leniere</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Inez Leniere</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/inezleniere' target='_blank'>Omflow with Inez</a></li><li>New Yin</li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa or Yin</li></ul></div>"
 				},
@@ -133,9 +157,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Lisa Stampfl",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Lisa Stampfl</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Lisa Stampfl</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/lisastampfl' target='_blank'>Omflow with Lisa</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"
 				},
@@ -147,9 +172,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Jenny Finneran",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Jenny Finneran</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Jenny Finneran</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/jennyfinneran' target='_blank'>Omflow with Jenny</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
 				},
@@ -161,9 +187,10 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Lindsay Barrett",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Lindsay Barrett</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Lindsay Barrett</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405852341?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/lindsaybarrett' target='_blank'>Omflow with Lindsay</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
 				},
@@ -175,9 +202,40 @@ var places = {
 			{
 				"type": "Feature",
 				"properties": {
-					"name": "Christof Bauer",
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Chiara Santevecchi</span>",
 					"video":
-					"<div class='popup-video'><span class='popup-header'>Christof Bauer</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405715831?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
+					"description":
+					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/chiarasantevecchi' target='_blank'>Omflow with Chiara</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-2.198285, 54.156108]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Daisy Tonge</span>",
+					"video":
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
+					"description":
+					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/daisytonge' target='_blank'>Omflow with Daisy</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-54.853706, -32.201908]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"name": 
+					"<div class='popup-video'><span class='popup-header'>Christof Bauer</span>",
+					"video":
+					"<div class='embed-container embed-container-cb-real'><iframe src='https://player.vimeo.com/video/405715831?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
 					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/christofbauer' target='_blank'>Omflow with Christof</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
 				},
