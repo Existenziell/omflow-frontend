@@ -4,9 +4,10 @@ var places = {
 		"type": "FeatureCollection",
 		"features": 
 		[
-			{	// Jeni Louise
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Jeni Louise",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Jeni Louise</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -17,9 +18,10 @@ var places = {
 					"coordinates": [-0.09, 51.5]
 				}
 			},
-			{	// Aswathy Vijayan
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Aswathy Vijayan",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Aswathy Vijayan</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -30,9 +32,10 @@ var places = {
 					"coordinates": [76.27, 10.85]
 				}
 			},
-			{	// Vanessa McDonald
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Vanessa McDonald",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Vanessa McDonald</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680749?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -43,9 +46,10 @@ var places = {
 					"coordinates": [144.939076, -37.835361]
 				}
 			},
-			{	// Sanna Kaappola
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Sanna Kaappola",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Sanna Kaappola</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -56,9 +60,10 @@ var places = {
 					"coordinates": [-80.742550, -1.829325]
 				}
 			},
-			{	// Karolina Krzemianowska
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Karolina Krzemianowska",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Karolina Krzemianowska</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680942?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -69,9 +74,10 @@ var places = {
 					"coordinates": [-8.471862, 51.898565]
 				}
 			},
-			{	// Iva Buzhashka
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Iva Buzhashka",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Iva Buzhashka</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -82,9 +88,10 @@ var places = {
 					"coordinates": [25.459356, 43.056816]
 				}
 			},
-			{	// Karen Stephen
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Karen Stephen",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Karen Stephen</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -95,9 +102,10 @@ var places = {
 					"coordinates": [-2.104236, 57.145128]
 				}
 			},
-			{	// Bo Letshwiti
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Bo Letshwiti",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Bo Letshwiti</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -108,9 +116,10 @@ var places = {
 					"coordinates": [24.443207, -22.299261]
 				}
 			},
-			{	// Inez Leniere
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Inez Leniere",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Inez Leniere</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -121,9 +130,10 @@ var places = {
 					"coordinates": [-4.437361, 36.715000]
 				}
 			},
-			{	// Lisa Stampfl
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Lisa Stampfl",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Lisa Stampfl</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -134,9 +144,10 @@ var places = {
 					"coordinates": [-87.084246, 20.629787]
 				}
 			},
-			{	// Jenny Finneran
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Jenny Finneran",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Jenny Finneran</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -147,9 +158,10 @@ var places = {
 					"coordinates": [-82.142737, 29.187601]
 				}
 			},
-			{	// Lindsay Barrett
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Lindsay Barrett",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Lindsay Barrett</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405852341?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
@@ -160,9 +172,10 @@ var places = {
 					"coordinates": [4.893371, 52.371625]
 				}
 			},
-			{	// Christof Bauer
+			{
 				"type": "Feature",
 				"properties": {
+					"name": "Christof Bauer",
 					"video":
 					"<div class='popup-video'><span class='popup-header'>Christof Bauer</span><div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://player.vimeo.com/video/405715831?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe></div><script src='https://player.vimeo.com/api/player.js'><\/script></div>",
 					"description":
