@@ -233,6 +233,21 @@ var places = {
 				"type": "Feature",
 				"properties": {
 					"name": 
+					"<div class='popup-video'><span class='popup-header'>Mimi Daraa</span>",
+					"video":
+					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
+					"description":
+					"<div class='popup-desc'><ul class='popup-ul'><li><a href='https://omflow.as.me/mimidaraa' target='_blank'>Omflow with Mimi</a></li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li><li>Private 1:1 Vinyasa</li></ul></div>"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.743739, 30.270692]
+				}
+			},
+			{
+				"type": "Feature",
+				"properties": {
+					"name": 
 					"<div class='popup-video'><span class='popup-header'>Christof Bauer</span>",
 					"video":
 					"<div class='embed-container embed-container-cb-real'><iframe src='https://player.vimeo.com/video/405715831?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
