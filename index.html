@@ -31,17 +31,24 @@
 		<div class="overlay-button">
 			<a href="matchme.html">LET'S OMFLOW</a>
 		</div>
-		<div class="overlay-button overlay-button-signin">
-			<a href="signin.html">SIGN IN</a>
+		<div class="overlay-button overlay-button-login">
+			<a href="javascript:void(0)" onclick="showLoginLayer();">LOGIN</a>
 		</div>
 	</div>
+
+
+	<div id="login-overlay">
+		<div class="login-overlay-content">
+			<h1>Enter your Omflow details</h1>
+		</div>
+	</div>
+
 	<div id="map"></div>
 	<script>
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 		var map = new mapboxgl.Map({
 			container: 'map',
 			style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11
-			// center: [-77.04, 38.907],
 			zoom: 1.5
 		});
 
@@ -57,15 +64,10 @@
 			.addTo(map);
 		});
 
-
 		function forwardGeocoder(query) {
 			var matchingFeatures = [];
 			for (var i = 0; i < places.data.features.length; i++) {
 				var feature = places.data.features[i];
-
-				//console.log(feature);
-
-				// handle queries with different capitalization than the source data by calling toLowerCase()
 				if (
 					feature.id
 					.toLowerCase()
@@ -104,6 +106,10 @@
 
 		function hideOverlay() {
 			document.getElementById('overlay').style.display = 'none';
+		}
+
+		function showLoginLayer() {
+			document.getElementById('login-overlay').style.display = 'flex';
 		}
 	</script>
 
