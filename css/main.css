@@ -237,7 +237,13 @@ body {
   font-size: 10px;
 }
 
-
+.marker {
+    background-image: url(../img/marker.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
 
 /* --------------------------------------------------------
 Vimeo Embed
@@ -263,7 +269,7 @@ Vimeo Embed
 }
 
 .embed-container-cb {
-  background-image: url("../img/logo2.jpg");
+  background-image: url("../img/logo_bg.jpg");
 }
 
 .embed-container-cb-real {
