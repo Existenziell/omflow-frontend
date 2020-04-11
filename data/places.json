@@ -6,6 +6,7 @@ var places = {
 		[
 			{
 				"type": "Feature",
+				"id": "Jeni Louise",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Jeni Louise</span>",
@@ -21,6 +22,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Aswathy Vijayan",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Aswathy Vijayan</span>",
@@ -36,6 +38,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Vanessa McDonald",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Vanessa McDonald</span>",
@@ -51,6 +54,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Sanna Kaappola",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Sanna Kaappola</span>",
@@ -66,6 +70,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Casey McGann",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Casey McGann</span>",
@@ -81,6 +86,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Karolina Krzemianowska",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Karolina Krzemianowska</span>",
@@ -96,6 +102,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Iva Buzhashka",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Iva Buzhashka</span>",
@@ -111,6 +118,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Karen Stephen",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Karen Stephen</span>",
@@ -126,6 +134,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Bo Letshwiti",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Bo Letshwiti</span>",
@@ -141,6 +150,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Inez Leniere",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Inez Leniere</span>",
@@ -156,6 +166,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Lisa Stampfl",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Lisa Stampfl</span>",
@@ -171,6 +182,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Jenny Finneran",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Jenny Finneran</span>",
@@ -186,6 +198,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Lindsay Barrett",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Lindsay Barrett</span>",
@@ -201,6 +214,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Chiara Santevecchi",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Chiara Santevecchi</span>",
@@ -216,6 +230,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Daisy Tonge",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Daisy Tonge</span>",
@@ -231,6 +246,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Mimi Daraa",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Mimi Daraa</span>",
@@ -246,6 +262,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
+				"id": "Christof Bauer",
 				"properties": {
 					"name": 
 					"<div class='popup-video'><span class='popup-header'>Christof Bauer</span>",

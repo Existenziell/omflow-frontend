@@ -16,6 +16,11 @@
 	<script src="data/places.json"></script> 
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
@@ -39,15 +44,50 @@
 
 		// Add marker and popup to map for each feature in places.json
 		places.data.features.forEach(function(marker) {
-		  var el = document.createElement('div');
-		  el.className = 'marker';
+			var el = document.createElement('div');
+			el.className = 'marker';
 
-		  new mapboxgl.Marker(el)
-		  .setLngLat(marker.geometry.coordinates)
-		  .setPopup(new mapboxgl.Popup({ offset: 15 })
-		  .setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
-		  .addTo(map);
+			new mapboxgl.Marker(el)
+			.setLngLat(marker.geometry.coordinates)
+			.setPopup(new mapboxgl.Popup({ offset: 15 })
+			.setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
+			.addTo(map);
 		});
+
+
+		function forwardGeocoder(query) {
+			var matchingFeatures = [];
+			for (var i = 0; i < places.data.features.length; i++) {
+				var feature = places.data.features[i];
+
+				//console.log(feature);
+
+				// handle queries with different capitalization than the source data by calling toLowerCase()
+				if (
+					feature.id
+					.toLowerCase()
+					.search(query.toLowerCase()) !== -1
+				) {
+					feature['center'] = feature.geometry.coordinates;
+					feature['place_type'] = ['park'];
+					feature['place_name'] = '🙏 ' + feature.id;
+					matchingFeatures.push(feature);
+				}
+			}
+			return matchingFeatures;
+		}
+
+		// Add the geocoder to the map
+		map.addControl(
+			new MapboxGeocoder({
+			accessToken: mapboxgl.accessToken,
+			localGeocoder: forwardGeocoder,
+			marker: false,
+			zoom: 5,
+			placeholder: 'Search for an Omflow teacher by name',
+			mapboxgl: mapboxgl
+			})
+		);
 
 		// Add geolocate control to the map.
 		map.addControl(
