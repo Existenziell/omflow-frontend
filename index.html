@@ -55,19 +55,7 @@
 			zoom: 1.5
 		});
 
-		// Add marker and popup to map for each feature in places.json
-		places.data.features.forEach(function(marker) {
-			var el = document.createElement('div');
-			el.className = 'marker';
-
-			new mapboxgl.Marker(el)
-			.setLngLat(marker.geometry.coordinates)
-			.setPopup(new mapboxgl.Popup({ offset: 15 })
-			.setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
-			.addTo(map);
-		});
-
-		// Use this custom Geocoder to use the features in places.json
+		// Use custom Geocoder to include the features in places.json
 		function forwardGeocoder(query) {
 			var matchingFeatures = [];
 			for (var i = 0; i < places.data.features.length; i++) {
@@ -84,6 +72,20 @@
 				}
 			}
 			return matchingFeatures;
+		}
+	
+		// Add marker and popup to map for each feature in places.json
+		function createMarkers() {
+			places.data.features.forEach(function(marker) {
+				var el = document.createElement('div');
+				el.className = 'marker';
+
+				new mapboxgl.Marker(el)
+				.setLngLat(marker.geometry.coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 15 })
+				.setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
+				.addTo(map);
+			});
 		}
 
 		function createGeo() {
@@ -112,6 +114,7 @@
 
 		function hideOverlay() {
 			document.getElementById('overlay').style.display = 'none';
+			createMarkers();
 			createGeo();
 		}
 
