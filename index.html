@@ -125,6 +125,10 @@
 		        .setHTML(html)
 		        .addTo(map);
 			});
+
+			$('.mapboxgl-ctrl-geocoder--input').on('click focus', function() {
+			    this.value = '';
+			});
 		}
 
 		function hideOverlay() {
