@@ -6,7 +6,7 @@ var places = {
 		[
 			{
 				"type": "Feature",
-				"id": "Omflow ",
+				"id": "Omflow, Headquarters",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Omflow Headquarters</span>",
@@ -22,7 +22,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Jeni Louise",
+				"id": "Jeni Louise, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Jeni Louise</span>",
@@ -38,7 +38,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Aswathy Vijayan",
+				"id": "Aswathy Vijayan, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Aswathy Vijayan</span>",
@@ -54,7 +54,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Vanessa McDonald",
+				"id": "Vanessa McDonald, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Vanessa McDonald</span>",
@@ -70,7 +70,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Sanna Kaappola",
+				"id": "Sanna Kaappola, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Sanna Kaappola</span>",
@@ -86,7 +86,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Casey McGann",
+				"id": "Casey McGann, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Casey McGann</span>",
@@ -102,7 +102,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Karolina Krzemianowska",
+				"id": "Karolina Krzemianowska, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Karolina Krzemianowska</span>",
@@ -118,7 +118,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Iva Buzhashka",
+				"id": "Iva Buzhashka, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Iva Buzhashka</span>",
@@ -134,7 +134,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Karen Stephen",
+				"id": "Karen Stephen, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Karen Stephen</span>",
@@ -150,7 +150,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Bo Letshwiti",
+				"id": "Bo Letshwiti, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Bo Letshwiti</span>",
@@ -166,7 +166,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Inez Leniere",
+				"id": "Inez Leniere, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Inez Leniere</span>",
@@ -182,7 +182,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Lisa Stampfl",
+				"id": "Lisa Stampfl, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Lisa Stampfl</span>",
@@ -198,7 +198,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Jenny Finneran",
+				"id": "Jenny Finneran, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Jenny Finneran</span>",
@@ -214,7 +214,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Lindsay Barrett",
+				"id": "Lindsay Barrett, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Lindsay Barrett</span>",
@@ -230,7 +230,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Chiara Santevecchi",
+				"id": "Chiara Santevecchi, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Chiara Santevecchi</span>",
@@ -246,7 +246,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Daisy Tonge",
+				"id": "Daisy Tonge, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Daisy Tonge</span>",
@@ -262,7 +262,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Mimi Daraa",
+				"id": "Mimi Daraa, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Mimi Daraa</span>",
@@ -278,7 +278,7 @@ var places = {
 			},
 			{
 				"type": "Feature",
-				"id": "Christof Bauer",
+				"id": "Christof Bauer, Omflow teacher",
 				"properties": {
 					"name": 
 					"<div><span class='popup-header'>Christof Bauer</span>",
