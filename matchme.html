@@ -4,17 +4,25 @@
 	<meta charset="utf-8" />
 	<title>Match Me :)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous">
 	</script>
+	<link rel="stylesheet" href="css/vendor/jquery.datetimepicker.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 	<div id="wrapper">
 
-		<div class="content" id="step-1">
+		<div class="matchme-form" id="step-1">
 			<h1>Select Your Style</h1>
 			<ul class="styles-list">
 				<li>
@@ -50,24 +58,81 @@
 					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
 				</li>
 			</ul>
-			<a class="continue" href="">Continue</a>
+			<div class="button-wrapper">
+				<a class="prev-step" data-target="0" href="/omflow">Back</a>
+				<a class="next-step" data-target="2" href="">Continue</a>
+			</div>
 		</div>
 
-		<div class="content" id="step-2">
+		<div class="matchme-form" id="step-2">
 			<h1>Select your Level</h1>
 			<ul class="styles-list">
-				<li>New</li>
-				<li>Beginner</li>
-				<li>Intermediate</li>
+				<li>
+					<span class="style-name">New</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum quam mauris. Sed lacus mi, rhoncus id mi nec, pulvinar elementum tortor. Vestibulum tristique ante et malesuada pharetra. Proin in odio nisi.</span>
+				</li>
+				<li>
+					<span class="style-name">Beginner</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum quam mauris. Sed lacus mi, rhoncus id mi nec, pulvinar elementum tortor. Vestibulum tristique ante et malesuada pharetra. Proin in odio nisi.</span>
+				</li>
+				<li>
+					<span class="style-name">Intermediate</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum quam mauris. Sed lacus mi, rhoncus id mi nec, pulvinar elementum tortor. Vestibulum tristique ante et malesuada pharetra. Proin in odio nisi.</span>
+				</li>
 			</ul>
-			<a class="continue" href="">Continue</a>
+			<div class="button-wrapper">
+				<a class="prev-step" data-target="1" href="">Back</a>
+				<a class="next-step" data-target="3" href="">Continue</a>
+			</div>
 		</div>
 
-		<a href="/omflow" class="back"></a>
+		<div class="matchme-form" id="step-3">
+			<h1>Select your practice type</h1>
+			<ul class="styles-list">
+				<li>
+					<span class="style-name">Group</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum quam mauris. Sed lacus mi, rhoncus id mi nec, pulvinar elementum tortor.</span>
+				</li>
+				<li>
+					<span class="style-name">Private 1:1</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum quam mauris. Sed lacus mi, rhoncus id mi nec, pulvinar elementum tortor. Vestibulum tristique ante et malesuada pharetra. Proin in odio nisi.</span>
+				</li>
+			</ul>
+			<div class="button-wrapper">
+				<a class="prev-step" data-target="2" href="">Back</a>
+				<a class="next-step" data-target="4" href="">Continue</a>
+			</div>
+		</div>
+
+		<div class="matchme-form" id="step-4">
+			<h1>Select your practice date and time</h1>
+			<div class="datetimepicker_wrapper">
+				<input type="text" class="datetimepicker"/>
+				<select class="form-control"></select>
+			</div>
+			<div class="button-wrapper">
+				<a class="prev-step" data-target="3" href="">Back</a>
+				<a class="next-step" data-target="5" href="">Continue</a>
+			</div>
+		</div>
+
+		<div class="matchme-form" id="step-5">
+			<h1>Review your selected journey</h1>
+			<div class="button-wrapper">
+				<a class="prev-step" data-target="4" href="">Back</a>
+				<a class="next-step" data-target="6" href="">Continue</a>
+			</div>
+		</div>
 	</div>
 
-	<!-- Own JS -->
 	<script src="js/matchme.js"></script>
+	<script src="js/vendor/jquery.datetimepicker.full.min.js"></script>
+	<script src="js/vendor/timezones.full.min.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* om_happens_yoga JavaScript Library
+/* omflow matchme JavaScript Library
  *
  * @authors Christof Bauer
  *
@@ -14,8 +14,6 @@ if(typeof om === "undefined"){
 
 $(document).ready(function() {
     om.initForm();
-  // om.hideLoader();
-  // om.scrollToContact();
 });
 
 om = {
@@ -37,66 +35,40 @@ om = {
         $(this).closest("li").find('.popup').toggleClass("show");
     });
 
-  },
+    $(".next-step, .prev-step").on("click", function() {
+        var id = $(this).data("target");
+        if(id == 0) {
+            return true;
+        } else {
+            $(".matchme-form").hide();
+            var target = "#step-" + $(this).data("target");
+            $(target).fadeIn();
+            return false;
+        }
+    });
 
-  // When document is ready, hide the loading spinner and show content
-  hideLoader: function() {
-    $(".loading-spinner").hide();
-    $(".content").show();
-  },
+    $(".datetimepicker").datetimepicker({
+        yearStart: 2020,
+        hours12: false,
+        step: 15,
+        dayOfWeekStart: 1,
+        showApplyButton: false,
+        value: new Date(),
+        // format:'Y/m/d H:i',
+        // formatTime:'H:i',
+        // formatDate:'Y/m/d',
+        // opened: true
+        // inline: true,
+    });
 
-  // Make the navbar stick to the top
-  initStickyNav: function() {
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky")
-    } else {
-      navbar.classList.remove("sticky");
-    }
-  },
+    $('select').timezones();
 
+  },
 
   // Use JS to detect if mobile devide
   injectMobileCSS: function() {
     if (isMobile() == true) {
       $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'assets/css/mobile.css') );
-    }
-  },
-
-  // Scroll down gracefully and close burger menu
-  initNavigation: function() {
-    $("#navbar a").on("click", function(e){
-      e.preventDefault();
-      $(".navbar-collapse").removeClass("show");
-      var aid = $(this).attr("href");
-      $('html,body').animate({scrollTop: $(aid).offset().top -40}, om.slow);
-    });
-  },
-
-  // Smoothly scroll to contact area if 'contact me' is clicked
-  scrollToContact: function() {
-    $('#scrollToContact').on('click', function(){
-      $('html,body').animate({scrollTop: $('#contact').offset().top}, om.slow);
-    });
-  },
-
-  // Autoplay carousel if in viewport, else pause
-  controlCarousel: function() {
-    if ($('#ashtanga-carousel').visible()) {
-      $('#ashtanga-carousel').carousel('cycle');
-    } else {
-      $('#ashtanga-carousel').carousel('pause');
-    }
-    if ($('#bali-carousel').visible()) {
-      $('#bali-carousel').carousel('cycle');
-    } else {
-      $('#bali-carousel').carousel('pause');
-    }
-    if ($('#dmt-carousel').visible()) {
-      $('#dmt-carousel').carousel('cycle');
-    } else {
-      $('#dmt-carousel').carousel('pause');
     }
   }
 
@@ -121,5 +93,3 @@ function isMobile() {
 }
 
 //]]>
-
-

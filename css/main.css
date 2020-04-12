@@ -13,13 +13,9 @@ email: bauer.christof@gmail.com
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
+a { text-decoration: none; }
+ul { padding: 0; }
 
-}
-
-a {
-  text-decoration: none;
-}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -38,6 +34,13 @@ a {
 ::selection {
     background: #237a9a;
     text-shadow: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 /*
@@ -160,6 +163,7 @@ body {
   height: 20px;
   cursor: pointer;
   animation: fadeIn 0.8s;
+  display: none;
 }
 
 
@@ -199,7 +203,9 @@ Popups
 	line-height: 14px;
 }
 
-
+.mapboxgl-ctrl-logo {
+  width: 30px;
+}
 
 /* --------------------------------------------------------
 Overlays
@@ -329,14 +335,14 @@ MatchMe
   background: #FAF9F7;
 }
 
-.content {
+.matchme-form {
   display: none;
   width: 800px;
   text-align: center;
   font: 12px/20px 'Lato', 'Gotu', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-.content h1 {
+.matchme-form h1 {
   font-size: 16px;
   color: #333;
   margin-bottom: 5px;
@@ -410,14 +416,14 @@ MatchMe
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 125px;
-  height: 45px;
+  width: 140px;
+  height: 50px;
   border: 1px solid transparent;
   color: #AFAFAF;
   font-family: 'Roboto';
   font-size: 22px;
   font-weight: 100;
-  margin-left: -1px;
+  margin-left: 5px;
 }
 
 .styles-list li span {
@@ -439,31 +445,38 @@ MatchMe
   color: #333;
 }
 
-.continue {
+.next-step, .prev-step {
   text-decoration: none;
   color: #333;
   font-size: 14px;
 }
 
-.continue:hover {
+.next-step:hover, .prev-step:hover {
   text-decoration: underline;
+}
+
+.datetimepicker_wrapper {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.datetimepicker {
+  width: 105px;
+  text-align: center;
+}
+
+.form-control {
+  margin-left: 50px;
+  width: 105px;
 }
 
 .border {
   border: 1px solid #999 !important;
 }
 
-.back {
-  background: #FAF9F7 url("../img/back.png") no-repeat center;
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  opacity: 0.4;
-}
-
-.back:hover {
-  cursor: pointer;
-  opacity: 0.8;
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
