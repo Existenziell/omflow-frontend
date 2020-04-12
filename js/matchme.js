@@ -49,11 +49,11 @@ om = {
 
     $(".datetimepicker").datetimepicker({
         yearStart: 2020,
-        hours12: false,
         step: 15,
         dayOfWeekStart: 1,
         showApplyButton: false,
-        value: new Date(),
+        //value: "Hallo"
+        // value: new Date(),
         // format:'Y/m/d H:i',
         // formatTime:'H:i',
         // formatDate:'Y/m/d',

@@ -12,17 +12,41 @@ if(typeof om === "undefined"){
   om.global = this;
 }
 
+$(document).ready(function() {
+    om.initOverlays();
+});
+
 om = {
 
     accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
     places: {},
     map: {},
+    geocoder: {},
+    geolocate: {},
 
     loadJSON: function() {
         $.getJSON( "data/places.json", function(result) {})
         .done(function(result) {
             om.places = result.data;
             om.initMap();
+        });
+    },
+
+    initOverlays: function(){
+        $(".hide-overlay").on("click", function(){
+            $("#overlay").fadeOut();
+            $(".marker").show();
+            $(".back-home").fadeIn();
+            om.createGeo();
+            return false;
+        });
+        $(".show-login-layer").on("click", function() {
+            $("#login-overlay").css('display', 'flex');
+            return false;
+        });
+        $(".back-home").on("click", function(){
+            om.resetMap();
+            return false;
         });
     },
 
@@ -35,7 +59,19 @@ om = {
             zoom: 1.5
         });
         om.createMarkers();
-        om.createGeo();
+    },
+
+    resetMap: function(){
+        $(".marker").hide();
+        $(".back-home").hide();
+        $(".mapboxgl-popup").remove();
+        om.destroyGeo();
+        om.map.flyTo({
+            center: [-8.535004, 19.221693],
+            zoom: 1.5,
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+        $("#overlay").fadeIn();
     },
 
     // Add marker and popup to map for each feature in places.json
@@ -55,7 +91,7 @@ om = {
     createGeo: function() {
         mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
         // Add the geocoder to the map
-        var geocoder = new MapboxGeocoder({
+        om.geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             localGeocoder: om.forwardGeocoder,
             marker: false,
@@ -65,18 +101,18 @@ om = {
         });
 
         // Add geolocate control to the map.
-        var geolocate = new mapboxgl.GeolocateControl({
+        om.geolocate = new mapboxgl.GeolocateControl({
             positionOptions: {
                 enableHighAccuracy: true
             },
             trackUserLocation: true
         });
 
-        om.map.addControl(geocoder);
-        om.map.addControl(geolocate);
+        om.map.addControl(om.geocoder);
+        om.map.addControl(om.geolocate);
 
         // Open corresponding popup if result is clicked
-        geocoder.on('result', function (e) {
+        om.geocoder.on('result', function (e) {
             // Close all open popups
             $(".mapboxgl-popup").remove();
             // Create new poppup from result
@@ -88,9 +124,16 @@ om = {
                 .addTo(om.map);
         });
 
+        // Clear value of search input
         $('.mapboxgl-ctrl-geocoder--input').on('click focus', function() {
             this.value = '';
         });
+    },
+
+    destroyGeo: function(){
+        log(om.geolocate);
+        om.map.removeControl(om.geolocate);
+        om.map.removeControl(om.geocoder);
     },
 
     // Use custom Geocoder to include the features in places.json
@@ -109,16 +152,6 @@ om = {
             }
         }
         return matchingFeatures;
-    },
-
-    showLoginLayer: function() {
-        document.getElementById('login-overlay').style.display = 'flex';
-    },
-
-    hideOverlay: function() {
-        $("#overlay").fadeOut();
-        // document.getElementById('overlay').style.display = 'none';
-        $(".marker").show();
     }
 };
 

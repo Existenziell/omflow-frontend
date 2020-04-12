@@ -203,13 +203,44 @@ Popups
 	line-height: 14px;
 }
 
-.mapboxgl-ctrl-logo {
-  width: 30px;
-}
+
 
 /* --------------------------------------------------------
 Overlays
 ----------------------------------------------------------*/
+
+.back-home {
+  background: transparent url("../img/back_white.png") no-repeat center;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  opacity: 0.6;
+  z-index: 1;
+  display: none;
+}
+
+.back-home:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.back-home:hover > span {
+  opacity: 1;
+}
+
+.back-home span {
+  opacity: 0;
+  color: white;
+  text-decoration: none;
+  width: 120px;
+  display: block;
+  position: relative;
+  top: 6px;
+  left: 30px;
+  font: 16px 'Lato', 'Gotu', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
 
 #overlay {
   position: fixed;
@@ -236,17 +267,13 @@ Overlays
   border-radius: 4px;
 }
 
-.overlay-button-login {
-  width: 140px;
-  height: 40px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 12px;
-}
-
 .overlay-button:hover {
   background: rgba(35, 122, 154, 0.8);
+}
+
+.overlay-button:hover .info-overlay-text {
+  /*display: block;*/
+  opacity: 1;
 }
 
 .overlay-button a {
@@ -287,6 +314,24 @@ Overlays
   justify-content: center;
   align-items: center;
 }
+
+
+.overlay-button-login {
+  width: 120px;
+  height: 35px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 12px;
+}
+
+.info-overlay-text {
+  opacity: 0;
+  position: absolute;
+  margin-top: 25px;
+  font-size: 10px;
+}
+
 
 /* --------------------------------------------------------
 Vimeo Embed
@@ -343,7 +388,7 @@ MatchMe
 }
 
 .matchme-form h1 {
-  font-size: 16px;
+  font-size: 26px;
   color: #333;
   margin-bottom: 5px;
 }
@@ -409,7 +454,7 @@ MatchMe
   justify-content: center;
   align-items: center;
   list-style: none;
-  height: 100px;
+  height: 150px;
 }
 
 .styles-list li {
@@ -419,7 +464,7 @@ MatchMe
   width: 140px;
   height: 50px;
   border: 1px solid transparent;
-  color: #AFAFAF;
+  color: #999;
   font-family: 'Roboto';
   font-size: 22px;
   font-weight: 100;
@@ -456,20 +501,33 @@ MatchMe
 }
 
 .datetimepicker_wrapper {
-  height: 120px;
+  height: 170px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .datetimepicker {
-  width: 105px;
+  width: 155px;
+  height: 30px;
   text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+
+}
+
+.datetimepicker:hover, .form-control:hover {
+  cursor: pointer;
 }
 
 .form-control {
-  margin-left: 50px;
-  width: 105px;
+  margin-left: 25px;
+  width: 125px;
+  height: 34px;
+  background-color: white;
+  border: 1px solid #ddd;
+  font-size: 15px;
 }
 
 .border {
