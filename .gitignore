@@ -5,6 +5,7 @@
 ### OSX ###
 # General
 .DS_Store
+img/.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -56,12 +57,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-img/.DS_Store
-img/.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-img/.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store

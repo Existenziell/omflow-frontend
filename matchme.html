@@ -4,39 +4,70 @@
 	<meta charset="utf-8" />
 	<title>Match Me :)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script
-		src="https://code.jquery.com/jquery-3.4.1.min.js"
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous">
 	</script>
-<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-
 	<div id="wrapper">
-		<div id="content">
-			<h1>Select your Omflow practice to get started.</h1>
-			<a class="learn-more" href="">Want to learn more?</a>
+
+		<div class="content" id="step-1">
+			<h1>Select Your Style</h1>
 			<ul class="styles-list">
-				<li>Hatha</li>
-				<li>Vinyasa</li>
-				<li>Yin</li>
-				<li>Ashtanga</li>
-				<li>Nidra</li>
-				<li>Meditation</li>
+				<li>
+					<span class="style-name">Hatha</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
+				</li>
+				<li>
+					<span class="style-name">Vinyasa</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
+				</li>
+				<li>
+					<span class="style-name">Yin</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
+				</li>
+
+				<li>
+					<span class="style-name">Ashtanga</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Ashtanga Yoga, which literally means “eight-limbed yoga”, is a system outlined in the yoga sutras attributed to the ancient sage Patanjali.</span>
+				</li>
+
+				<li>
+					<span class="style-name">Nidra</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
+				</li>
+				<li>
+					<span class="style-name">Meditation</span>
+					<i class="fa fa-info-circle learn-more"></i>
+					<span class="popup">Hatha yoga is a branch of yoga. The Sanskrit word हठ hatha literally means "force" and thus alludes to a system of physical techniques.</span>
+				</li>
 			</ul>
 			<a class="continue" href="">Continue</a>
-
 		</div>
+
+		<div class="content" id="step-2">
+			<h1>Select your Level</h1>
+			<ul class="styles-list">
+				<li>New</li>
+				<li>Beginner</li>
+				<li>Intermediate</li>
+			</ul>
+			<a class="continue" href="">Continue</a>
+		</div>
+
 		<a href="/omflow" class="back"></a>
 	</div>
 
-	<script>
-		$('.styles-list li').on('click', function() {
-			$('.styles-list li').removeClass('border');
-			$(this).toggleClass('border');
-		})
-	</script>
+	<!-- Own JS -->
+	<script src="js/matchme.js"></script>
 
 </body>
 </html>
