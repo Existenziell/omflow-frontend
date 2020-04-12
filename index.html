@@ -13,7 +13,6 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 
-	<script src="data/places.json"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous">
@@ -30,13 +29,13 @@
 <body>
 	<div id="overlay">
 		<div class="overlay-button">
-			<a href="javascript:void(0)" onclick="hideOverlay();">LOCATE AN OMIE</a>
+			<a href="javascript:void(0)" onclick="om.hideOverlay();">LOCATE AN OMIE</a>
 		</div>
 		<div class="overlay-button">
 			<a href="matchme.html">LET'S OMFLOW</a>
 		</div>
 		<div class="overlay-button overlay-button-login">
-			<a href="javascript:void(0)" onclick="showLoginLayer();">LOGIN</a>
+			<a href="javascript:void(0)" onclick="om.showLoginLayer();">LOGIN</a>
 		</div>
 	</div>
 
@@ -48,99 +47,7 @@
 
 	<div id="map"></div>
 
-	<script>
-
-		mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-
-		// Create the map
-		var map = new mapboxgl.Map({
-			container: 'map',
-			style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11
-			zoom: 1.5
-		});
-
-		// Use custom Geocoder to include the features in places.json
-		function forwardGeocoder(query) {
-			var matchingFeatures = [];
-			for (var i = 0; i < places.data.features.length; i++) {
-				var feature = places.data.features[i];
-				if (
-					feature.id
-					.toLowerCase()
-					.search(query.toLowerCase()) !== -1
-				) {
-					feature['center'] = feature.geometry.coordinates;
-					feature['place_name'] = '🙏 ' + feature.id;
-					matchingFeatures.push(feature);
-				}
-			}
-			return matchingFeatures;
-		}
-
-		// Add marker and popup to map for each feature in places.json
-		function createMarkers() {
-			places.data.features.forEach(function(marker) {
-				var el = document.createElement('div');
-				el.className = 'marker';
-
-				new mapboxgl.Marker(el)
-					.setLngLat(marker.geometry.coordinates)
-					.setPopup(new mapboxgl.Popup({ offset: 15 })
-					.setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
-					.addTo(map);
-			});
-		}
-
-		function createGeo() {
-			// Add the geocoder to the map
-			var geocoder = new MapboxGeocoder({
-				accessToken: mapboxgl.accessToken,
-				localGeocoder: forwardGeocoder,
-				marker: false,
-				zoom: 5,
-				placeholder: 'Search Omflow teacher',
-				mapboxgl: mapboxgl
-			});
-
-			// Add geolocate control to the map.
-			var geolocate = new mapboxgl.GeolocateControl({
-				positionOptions: {
-					enableHighAccuracy: true
-				},
-				trackUserLocation: true
-			});
-
-			map.addControl(geocoder);
-			map.addControl(geolocate);
-
-			// Open corresponding popup if result is clicked
-			geocoder.on('result', function (e) {
-				// Close all open popups
-				$(".mapboxgl-popup").remove();
-				// Create new poppup from result
-			    var coords = e.result.geometry.coordinates;
-			    var html = e.result.properties.name + e.result.properties.video + e.result.properties.description
-			    var popup = new mapboxgl.Popup({ offset: 15 })
-		        .setLngLat(coords)
-		        .setHTML(html)
-		        .addTo(map);
-			});
-
-			$('.mapboxgl-ctrl-geocoder--input').on('click focus', function() {
-			    this.value = '';
-			});
-		}
-
-		function hideOverlay() {
-			document.getElementById('overlay').style.display = 'none';
-			createMarkers();
-			createGeo();
-		}
-
-		function showLoginLayer() {
-			document.getElementById('login-overlay').style.display = 'flex';
-		}
-	</script>
+	<script src="js/main.js"></script>
 
 </body>
 </html>

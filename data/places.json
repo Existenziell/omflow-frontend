@@ -1,14 +1,14 @@
-var places = {
+{
 	"type": "geojson",
 	"data": {
 		"type": "FeatureCollection",
-		"features": 
+		"features":
 		[
 			{
 				"type": "Feature",
 				"id": "Omflow, Headquarters",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Omflow Headquarters</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'></div></div>",
@@ -24,12 +24,12 @@ var places = {
 				"type": "Feature",
 				"id": "Jeni Louise, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Jeni Louise</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
-					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/jenilouise' target='_blank'>Omflow with Jeni</a></li><li>Beginner Yin</li><li>Beginner Nidra</li><li>Beginner Hatha</li></ul></div>"				
+					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/jenilouise' target='_blank'>Omflow with Jeni</a></li><li>Beginner Yin</li><li>Beginner Nidra</li><li>Beginner Hatha</li></ul></div>"
 				},
 				"geometry": {
 					"type": "Point",
@@ -40,12 +40,12 @@ var places = {
 				"type": "Feature",
 				"id": "Aswathy Vijayan, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Aswathy Vijayan</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
-					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/aswathyvijayan' target='_blank'>Omflow with Aswathy</a></li><li>Beginner Hatha</li><li>Intermediate Hatha</li></ul></div>"				
+					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/aswathyvijayan' target='_blank'>Omflow with Aswathy</a></li><li>Beginner Hatha</li><li>Intermediate Hatha</li></ul></div>"
 				},
 				"geometry": {
 					"type": "Point",
@@ -56,12 +56,12 @@ var places = {
 				"type": "Feature",
 				"id": "Vanessa McDonald, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Vanessa McDonald</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680749?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
 					"description":
-					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/vanessamcdonald' target='_blank'>Omflow with Vanessa</a></li><li>Beginner Yin</li><li>Intermediate Yin</li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"				
+					"<div><ul class='popup-ul'><li><a href='https://omflow.as.me/vanessamcdonald' target='_blank'>Omflow with Vanessa</a></li><li>Beginner Yin</li><li>Intermediate Yin</li><li>Beginner Vinyasa</li><li>Intermediate Vinyasa</li></ul></div>"
 				},
 				"geometry": {
 					"type": "Point",
@@ -72,7 +72,7 @@ var places = {
 				"type": "Feature",
 				"id": "Sanna Kaappola, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Sanna Kaappola</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -88,7 +88,7 @@ var places = {
 				"type": "Feature",
 				"id": "Casey McGann, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Casey McGann</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680607?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -104,7 +104,7 @@ var places = {
 				"type": "Feature",
 				"id": "Karolina Krzemianowska, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Karolina Krzemianowska</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680942?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -120,7 +120,7 @@ var places = {
 				"type": "Feature",
 				"id": "Iva Buzhashka, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Iva Buzhashka</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -136,7 +136,7 @@ var places = {
 				"type": "Feature",
 				"id": "Karen Stephen, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Karen Stephen</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -152,7 +152,7 @@ var places = {
 				"type": "Feature",
 				"id": "Bo Letshwiti, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Bo Letshwiti</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -168,7 +168,7 @@ var places = {
 				"type": "Feature",
 				"id": "Inez Leniere, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Inez Leniere</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -184,7 +184,7 @@ var places = {
 				"type": "Feature",
 				"id": "Lisa Stampfl, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Lisa Stampfl</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -200,7 +200,7 @@ var places = {
 				"type": "Feature",
 				"id": "Jenny Finneran, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Jenny Finneran</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680520?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -216,7 +216,7 @@ var places = {
 				"type": "Feature",
 				"id": "Lindsay Barrett, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Lindsay Barrett</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -232,7 +232,7 @@ var places = {
 				"type": "Feature",
 				"id": "Chiara Santevecchi, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Chiara Santevecchi</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -248,7 +248,7 @@ var places = {
 				"type": "Feature",
 				"id": "Daisy Tonge, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Daisy Tonge</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -264,7 +264,7 @@ var places = {
 				"type": "Feature",
 				"id": "Mimi Daraa, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Mimi Daraa</span>",
 					"video":
 					"<div class='embed-container embed-container-cb'><iframe src='https://player.vimeo.com/video/405680886?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -280,7 +280,7 @@ var places = {
 				"type": "Feature",
 				"id": "Christof Bauer, Omflow teacher",
 				"properties": {
-					"name": 
+					"name":
 					"<div><span class='popup-header'>Christof Bauer</span>",
 					"video":
 					"<div class='embed-container embed-container-cb-real'><iframe src='https://player.vimeo.com/video/405715831?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0' frameborder='0' allowfullscreen></iframe></div></div>",
@@ -292,7 +292,7 @@ var places = {
 					"coordinates": [83.959392, 28.215299]
 				}
 			}
-			
+
 		]
 	}
-};
+}
