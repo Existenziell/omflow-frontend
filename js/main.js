@@ -12,10 +12,6 @@ if(typeof om === "undefined"){
   om.global = this;
 }
 
-$(document).ready(function() {
-    om.loadJSON();
-});
-
 om = {
 
     accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -38,6 +34,8 @@ om = {
             style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11
             zoom: 1.5
         });
+        om.createMarkers();
+        om.createGeo();
     },
 
     // Add marker and popup to map for each feature in places.json
@@ -52,16 +50,6 @@ om = {
                 .setHTML(marker.properties.name + marker.properties.video + marker.properties.description))
                 .addTo(om.map);
         });
-    },
-
-    showLoginLayer: function() {
-        document.getElementById('login-overlay').style.display = 'flex';
-    },
-
-    hideOverlay: function() {
-        document.getElementById('overlay').style.display = 'none';
-        om.createMarkers();
-        om.createGeo();
     },
 
     createGeo: function() {
@@ -121,6 +109,16 @@ om = {
             }
         }
         return matchingFeatures;
+    },
+
+    showLoginLayer: function() {
+        document.getElementById('login-overlay').style.display = 'flex';
+    },
+
+    hideOverlay: function() {
+        $("#overlay").fadeOut();
+        // document.getElementById('overlay').style.display = 'none';
+        $(".marker").show();
     }
 };
 
