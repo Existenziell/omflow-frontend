@@ -2,6 +2,18 @@
 # Created by https://www.gitignore.io/api/osx
 # Edit at https://www.gitignore.io/?templates=osx
 
+src/.DS_Store
+src/img/.DS_Store
+src/img/icons/.DS_Store
+src/js/.DS_Store
+timeline/.DS_Store
+timeline/images/.DS_Store
+node_modules
+.cache
+dist
+
+
+
 ### OSX ###
 # General
 .DS_Store

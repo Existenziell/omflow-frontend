@@ -1,0 +1,29 @@
+/*
+* MEDIA QUERIES
+*/
+
+/* Only apply styles on devices with hover capability.*/
+@media (hover: hover) {
+
+}
+
+
+@media (max-width: 575.98px) {
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+  .mapboxgl-popup {
+    min-width: 80%;
+  }
+
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}

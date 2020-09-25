@@ -1,0 +1,179 @@
+/* --------------------------------------------------------
+Style Sheet for Omflow World Map
+
+version: 0.8
+last modified: 13.11.2020 by Christof Bauer
+author: Christof Bauer
+email: bauer.christof@gmail.com
+----------------------------------------------------------*/
+
+@import 'defaults';
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%; }
+
+
+/* --------------------------------------------------------
+Popups
+----------------------------------------------------------*/
+
+.mapboxgl-popup {
+	min-width: 50%;
+  overflow: hidden;
+}
+
+.mapboxgl-popup-content {
+	padding: 5px 13px 5px;
+}
+
+.mapboxgl-popup-content a {
+	text-decoration: none;
+	color: #237a9a;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.popup-header {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.popup-ul {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+
+
+/* --------------------------------------------------------
+Overlays
+----------------------------------------------------------*/
+
+.back-home {
+  background: transparent url("../img/logo-40.png") no-repeat center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  opacity: 1;
+  display: block;
+  z-index: 1;
+}
+
+.back-home-white {
+  background: transparent url("../img/logo-white-50.png") no-repeat center;
+}
+
+.back-home:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-button {
+  width: 300px;
+  height: 90px;
+  background: rgba(35, 122, 154, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.overlay-button:hover {
+  background: rgba(35, 122, 154, 0.8);
+}
+
+.overlay-button:hover .info-overlay-text {
+  opacity: 1;
+}
+
+.overlay-button a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-button a span {
+  display: block;
+  font-size: 10px;
+}
+
+.info-overlay-text {
+  opacity: 0;
+  position: absolute;
+  font-size: 10px;
+
+  transition: all 0.2s ease-in-out;
+  color: #FFF;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.overlay-button:hover .info-overlay-text {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+
+
+/* --------------------------------------------------------
+Vimeo Embed
+----------------------------------------------------------*/
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.embed-container-cb {
+  background-image: url("../img/logo_bg.jpg");
+}
+
+.embed-container-cb-real {
+  background-image: url("../img/teachers/christof.jpg");
+}
+
+
+@import 'media_queries';

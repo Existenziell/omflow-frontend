@@ -1,0 +1,29 @@
+{
+  "name": "omflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "jquery": "^3.5.1",
+    "moment": "^2.29.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "sass": "^1.26.11"
+  },
+  "scripts": {
+    "dev": "npx parcel index.html matchme.html teacher.html src/*",
+    "build": "npx parcel build index.html matchme.html src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Existenziell/omflow.git"
+  },
+  "author": "Christof Bauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Existenziell/omflow/issues"
+  },
+  "homepage": "https://github.com/Existenziell/omflow#readme"
+}
