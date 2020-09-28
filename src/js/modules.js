@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const loadMapData = () => {
+const loadMapData = async () => {
 
   axios.get('http://localhost:5000/maps/')
     .then(response => {
-      console.log("AXIOS:");
-      console.log(response.data);
+      // console.log("loadMapData:", response.data);
       return (response.data);
     })
     .catch((error) => {
