@@ -1,9 +1,11 @@
-import { log } from './modules'
+import { log, loadMapData } from './modules'
+import axios from 'axios';
 
 const accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 let map = {},
     geocoder = {},
-    geolocate = {};
+    geolocate = {},
+    mapdata = {};
 
 const initMapOverlays = () => {
     document.querySelector('.overlay-button').onclick = () => {
@@ -12,11 +14,14 @@ const initMapOverlays = () => {
     };
 }
 
-const initMap = () => {
+const initMap = (data) => {
+
+    // Set mapdata
+    mapdata = data;
     mapboxgl.accessToken = accessToken;
     map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11
+        style: 'mapbox://styles/mapbox/satellite-v9', // satellite-v9 / light-v10 / dark-v10 / outdoors-v11 / streets-11
         center: [20, 15],
         zoom: 1.8
     });
@@ -186,10 +191,11 @@ const createGeo = () => {
 }
 
 // Use custom Geocoder to include the features in map.json
-const forwardGeocoder = query => {
+const forwardGeocoder = (query) => {
+
     let matchingFeatures = [];
-    for (let i = 0; i < timeline.features.length; i++) {
-        let feature = timeline.features[i];
+    for (let i = 0; i < mapdata.features.length; i++) {
+        let feature = mapdata.features[i];
         if ( feature.id.toLowerCase().search(query.toLowerCase()) !== -1 ) {
             feature['center'] = feature.geometry.coordinates;
             feature['place_name'] = '🙏 ' + feature.id;
@@ -197,10 +203,10 @@ const forwardGeocoder = query => {
         }
     }
     return matchingFeatures;
+
 }
 
 const createMarkerHtml = data => {
-
     const { name, image, video, description, classes } = data.properties;
 
     return `

@@ -1,5 +1,5 @@
 {
-  "name": "omflow",
+  "name": "omflow-frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -13,7 +13,7 @@
     "sass": "^1.26.11"
   },
   "scripts": {
-    "dev": "npx parcel index.html matchme.html teacher.html src/*",
+    "dev": "npx parcel index.html matchme.html src/*",
     "build": "npx parcel build index.html matchme.html src/*"
   },
   "repository": {
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Existenziell/omflow/issues"
   },
-  "homepage": "https://github.com/Existenziell/omflow#readme"
+  "homepage": "https://github.com/Existenziell/omflow#readme",
+  "browserslist": [
+    "since 2017-06"
+  ]
 }
