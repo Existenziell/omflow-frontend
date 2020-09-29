@@ -1,14 +1,40 @@
-import AbstractView from "./AbstractView.js";
+import AbstractView from './AbstractView.js';
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Teachers");
+    this.teachers = [];
   }
 
   async getHtml() {
-    return `
-            <h1>Teachers</h1>
-        `;
+    this.teachers = await (await fetch('http://localhost:5000/teachers/')).json();
+    return this.html();
+  }
+
+  html = () => {
+    let output = `
+      <ul class="teachers-list">
+    `;
+
+    for (let t of this.teachers) {
+      output += `
+          <li>
+          <a href="/teachers/${t._id}">
+
+            <h3>${t.name}</h3>
+            <img src="src/img/teachers/${t.image}" />
+            <p>${t.description}</p>
+            <p>${t.address}</p>
+            </a>
+            </li>
+      `;
+    }
+
+    output += `
+      </ul>
+    `;
+
+    return output;
   }
 }

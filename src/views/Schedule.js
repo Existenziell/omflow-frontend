@@ -3,14 +3,12 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Home");
+    this.setTitle("Schedule");
   }
 
   async getHtml() {
     return `
-        <h1>Welcome Home, Omflow</h1>
-        <a href="/teachers" data-link>View teachers</a>
-        <a href="/classes" data-link>View classes</a>
+      <h1>Schedule</h1>
     `;
   }
 }

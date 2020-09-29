@@ -132,7 +132,7 @@ const initMap = () => {
     });
   });
 
-  $('.close-overlay').on('click', () => {
+  $('.overlay-hide').on('click', () => {
     $("#overlay").fadeOut();
     return false;
   });
@@ -208,9 +208,8 @@ const createMarkerHtml = data => {
   return `
         <div class='popup'>
             <h1>${name}</h1>
-            <div class='popup-img-${image}'></div>
-            <div class='embed-container embed-container-cb'>${video}</div>
             <img src='src/img/teachers/${image}' />
+            <div class='embed-container'>${video}</div>
             <p>${description}</p>
             <ul>${classes}</ul>
         </div>

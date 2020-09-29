@@ -18,8 +18,9 @@ email: bauer.christof@gmail.com
 }
 
 .mapboxgl-popup {
-  min-width: 50%;
+  // min-width: 50%;
   overflow: hidden;
+  max-width: 100% !important;
 }
 
 .mapboxgl-popup-content {
@@ -28,7 +29,7 @@ email: bauer.christof@gmail.com
 
 .mapboxgl-popup-content a {
   text-decoration: none;
-  color: $blue;
+  color: $brand;
 }
 
 .mapboxgl-popup-close-button {
@@ -40,6 +41,7 @@ email: bauer.christof@gmail.com
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: baseline;
 
   h1 {
     font-size: 22px;
@@ -54,22 +56,16 @@ email: bauer.christof@gmail.com
     font-size: 11px;
     margin: 10px 0px 0px;
   }
-  div[class^="popup-img"] {
+  img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left center;
-    width: 100%;
-    height: 0;
-    padding-top: 56.25%;
+    // width: 100%;
+    // height: 0;
+    // padding-top: 56.25%;
+    width: 300px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
-
-  // @for $i from 0 through 18 {
-  //   .popup-img-#{$i} {
-  //     background-image: url('../img/timeline/#{$i}.jpg');
-  //   }
-  // }
-
 }
 
 #overlay {
@@ -115,10 +111,8 @@ email: bauer.christof@gmail.com
   }
 }
 
-
-
 .back-home {
-  background: transparent url('../../src/img/icons/back.png') no-repeat center;
+  background: transparent url('/src/img/icons/logo-white.png') no-repeat center;
   width: 70px;
   height: 71px;
   position: absolute;
@@ -139,8 +133,8 @@ Vimeo Embed
 ----------------------------------------------------------*/
 
 .embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
+  // position: relative;
+  // padding-bottom: 56.25%;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -150,20 +144,11 @@ Vimeo Embed
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
-.embed-container-cb {
-  background-image: url("../img/icons/logo_bg.jpg");
-}
-
-.embed-container-cb-real {
-  background-image: url("../img/teachers/christof.jpg");
-}
-
 
 @import 'media_queries';

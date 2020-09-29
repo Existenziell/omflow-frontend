@@ -1,13 +1,18 @@
 import Home from "../views/Home.js";
+import About from "../views/About.js";
 import Map from "../views/Map.js";
 import Teacher from "../views/Teacher.js";
 import Teachers from "../views/Teachers.js";
 import Class from "../views/Class.js";
 import Classes from "../views/Classes.js";
 import MatchMe from "../views/MatchMe.js";
+import Schedule from "../views/Schedule.js";
 import Dashboard from "../views/Dashboard.js";
+import Header from "../views/Header.js";
+import Footer from "../views/Footer.js";
 
-import { initForm } from './../js/matchme';
+import { initLoginOverlay, initRegisterOverlay, initSubmitLoginForm } from './modules';
+import { initMatchForm } from './../js/matchme';
 import { initMap } from './../js/map';
 
 const pathToRegex = path =>
@@ -30,14 +35,16 @@ const navigateTo = url => {
 
 const router = async () => {
   const routes = [
-    { path: "/", view: Home, id: 'home' },
+    { path: "/", view: Home },
+    { path: "/about", view: About },
     { path: "/map", view: Map, id: 'map' },
     { path: "/teachers", view: Teachers },
     { path: "/teachers/:id", view: Teacher },
     { path: "/classes", view: Classes },
     { path: "/classes/:id", view: Class },
     { path: "/matchme", view: MatchMe, id: 'matchme' },
-    { path: "/dashboard", view: Dashboard, id: 'dashboard' },
+    { path: "/dashboard", view: Dashboard },
+    { path: "/schedule", view: Schedule },
   ];
 
   // Test each route for potential match
@@ -58,13 +65,36 @@ const router = async () => {
     };
   }
 
-  // Create new instance of the view at matched route
+  // Create new instance of the view at matched route...
   const view = new match.route.view(getParams(match));
-
+  const header = new Header();
+  const footer = new Footer();
+  // And call its getHtml class method
   document.querySelector("#app").innerHTML = await view.getHtml();
+  document.querySelector("#header").innerHTML = await header.getHtml();
+  document.querySelector("#footer").innerHTML = await footer.getHtml();
 
-  if (match.route.id === 'matchme') initForm();
-  if (match.route.id === 'map') initMap();
+  // Add js requirements for route
+  switch (match.route.id) {
+    case 'map': {
+      initMap();
+      break;
+    }
+    case 'matchme': {
+      initMatchForm();
+      break;
+    }
+    // Always do:
+    default: {
+      initLoginOverlay();
+      initRegisterOverlay();
+      initSubmitLoginForm();
+      // Hide loader since loading is finished
+      const loader = document.querySelector('.loader');
+      loader.classList.remove('is-active');
+      break;
+    }
+  }
 };
 
 // Run router if user navigates in browser
@@ -74,6 +104,9 @@ window.addEventListener("popstate", router);
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
+      // Set loader active for the time data is fetched
+      const loader = document.querySelector('.loader');
+      loader.classList.add('is-active');
       e.preventDefault();
       navigateTo(e.target.href);
     }

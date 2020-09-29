@@ -2,9 +2,9 @@
    Variables
    ========================================================================== */
 
-$blue: #237a9a;
-$pink: #aa418c;
-
+$brand: #008080;
+$yellow: #fab81e;
+$darkFont: #333;
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -106,12 +106,12 @@ p {
 
 a {
   text-decoration: none;
-  color: $blue;
+  color: $brand;
 }
 
 a:hover {
   text-decoration: none;
-  color: #333;
+  color: $darkFont;
 }
 
 

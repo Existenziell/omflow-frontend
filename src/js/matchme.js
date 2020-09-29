@@ -1,5 +1,4 @@
-import { log } from './modules'
-
+import axios from 'axios';
 
 const data = {
   style: "",
@@ -9,13 +8,11 @@ const data = {
   budget: 0
 }
 
-const initForm = () => {
-  log("initForm");
+const initMatchForm = () => {
   initFormNavigation();
   initDateTimeZone();
   initBudgetForm();
   initInfoPopups();
-  initLoginOverlay();
   $("#step-1").fadeIn();
 }
 
@@ -128,19 +125,6 @@ const initInfoPopups = () => {
   });
 }
 
-const initLoginOverlay = () => {
-  const loginOverlay = $("#login-overlay");
-  $(".show-login-layer").on("click", (e) => {
-    loginOverlay.css('display', 'flex');
-    e.preventDefault();
-  });
-
-  $('.login-close').on('click', (e) => {
-    loginOverlay.hide();
-    e.preventDefault();
-  });
-}
-
 const initOmflowConnect = () => {
   $('#omflow-connect').on('click', (e) => {
     const loader = $('.loader');
@@ -167,4 +151,4 @@ const initOmflowConnect = () => {
   });
 }
 
-export { initForm }
+export { initMatchForm }

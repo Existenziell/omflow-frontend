@@ -1,31 +1,25 @@
 import AbstractView from "./AbstractView.js";
-import axios from 'axios';
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Classes");
-    this.classId = 2;
+    this.practices = [];
   }
 
   async getHtml() {
-
     const practices = await (await fetch('http://localhost:5000/practices/')).json();
     const newData = practices.map((p) => {
-      console.log(p.name);
-      return p.name;
+      return p;
     })
-    console.log(newData);
-
-    return newData;
-    // return this.html();
+    this.practices = newData;
+    return this.html();
   }
 
-
   html = () => {
-    return `
+    let output = `
       <div>
-        <h3>Practices</h3>
+        <h3>Available Classes</h3>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>
@@ -38,39 +32,48 @@ export default class extends AbstractView {
             </tr>
           </thead>
           <tbody>
+    `;
+    for (let p of this.practices) {
+      output += `
             <tr>
-              <td></td>
-              <td></td>
-              <td>{props.practice.teacher.name}</td>
-              <td>{props.practice.duration}</td>
-              <td>{props.practice.date.substring(0, 10)}</td>
+              <td>${p.name}</td>
+              <td>${p.description}</td>
+              <td>${p.teacher.name}</td>
+              <td>${p.duration}</td>
+              <td>${p.date.substring(0, 10)}</td>
               <td>
-                <a href"/dashboard/practice/edit/${this.classId}" data-link>edit</a> | <a href="#" onClick="${() => { this.deletePractice(this.classId) }}">delete</a>
+                <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
+                <a href="/classes/edit/${p._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |
+                <a href="/classes/practice/delete/${p._id}" class="btn btn-sm btn-outline-info" data-link>delete</a>
               </td>
             </tr>
+      `;
+    }
+    output += `
           </tbody>
         </table>
-        <Link to="/dashboard/practice/create" className="btn btn-secondary">Create Class</Link>
+        <a href="/dashboard/practices/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
       </div>
-    `
+    `;
+    return output;
   }
 
-  loadPractices = async () => {
-    axios.get('http://localhost:5000/practices/')
-      .then(response => {
-        return response.data
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }
+  // loadPractices = async () => {
+  //   axios.get('http://localhost:5000/practices/')
+  //     .then(response => {
+  //       return response.data
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  // }
 
-  deletePractice = (id) => {
-    axios.delete('http://localhost:5000/practices/' + id)
-      .then(response => { console.log(response.data) });
-    this.setState({
-      practices: this.state.practices.filter(el => el._id !== id) // _id comes from MongoDB
-    })
-  }
+  // deletePractice = (id) => {
+  //   axios.delete('http://localhost:5000/practices/' + id)
+  //     .then(response => { console.log(response.data) });
+  //   this.setState({
+  //     practices: this.state.practices.filter(el => el._id !== id) // _id comes from MongoDB
+  //   })
+  // }
 
 }
