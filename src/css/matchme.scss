@@ -1,6 +1,13 @@
 /* --------------------------------------------------------
-MatchMe
+Style Sheet for Omflow MatchMe Component
+
+version: 0.9
+last modified: 20.09.2020 by Christof Bauer
+author: Christof Bauer
+email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
+
+@import 'defaults';
 
 #wrapper {
   display: flex;
@@ -506,3 +513,5 @@ only screen and (min-device-pixel-ratio : 1.5) {
 /* Styles */
 }
 
+
+@import 'media_queries';

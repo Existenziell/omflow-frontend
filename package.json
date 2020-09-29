@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "npx parcel index.html src/*",
-    "build": "npx parcel build index.html matchme.html src/*"
+    "build": "npx parcel build index.html src/*"
   },
   "repository": {
     "type": "git",

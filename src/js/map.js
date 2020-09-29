@@ -4,16 +4,13 @@ const accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3
 let map = {},
   geocoder = {},
   geolocate = {},
-  mapdata = loadMapData();
-
-const initMapOverlays = () => {
-  $('.close-overlay').on('click', () => {
-    $("#overlay").fadeOut();
-    return false;
-  });
-}
+  mapdata = {};
 
 const initMap = () => {
+
+  loadMapData()
+    .then(data => (mapdata = data));
+
   mapboxgl.accessToken = accessToken;
   map = new mapboxgl.Map({
     container: 'map',
@@ -26,7 +23,7 @@ const initMap = () => {
 
     map.addSource('places', {
       type: 'geojson',
-      data: 'http://localhost:5000/maps',     // Point to GeoJSON data.
+      data: mapdata,     // Point to GeoJSON data.
       cluster: true,      // set the 'cluster' option to true. GL-JS will add the point_count property to your source data.
       clusterMaxZoom: 14, // Max zoom to cluster points on
       clusterRadius: 50   // Radius of each cluster when clustering points (defaults to 50)
@@ -135,17 +132,16 @@ const initMap = () => {
     });
   });
 
+  $('.close-overlay').on('click', () => {
+    $("#overlay").fadeOut();
+    return false;
+  });
+
   createGeo();
 }
 
-
 // Use custom Geocoder to include the features in map.json
 const forwardGeocoder = (query) => {
-
-  // const mapdata = await loadMapData();
-  console.log('forward...');
-  console.log(mapdata);
-
   let matchingFeatures = [];
   for (let i = 0; i < mapdata.features.length; i++) {
     let feature = mapdata.features[i];
@@ -206,8 +202,6 @@ const createGeo = () => {
   }
 }
 
-
-
 const createMarkerHtml = data => {
   const { name, image, video, description, classes } = data.properties;
 
@@ -223,10 +217,12 @@ const createMarkerHtml = data => {
     `;
 }
 
-const destroyGeo = () => {
+const removeMap = () => {
   map.removeControl(geolocate);
   map.removeControl(geocoder);
+  map.remove();
+  map.removeMap();
 }
 
-export { initMapOverlays, initMap }
+export { initMap, removeMap }
 

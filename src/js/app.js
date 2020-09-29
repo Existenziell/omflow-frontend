@@ -1,5 +1,3 @@
-import { loadMapData } from './modules';
-
 import Home from "../views/Home.js";
 import Map from "../views/Map.js";
 import Teacher from "../views/Teacher.js";
@@ -10,7 +8,7 @@ import MatchMe from "../views/MatchMe.js";
 import Dashboard from "../views/Dashboard.js";
 
 import { initForm } from './../js/matchme';
-import { initMap, initMapOverlays } from './../js/map';
+import { initMap } from './../js/map';
 
 const pathToRegex = path =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -66,10 +64,7 @@ const router = async () => {
   document.querySelector("#app").innerHTML = await view.getHtml();
 
   if (match.route.id === 'matchme') initForm();
-  if (match.route.id === 'map') {
-    initMapOverlays();
-    initMap();
-  }
+  if (match.route.id === 'map') initMap();
 };
 
 // Run router if user navigates in browser
