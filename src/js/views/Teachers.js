@@ -7,8 +7,8 @@ export default class extends AbstractView {
     this.teachers = [];
   }
 
-  async getHtml() {
-    this.teachers = await (await fetch('http://localhost:5000/teachers/')).json();
+  async getHtml({ teachers }) {
+    this.teachers = teachers;
     return this.html();
   }
 
@@ -20,14 +20,11 @@ export default class extends AbstractView {
     for (let t of this.teachers) {
       output += `
           <li>
-          <a href="/teachers/${t._id}" data-link>
-
-            <h3>${t.name}</h3>
+            <h3><a href="/teachers/${t._id}" data-link>${t.name}</a></h3>
             <img src="/img/teachers/${t.image}" />
             <p>${t.description}</p>
             <p>${t.address}</p>
-            </a>
-            </li>
+          </li>
       `;
     }
 

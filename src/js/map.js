@@ -8,9 +8,7 @@ let map = {},
 
 const initMap = () => {
 
-  const loader = document.querySelector('.loader');
-  loader.classList.add('is-active');
-
+  // Set mapdata for geocoder
   loadMapData()
     .then(data => (mapdata = data));
 
@@ -23,9 +21,6 @@ const initMap = () => {
   });
 
   map.on('load', function () {
-
-    loader.classList.remove('is-active');
-
     map.addSource('places', {
       type: 'geojson',
       data: mapdata,     // Point to GeoJSON data.

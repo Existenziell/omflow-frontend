@@ -178,8 +178,6 @@ export default class extends AbstractView {
           </div>
         </div>
 
-        <!-- <div class="loader loader-default" data-text="Matching ..."></div> -->
-        <!-- <div class="loader loader-border" data-text="Matching ..."></div> -->
         <div class="loader loader-bouncing"></div>
 
       </div>

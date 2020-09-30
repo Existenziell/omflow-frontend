@@ -1,19 +1,29 @@
-import Home from "../views/Home.js";
-import About from "../views/About.js";
-import Map from "../views/Map.js";
-import Teacher from "../views/Teacher.js";
-import Teachers from "../views/Teachers.js";
-import Class from "../views/Class.js";
-import Classes from "../views/Classes.js";
-import MatchMe from "../views/MatchMe.js";
-import Schedule from "../views/Schedule.js";
-import Dashboard from "../views/Dashboard.js";
-import Header from "../views/Header.js";
-import Footer from "../views/Footer.js";
+import Header from "./views/Header.js";
+import Footer from "./views/Footer.js";
+import Home from "./views/Home.js";
+import About from "./views/About.js";
+import Map from "./views/Map.js";
+import Teacher from "./views/Teacher.js";
+import Teachers from "./views/Teachers.js";
+import Class from "./views/Class.js";
+import Classes from "./views/Classes.js";
+import MatchMe from "./views/MatchMe.js";
+import Schedule from "./views/Schedule.js";
 
-import { initLoginOverlay, initRegisterOverlay, initSubmitLoginForm } from './modules.js';
+import Dashboard from "./views/Dashboard.js";
+import ClassesList from "./views/dashboard/ClassesList.js";
+import EditClass from "./views/dashboard/EditClass.js";
+
+import { initHeaderForms } from './header.js';
 import { initMatchForm } from './matchme.js';
 import { initMap } from './map.js';
+import { initDashboard } from './dashboard.js';
+
+let data = {
+  practices: [],
+  teachers: [],
+  mapdata: {}
+}
 
 const pathToRegex = path =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -43,8 +53,10 @@ const router = async () => {
     { path: "/classes", view: Classes },
     { path: "/classes/:id", view: Class },
     { path: "/matchme", view: MatchMe, id: 'matchme' },
-    { path: "/dashboard", view: Dashboard },
     { path: "/schedule", view: Schedule },
+    { path: "/dashboard", view: Dashboard, id: 'dashboard' },
+    { path: "/dashboard/classes", view: ClassesList, id: 'dashboard' },
+    { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard' },
   ];
 
   // Test each route for potential match
@@ -69,29 +81,29 @@ const router = async () => {
   const view = new match.route.view(getParams(match));
   const header = new Header();
   const footer = new Footer();
+
   // And call its getHtml class method
-  document.querySelector("#app").innerHTML = await view.getHtml();
+  document.querySelector("#app").innerHTML = await view.getHtml(data);
   document.querySelector("#header").innerHTML = await header.getHtml();
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // Add js requirements for route
   switch (match.route.id) {
     case 'map': {
-      initMap();
+      initMap(data);
       break;
     }
     case 'matchme': {
       initMatchForm();
       break;
     }
+    case 'dashboard': {
+      initDashboard();
+      break;
+    }
     // Always do:
     default: {
-      initLoginOverlay();
-      initRegisterOverlay();
-      initSubmitLoginForm();
-      // Hide loader since loading is finished
-      const loader = document.querySelector('.loader');
-      loader.classList.remove('is-active');
+      initHeaderForms();
       break;
     }
   }
@@ -101,12 +113,21 @@ const router = async () => {
 window.addEventListener("popstate", router);
 
 // Fetch all clicks on data-links // prevent page reload // Let router handle the navigation
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+  // Fetch all necessary data from backend
+  const practices = await (await fetch('http://localhost:5000/practices/')).json();
+  const teachers = await (await fetch('http://localhost:5000/teachers/')).json();
+  const mapdata = await (await fetch('http://localhost:5000/maps/')).json();
+  data = {
+    practices,
+    teachers,
+    mapdata
+  }
+
+  // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
-      // Set loader active for the time data is fetched
-      const loader = document.querySelector('.loader');
-      loader.classList.add('is-active');
       e.preventDefault();
       navigateTo(e.target.href);
     }

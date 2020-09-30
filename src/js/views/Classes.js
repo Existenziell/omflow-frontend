@@ -7,12 +7,8 @@ export default class extends AbstractView {
     this.practices = [];
   }
 
-  async getHtml() {
-    const practices = await (await fetch('http://localhost:5000/practices/')).json();
-    const newData = practices.map((p) => {
-      return p;
-    })
-    this.practices = newData;
+  async getHtml({ practices }) {
+    this.practices = practices;
     return this.html();
   }
 
@@ -42,9 +38,7 @@ export default class extends AbstractView {
               <td>${p.duration}</td>
               <td>${p.date.substring(0, 10)}</td>
               <td>
-                <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
-                <a href="/classes/edit/${p._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |
-                <a href="/classes/practice/delete/${p._id}" class="btn btn-sm btn-outline-info" data-link>delete</a>
+                <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a>
               </td>
             </tr>
       `;
@@ -52,7 +46,6 @@ export default class extends AbstractView {
     output += `
           </tbody>
         </table>
-        <a href="/dashboard/practices/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
       </div>
     `;
     return output;

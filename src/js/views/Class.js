@@ -13,14 +13,13 @@ export default class extends AbstractView {
   }
 
   html(practice) {
-    console.log(practice.teacher);
     return `
-            <small>Class ID: ${practice._id}</small>
-            <h2>${practice.name}</h2>
-            <p>With teacher: ${practice.teacher.name}</p>
-            <p>${practice.description}</p>
-            <p>Duration: ${practice.duration}</p>
-            <p>Date: ${practice.date.substring(0, 10)}</p>
-        `;
+      <small>Class ID: ${practice._id}</small>
+      <h2>${practice.name}</h2>
+      <p>With teacher: ${practice.teacher.name}</p>
+      <p>${practice.description}</p>
+      <p>Duration: ${practice.duration}</p>
+      <p>Date: ${practice.date.substring(0, 10)}</p>
+    `;
   }
 }
