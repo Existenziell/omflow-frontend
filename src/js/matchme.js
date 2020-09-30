@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const data = {
   style: "",
   level: "",
@@ -94,7 +92,7 @@ const initDateTimeZone = () => {
     minDate: new Date()
   });
   // Call timezones plugin
-  // $('select').timezones();
+  $('select').timezones();
 }
 
 const initChangeHandlers = () => {

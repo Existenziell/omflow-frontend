@@ -8,15 +8,19 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "moment": "^2.29.0",
+    "node-sass": "^4.14.1",
     "parcel-bundler": "^1.12.4",
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "sass": "^1.26.11"
   },
   "scripts": {
-    "dev": "npx parcel index.html src/*",
-    "build": "npx parcel build index.html src/*"
+    "dev": "concurrently --kill-others \"npm run sass\" \"nodemon server.js\"",
+    "devParcel": "npx parcel src/index.html src/*",
+    "build": "npx parcel build index.html src/*",
+    "sass": "node-sass -w src/scss/ -o src/css/"
   },
   "repository": {
     "type": "git",

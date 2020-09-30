@@ -11,9 +11,9 @@ import Dashboard from "../views/Dashboard.js";
 import Header from "../views/Header.js";
 import Footer from "../views/Footer.js";
 
-import { initLoginOverlay, initRegisterOverlay, initSubmitLoginForm } from './modules';
-import { initMatchForm } from './../js/matchme';
-import { initMap } from './../js/map';
+import { initLoginOverlay, initRegisterOverlay, initSubmitLoginForm } from './modules.js';
+import { initMatchForm } from './matchme.js';
+import { initMap } from './map.js';
 
 const pathToRegex = path =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");

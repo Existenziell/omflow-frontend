@@ -1,0 +1,315 @@
+/* --------------------------------------------------------
+Style Sheet for Omflow World Map
+
+version: 0.9
+last modified: 20.09.2020 by Christof Bauer
+author: Christof Bauer
+email: bauer.christof@gmail.com
+----------------------------------------------------------*/
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css?family=Gotu|Lato|Lora|Montserrat|Roboto");
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Gotu', serif; }
+
+html, body {
+  scroll-behavior: smooth; }
+
+* {
+  font-family: 'Gotu', 'Lora', serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; }
+
+*:focus {
+  outline: none; }
+
+::-moz-selection {
+  color: #eee;
+  background: rgba(170, 65, 140, 0.8);
+  text-shadow: none; }
+
+::selection {
+  color: #eee;
+  background: rgba(170, 65, 140, 0.8);
+  text-shadow: none; }
+
+input {
+  outline: none;
+  border: none; }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+button:active {
+  outline: none; }
+
+hr {
+  display: block;
+  height: 1px;
+  width: 60%;
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 1em 0;
+  padding: 0; }
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+textarea {
+  resize: vertical;
+  outline: none;
+  border: none; }
+
+ul,
+ul li,
+ul ul li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: #008080; }
+
+a:hover {
+  text-decoration: none; }
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+.engraved {
+  background-color: #333;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(245, 245, 245, 0.5) 1px 1px 1px; }
+
+.embossed {
+  color: #f0f0f0;
+  background-color: #666666;
+  text-shadow: 1px 2px 2px #555;
+  text-align: center;
+  -webkit-background-clip: text;
+  -moz-background-clip: text; }
+
+/*
+ * Hide visually and from screen readers
+ */
+.hidden {
+  display: none !important; }
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+  /* 1 */ }
+
+/*
+* Extends the .visuallyhidden class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit; }
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+.invisible {
+  visibility: hidden; }
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+
+.mapboxgl-popup {
+  overflow: hidden;
+  max-width: 100% !important; }
+
+.mapboxgl-popup-content {
+  padding: 12px; }
+
+.mapboxgl-popup-content a {
+  text-decoration: none;
+  color: #008080; }
+
+.mapboxgl-popup-close-button {
+  font-size: 20px; }
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline; }
+  .popup h1 {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 0px 0px 10px; }
+  .popup h2 {
+    font-size: 14px;
+    margin-top: 20px; }
+  .popup span {
+    font-size: 11px;
+    margin: 10px 0px 0px; }
+  .popup img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-align: center; }
+
+.overlay-button {
+  width: 250px;
+  height: 60px;
+  margin-right: 20px;
+  background: rgba(60, 150, 185, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-align: center;
+  color: white; }
+  .overlay-button:hover {
+    background: rgba(35, 122, 154, 0.8);
+    cursor: pointer; }
+  .overlay-button a {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; }
+
+.back-home {
+  background: transparent url("/img/icons/logo-white.png") no-repeat center;
+  width: 70px;
+  height: 71px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  opacity: 0.85;
+  z-index: 1000;
+  text-indent: -9999em; }
+
+.back-home:hover {
+  cursor: pointer;
+  opacity: 1; }
+
+/* --------------------------------------------------------
+Vimeo Embed
+----------------------------------------------------------*/
+.embed-container {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/*
+* MEDIA QUERIES
+*/
+/* Only apply styles on devices with hover capability.*/
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .mapboxgl-popup {
+    min-width: 80%; } }
+
+/* Medium devices (tablets, less than 992px) */
+/* Large devices (desktops, less than 1200px) */

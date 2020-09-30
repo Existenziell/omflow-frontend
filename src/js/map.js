@@ -1,4 +1,4 @@
-import { loadMapData } from './modules';
+import { loadMapData } from './modules.js';
 
 const accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 let map = {},
@@ -7,6 +7,9 @@ let map = {},
   mapdata = {};
 
 const initMap = () => {
+
+  const loader = document.querySelector('.loader');
+  loader.classList.add('is-active');
 
   loadMapData()
     .then(data => (mapdata = data));
@@ -20,6 +23,8 @@ const initMap = () => {
   });
 
   map.on('load', function () {
+
+    loader.classList.remove('is-active');
 
     map.addSource('places', {
       type: 'geojson',
@@ -208,7 +213,7 @@ const createMarkerHtml = data => {
   return `
         <div class='popup'>
             <h1>${name}</h1>
-            <img src='src/img/teachers/${image}' />
+            <img src='/img/teachers/${image}' />
             <div class='embed-container'>${video}</div>
             <p>${description}</p>
             <ul>${classes}</ul>
