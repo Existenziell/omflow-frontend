@@ -1,17 +1,11 @@
-import { loadMapData } from './modules.js';
-
 const accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 let map = {},
   geocoder = {},
   geolocate = {},
   mapdata = {};
 
-const initMap = () => {
-
-  // Set mapdata for geocoder
-  loadMapData()
-    .then(data => (mapdata = data));
-
+const initMap = (data) => {
+  mapdata = data.mapdata
   mapboxgl.accessToken = accessToken;
   map = new mapboxgl.Map({
     container: 'map',
