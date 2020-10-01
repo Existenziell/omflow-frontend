@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import { getNav } from "./DashboardNav.js";
+import { ClassesList } from "./dashboard/ClassesList.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -7,10 +7,14 @@ export default class extends AbstractView {
     this.setTitle("Dashboard");
   }
 
-  async getHtml() {
+  async getHtml(data) {
+    const { practices, teachers } = data;
+
     return `
-      <h1>Dashboard</h1>
-      ${getNav()}
+      <h1>My Data</h1>
+      <p>...</p>
+      <h1>My Classes</h1>
+        ${ClassesList(practices)}
     `;
   }
 }

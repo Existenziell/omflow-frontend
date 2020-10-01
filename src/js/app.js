@@ -11,13 +11,12 @@ import MatchMe from "./views/MatchMe.js";
 import Schedule from "./views/Schedule.js";
 
 import Dashboard from "./views/Dashboard.js";
-import ClassesList from "./views/dashboard/ClassesList.js";
 import EditClass from "./views/dashboard/EditClass.js";
 
 import { initHeaderForms } from './header.js';
 import { initMatchForm } from './matchme.js';
 import { initMap } from './map.js';
-import { initDashboard } from './dashboard.js';
+import { initDashboard, initDashboardEdit } from './dashboard.js';
 
 let data = {
   practices: [],
@@ -55,8 +54,7 @@ const router = async () => {
     { path: "/matchme", view: MatchMe, id: 'matchme' },
     { path: "/schedule", view: Schedule },
     { path: "/dashboard", view: Dashboard, id: 'dashboard' },
-    { path: "/dashboard/classes", view: ClassesList, id: 'dashboard' },
-    { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard' },
+    { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard-edit' },
   ];
 
   // Test each route for potential match
@@ -99,6 +97,10 @@ const router = async () => {
     }
     case 'dashboard': {
       initDashboard();
+      break;
+    }
+    case 'dashboard-edit': {
+      initDashboardEdit();
       break;
     }
     // Always do:

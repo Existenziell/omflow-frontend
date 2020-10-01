@@ -1,36 +1,50 @@
-const initDashboard = () => {
-  // const form = document.getElementById('edit-class');
-  const formBtn = document.getElementById('saveFormBtn');
-
-  // formBtn.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   // const formData = new FormData(document.querySelector('edit-class'));
-  //   // console.log(formData);
-  //   // for (var pair of formData.entries()) {
-  //   //   console.log(pair);
-  //   // }
-
-  //   // const duration = document.getElementById('duration');
-  //   // const form = document.getElementById('duration');
-  //   // const form = document.getElementById('duration');
-
-  //   // const formData = new FormData(document.getElementById("my-awesome-dropzone"));
-  //   // const formData = new FormData(form);
-  //   // console.log(formData);
-  //   // formData.getAll(name);
-
-  //   // const loginUser = { email, password };
-  //   //       const loginRes = await axios.post(
-  //   //         "http://localhost:5000/users/login",
-  //   //         loginUser
-  //   //       );
-  //   //       // setUserData({
-  //   //       //   token: loginRes.data.token,
-  //   //       //   user: loginRes.data.user,
-  //   //       // });
-  //   //       localStorage.setItem("auth-token", loginRes.data.token);
-  //   //       history.pushState(null, null, '/');
-  // });
+const initDashboardEdit = () => {
+  editPractice();
+  deletePractice();
 }
 
-export { initDashboard }
+const editPractice = () => {
+  const form = document.getElementById('edit-class');
+  const formBtn = document.getElementById('saveFormBtn');
+
+  formBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let name = document.querySelector('.practice-name').value;
+    let description = document.querySelector('.practice-description').value;
+    let duration = document.querySelector('.practice-duration').value;
+    let date = document.querySelector('.practice-date').value;
+    if (date === '') date = new Date();
+
+    let formData = {
+      name: name,
+      description: description,
+      date: date,
+      duration: duration
+    }
+    axios.post(form.action, formData)
+      .then(response => {
+        history.back();
+      })
+      .catch(error => console.error('error'));
+  });
+}
+
+const deletePractice = () => {
+  // const deleteBtn = $('.delete-practice');
+  // console.log(deleteBtn);
+
+  $('.delete-practice').on("click", (e) => {
+    e.preventDefault();
+    console.log(e);
+    axios.delete(e, formData)
+      .then(response => {
+        history.back();
+      })
+      .catch(error => console.error('error'));
+  });
+}
+
+const initDashboard = () => {
+}
+
+export { initDashboard, initDashboardEdit }
