@@ -5,12 +5,14 @@
 $brand: #008080;
 $yellow: #fab81e;
 $darkFont: #333;
+$error: #802000;
 
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Gotu|Lato|Lora|Montserrat|Roboto');
+
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -27,6 +29,7 @@ html, body {
   font-family: 'Gotu', 'Lora', serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 

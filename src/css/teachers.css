@@ -26,6 +26,7 @@ html, body {
   font-family: 'Gotu', 'Lora', serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth; }
 
 *:focus {
@@ -197,8 +198,9 @@ a:hover {
   .teachers-list > li {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 15px 20px;
-    height: 300px;
-    width: 250px;
+    width: 30%;
     overflow: hidden; }
     .teachers-list > li > a {
       color: #333; }
+    .teachers-list > li > img {
+      width: 100%; }

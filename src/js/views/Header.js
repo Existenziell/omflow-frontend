@@ -7,14 +7,25 @@ export default class extends AbstractView {
 
   async getHtml() {
     return `
+
+      <!--Navbar-->
       <nav class="navbar navbar-expand-md navbar-light">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-          <!-- Left -->
-          <div class="navbar-nav mr-auto">
-            <a href="/" class="navbar-brand mx-auto" data-link>Home</a>
-          </div>
+
+        <!-- Left / Navbar brand -->
+        <div class="navbar-nav">
+          <a href="/" class="navbar-brand mx-auto" data-link>Home</a>
+        </div>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+
           <!-- Center -->
-          <div class="mx-auto order-0">
+          <div class="mx-auto">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a href="/about" class="nav-link" data-link>About</a>
@@ -39,8 +50,9 @@ export default class extends AbstractView {
               </li>
             </ul>
           </div>
+
           <!-- Right-->
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <button class="btn btn-sm btn-outline-info show-login-layer">Login</button>
             </li>
@@ -48,6 +60,7 @@ export default class extends AbstractView {
               <button class="btn btn-sm btn-outline-info show-register-layer">Register</button>
             </li>
           </ul>
+
         </div>
       </nav>
 
@@ -58,6 +71,7 @@ export default class extends AbstractView {
           <form id="login-form" action="http://localhost:5000/users/login" method="POST">
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
+            <p class="error-msg error-msg-login"></p>
             <input type="submit" class="btn btn-info">
           </form>
         </div>
@@ -71,6 +85,7 @@ export default class extends AbstractView {
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="password" name="passwordCheck" placeholder="Retype password" required>
+            <p class="error-msg error-msg-register"></p>
             <input type="submit" class="btn btn-info">
           </form>
         </div>

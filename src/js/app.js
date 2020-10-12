@@ -105,10 +105,10 @@ const router = async () => {
     }
     // Always do:
     default: {
-      initHeaderForms();
       break;
     }
   }
+  initHeaderForms();
 };
 
 // Run router if user navigates in browser

@@ -26,6 +26,7 @@ html, body {
   font-family: 'Gotu', 'Lora', serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth; }
 
 *:focus {
@@ -256,29 +257,30 @@ a:hover {
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
-    margin: 40px 0px; }
-  #matchme .options-list li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 50px;
-    border: 1px solid transparent;
-    color: #999;
-    font-family: 'Roboto';
-    font-size: 22px;
-    font-weight: 100;
-    margin-left: 5px; }
-  #matchme .options-list li span {
-    flex-grow: 2; }
-  #matchme .options-list li:hover {
-    border: 1px solid #999;
-    cursor: pointer;
-    transition: all .3s; }
-  #matchme .options-list li:hover > .learn-more {
-    opacity: 1; }
-  #matchme .options-list li:hover > .option {
-    color: #333; }
+    margin: 40px 0px;
+    min-height: 50%; }
+    #matchme .options-list > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 50px;
+      border: 1px solid transparent;
+      color: #999;
+      font-family: 'Roboto';
+      font-size: 22px;
+      font-weight: 100;
+      margin-left: 5px; }
+      #matchme .options-list > li:hover {
+        cursor: pointer;
+        border: 1px solid #999;
+        transition: all .3s; }
+        #matchme .options-list > li:hover > .learn-more {
+          opacity: 1; }
+        #matchme .options-list > li:hover > .option {
+          color: #333; }
+      #matchme .options-list > li > span {
+        flex-grow: 2; }
   #matchme .next-step, #matchme .prev-step, #matchme .unsure {
     text-decoration: none;
     color: #333;
@@ -332,7 +334,8 @@ a:hover {
   #matchme .button-wrapper {
     padding: 0px 30px;
     display: flex;
-    justify-content: space-evenly; }
+    justify-content: space-evenly;
+    margin-bottom: 100px; }
   #matchme .review-wrapper, #matchme .step-wrapper, #matchme .datetimepicker_wrapper {
     height: 100%; }
   #matchme .review-wrapper {

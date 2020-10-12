@@ -78,44 +78,46 @@ email: bauer.christof@gmail.com
   }
 
   .options-list {
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     list-style: none;
     margin: 40px 0px;
-  }
+    min-height: 50%;
 
-  .options-list li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 50px;
-    border: 1px solid transparent;
-    color: #999;
-    font-family: 'Roboto';
-    font-size: 22px;
-    font-weight: 100;
-    margin-left: 5px;
-  }
+    > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 50px;
+      border: 1px solid transparent;
+      color: #999;
+      font-family: 'Roboto';
+      font-size: 22px;
+      font-weight: 100;
+      margin-left: 5px;
 
-  .options-list li span {
-    flex-grow: 2;
-  }
+      &:hover {
+        cursor: pointer;
+        border: 1px solid #999;
+        transition: all .3s;
 
-  .options-list li:hover {
-    border: 1px solid #999;
-    cursor: pointer;
-    transition: all .3s;
-  }
+        > .learn-more {
+          opacity: 1;
+        }
+        > .option {
+          color: #333;
+        }
+      }
 
-  .options-list li:hover > .learn-more {
-    opacity: 1;
-  }
+      > span {
+        flex-grow: 2;
+      }
+    }
 
-  .options-list li:hover > .option {
-    color: #333;
   }
 
   .next-step, .prev-step, .unsure {
@@ -203,6 +205,7 @@ email: bauer.christof@gmail.com
     padding: 0px 30px;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 100px;
   }
 
   /* --------------------------------------------------------

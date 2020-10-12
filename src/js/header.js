@@ -2,6 +2,7 @@ const initLoginOverlay = () => {
   const loginOverlay = $("#login-overlay");
   $(".show-login-layer").on("click", (e) => {
     loginOverlay.css('display', 'flex');
+    initLoginForm()
     e.preventDefault();
   });
 
@@ -11,27 +12,30 @@ const initLoginOverlay = () => {
   });
 }
 
-const initSubmitLoginForm = () => {
+const initLoginForm = () => {
+
   const login = document.getElementById('login-form');
   login.onsubmit = async (e) => {
-    const email = document.forms['login'].elements['email'].value;
-    const password = document.forms['login'].elements['password'].value;
+    const email = login.elements['email'].value;
+    const password = login.elements['password'].value;
 
     e.preventDefault();
     try {
       const loginUser = { email, password };
-      const loginRes = await axios.post(
+      console.log(loginUser);
+      const res = await axios.post(
         "http://localhost:5000/users/login",
         loginUser
       );
-      // setUserData({
-      //   token: loginRes.data.token,
-      //   user: loginRes.data.user,
-      // });
-      localStorage.setItem("auth-token", loginRes.data.token);
+      localStorage.setItem("auth-token", res.data.token);
       history.pushState(null, null, '/');
+      document.getElementById('login-overlay').style.display = "none";
+      document.getElementById('welcomeMsg').innerHTML = `Welcome to Omflow ${res.data.email}<br />You are now registered, logged-in and ready to go!`;
+
     } catch (err) {
-      console.log(err);
+      const msg = document.querySelector(".error-msg-login");
+      msg.style.display = 'block';
+      msg.innerHTML = err.response.data.msg;
     }
   }
 }
@@ -40,6 +44,7 @@ const initRegisterOverlay = () => {
   const registerOverlay = $("#register-overlay");
   $(".show-register-layer").on("click", (e) => {
     registerOverlay.css('display', 'flex');
+    initRegisterForm();
     e.preventDefault();
   });
 
@@ -49,8 +54,35 @@ const initRegisterOverlay = () => {
   });
 }
 
+const initRegisterForm = () => {
+
+  const register = document.getElementById('register-form');
+  register.onsubmit = async (e) => {
+    const email = register.elements['email'].value;
+    const password = register.elements['password'].value;
+    const passwordCheck = register.elements['passwordCheck'].value;
+    const registerUser = { email, password, passwordCheck };
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/users/register",
+        registerUser
+      );
+
+      // console.log(res.data);
+      // localStorage.setItem("auth-token", res.data.token);
+      document.getElementById('login-overlay').style.display = "flex";
+      document.getElementById('register-overlay').style.display = "none";
+
+    } catch (err) {
+      const msg = document.querySelector(".error-msg-register");
+      msg.style.display = 'block';
+      msg.innerHTML = err.response.data.msg;
+    }
+  }
+}
 const initHeaderForms = () => {
-  initSubmitLoginForm()
   initLoginOverlay()
   initRegisterOverlay()
 }
