@@ -1,8 +1,11 @@
 const express = require("express");
 const path = require("path");
+const auth = require("./middleware/auth");
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// app.use(auth);
 
 // Create a virtual path prefix (where the path does not actually exist in the file system)
 // for files that are served by the express.static function, specify a mount path for the static directory.
