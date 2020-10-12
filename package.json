@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.html",
   "dependencies": {
+    "@fullcalendar/core": "^5.3.1",
+    "@fullcalendar/daygrid": "^5.3.2",
     "axios": "^0.20.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",

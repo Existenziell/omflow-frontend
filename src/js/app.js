@@ -12,11 +12,12 @@ import Schedule from "./views/Schedule.js";
 
 import Dashboard from "./views/Dashboard.js";
 import EditClass from "./views/dashboard/EditClass.js";
+import CreateClass from "./views/dashboard/CreateClass.js";
 
 import { initHeaderForms } from './header.js';
 import { initMatchForm } from './matchme.js';
 import { initMap } from './map.js';
-import { initDashboard, initDashboardEdit } from './dashboard.js';
+import { createPractice, editPractice, deletePractice } from './dashboard.js';
 
 let data = {
   practices: [],
@@ -54,6 +55,7 @@ const router = async () => {
     { path: "/matchme", view: MatchMe, id: 'matchme' },
     { path: "/schedule", view: Schedule },
     { path: "/dashboard", view: Dashboard, id: 'dashboard' },
+    { path: "/dashboard/classes/create", view: CreateClass, id: 'dashboard-create' },
     { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard-edit' },
   ];
 
@@ -83,7 +85,7 @@ const router = async () => {
   // And call its getHtml class method
   document.querySelector("#app").innerHTML = await view.getHtml(data);
   document.querySelector("#header").innerHTML = await header.getHtml();
-  document.querySelector("#footer").innerHTML = await footer.getHtml();
+  // document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // Add js requirements for route
   switch (match.route.id) {
@@ -96,11 +98,15 @@ const router = async () => {
       break;
     }
     case 'dashboard': {
-      initDashboard();
+      deletePractice();
       break;
     }
     case 'dashboard-edit': {
-      initDashboardEdit();
+      editPractice();
+      break;
+    }
+    case 'dashboard-create': {
+      createPractice();
       break;
     }
     // Always do:
@@ -126,6 +132,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     teachers,
     mapdata
   }
+
+  // Initialize Calendar for Schedule
+  // var calendarEl = document.getElementById('calendar');
+  // console.log(calendarEl);
+  // var calendar = new Calendar(calendarEl, {
+  //   plugins: [dayGridPlugin]
+  // });
+  // calendar.render();
 
   // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {

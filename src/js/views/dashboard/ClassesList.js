@@ -25,7 +25,7 @@ export const ClassesList = (practices) => {
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
                 <a href="/dashboard/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |
-                <a href="" class="btn btn-sm btn-outline-info delete-practice" data-link>delete</a>
+                <a href="" class="btn btn-sm btn-outline-info delete-practice" data-id="${p._id}" data-link>delete</a>
               </td>
             </tr>
       `;
@@ -33,7 +33,7 @@ export const ClassesList = (practices) => {
   output += `
             </tbody>
           </table>
-          <a href="/dashboard/practices/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
+          <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
         </div>
       `;
   return output;

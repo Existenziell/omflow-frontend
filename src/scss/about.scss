@@ -1,0 +1,25 @@
+/* --------------------------------------------------------
+Style Sheet for Omflow About Component
+
+version: 0.9
+last modified: 20.09.2020 by Christof Bauer
+author: Christof Bauer
+email: bauer.christof@gmail.com
+----------------------------------------------------------*/
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  background: url('/img/about-header.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 50vh;
+  text-align: center;
+  color: white;
+  padding: 100px;
+}
