@@ -97,6 +97,7 @@ const router = async () => {
     }
     case 'schedule': {
       new Schedule().initCalendar();
+      break;
     }
     case 'dashboard': {
       new Dashboard().deletePractice();

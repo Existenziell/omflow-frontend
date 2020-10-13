@@ -3,13 +3,13 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Classes");
     this.practiceId = params.id;
     this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
   async getHtml() {
     const practice = await (await fetch(`http://localhost:5000/practices/${this.practiceId}`)).json();
+    this.setTitle(`${practice.name}`);
     return this.html(practice);
   }
 

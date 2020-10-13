@@ -5,11 +5,11 @@ export default class extends AbstractView {
     super(params);
     this.practiceId = params.id;
     this.practice = {};
-    this.setTitle(`Dashboard | Edit class ${params.id}`);
   }
 
   async getHtml() {
     this.practice = await (await fetch(`http://localhost:5000/practices/${this.practiceId}`)).json();
+    this.setTitle(`Dashboard | Edit ${this.practice.name}`);
     return this.html();
   }
 
