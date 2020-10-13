@@ -18,7 +18,7 @@
     "rimraf": "^3.0.2"
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
     "dev": "npm run clean && npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
     "serve": "parcel serve src/index.html",
     "build": "parcel build src/index.html",
