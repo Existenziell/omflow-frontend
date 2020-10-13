@@ -15,7 +15,8 @@
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
     "path": "^0.12.7",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.27.0"
   },
   "scripts": {
     "start": "npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
@@ -39,8 +40,5 @@
   "homepage": "https://github.com/Existenziell/omflow#readme",
   "browserslist": [
     "since 2017-06"
-  ],
-  "devDependencies": {
-    "sass": "^1.27.0"
-  }
+  ]
 }
