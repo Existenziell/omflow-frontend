@@ -14,9 +14,7 @@
     "moment": "^2.29.0",
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
-    "path": "^0.12.7",
-    "rimraf": "^3.0.2",
-    "sass": "^1.27.0"
+    "path": "^0.12.7"
   },
   "scripts": {
     "start": "npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
