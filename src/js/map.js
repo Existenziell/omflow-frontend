@@ -5,7 +5,8 @@ let map = {},
   mapdata = {};
 
 const initMap = (data) => {
-  mapdata = data.mapdata
+  mapdata = createMapData(data.teachers, data.practices);
+
   mapboxgl.accessToken = accessToken;
   map = new mapboxgl.Map({
     container: 'map',
@@ -217,5 +218,45 @@ const removeMap = () => {
   map.removeMap();
 }
 
-export { initMap, removeMap }
+const createMapData = (teachers, practices) => {
+  let template = `{
+    "type":"FeatureCollection",
+    "features":[`;
+  for (let teacher of teachers) {
+    let teacherClasses = practices.filter((p) => {
+      return p.teacher._id === teacher._id;
+    })
+    teacherClasses = teacherClasses.map((c) => {
+      return c.name;
+    })
 
+    template += `
+    {
+      "type":"Feature",
+      "id":"${teacher.name}, Omflow teacher",
+      "properties":{
+         "name":"${teacher.name}",
+         "tag":"${teacher.tag}",
+         "image":"${teacher.image}",
+         "video":"${teacher.video}",
+         "description":"${teacher.description}",
+         "classes":["${teacherClasses}"]
+      },
+      "geometry":{
+         "type":"Point",
+         "coordinates":["${teacher.coordinates[0]}", "${teacher.coordinates[1]}"]
+      }
+    },
+   `;
+  }
+  template += `
+    ]
+  }`;
+
+  let regex = /\,(?!\s*?[\{\[\"\'\w])/g;
+  let correct = template.replace(regex, ''); // remove all trailing commas
+  let result = JSON.parse(correct);
+  return result;
+}
+
+export { initMap, removeMap }

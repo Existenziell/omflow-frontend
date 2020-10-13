@@ -18,8 +18,7 @@ import { initMap } from './map.js';
 
 let data = {
   practices: [],
-  teachers: [],
-  mapdata: {}
+  teachers: []
 }
 
 const pathToRegex = path =>
@@ -128,13 +127,11 @@ window.addEventListener("popstate", router);
 document.addEventListener("DOMContentLoaded", async () => {
 
   // Fetch all necessary data from backend
-  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
   const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
-  const mapdata = await (await fetch(`${process.env.API_URL}/maps/`)).json();
+  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
   data = {
-    practices,
     teachers,
-    mapdata
+    practices
   }
 
   // Catch all clicks on data-link anchors
