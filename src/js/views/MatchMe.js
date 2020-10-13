@@ -290,24 +290,24 @@ export default class extends AbstractView {
             <div class="review-row">
               <div class="review-overview">
                 <span class="review-date"></span><span class="review-time"></span>
-                <a href="" class="review-entry-link" data-key="4">Change</a>
+                <a href="" class="review-entry-link" data-key="4" data-link>Change</a>
               </div>
             </div>
             <div class="review-row">
               <div class="review-entry">
                 <span class="review-entry-header">Style</span>
                 <p class="review-style"></p>
-                <a href="" class="review-entry-link" data-key="1">Change</a>
+                <a href="" class="review-entry-link" data-key="1" data-link>Change</a>
               </div>
               <div class="review-entry">
                 <span class="review-entry-header">Level</span>
                 <p class="review-level">Not set</p>
-                <a href="" class="review-entry-link" data-key="2">Change</a>
+                <a href="" class="review-entry-link" data-key="2" data-link>Change</a>
               </div>
               <div class="review-entry">
                 <span class="review-entry-header">Type</span>
                 <p class="review-type"></p>
-                <a href="" class="review-entry-link" data-key="3">Change</a>
+                <a href="" class="review-entry-link" data-key="3" data-link>Change</a>
               </div>
               <div class="review-entry">
                 <span class="review-entry-header">Budget</span>

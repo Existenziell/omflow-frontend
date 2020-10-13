@@ -9,7 +9,7 @@ export default class extends AbstractView {
     const loginOverlay = $("#login-overlay");
     $(".show-login-layer").on("click", (e) => {
       loginOverlay.css('display', 'flex');
-      initLoginForm()
+      this.initLoginForm()
       e.preventDefault();
     });
 
@@ -51,7 +51,7 @@ export default class extends AbstractView {
     const registerOverlay = $("#register-overlay");
     $(".show-register-layer").on("click", (e) => {
       registerOverlay.css('display', 'flex');
-      initRegisterForm();
+      this.initRegisterForm();
       e.preventDefault();
     });
 
