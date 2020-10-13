@@ -7,12 +7,12 @@ module.exports = async (req, res, next) => {
     token = "";
   }
   const tokenRes = await axios.post(
-    "http://localhost:5000/users/isTokenValid",
+    `${process.env.API_URL}/users/isTokenValid`,
     null,
     { headers: { "x-auth-token": token } }
   );
   if (tokenRes.data) {
-    const userRes = await axios.get("http://localhost:5000/users/", {
+    const userRes = await axios.get(`${process.env.API_URL}/users/`, {
       headers: { "x-auth-token": token },
     });
     // setUserData({

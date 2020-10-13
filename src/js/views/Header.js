@@ -31,7 +31,7 @@ export default class extends AbstractView {
         const loginUser = { email, password };
         console.log(loginUser);
         const res = await axios.post(
-          "http://localhost:5000/users/login",
+          `${process.env.API_URL}/users/login`,
           loginUser
         );
         localStorage.setItem("auth-token", res.data.token);
@@ -73,7 +73,7 @@ export default class extends AbstractView {
 
       try {
         const res = await axios.post(
-          "http://localhost:5000/users/register",
+          `${process.env.API_URL}/users/register`,
           registerUser
         );
 
@@ -158,7 +158,7 @@ export default class extends AbstractView {
         <div class="form">
           <i class="fa fa-times form-close" aria-hidden="true"></i>
           <h1>Login to Omflow</h1>
-          <form id="login-form" action="http://localhost:5000/users/login" method="POST">
+          <form id="login-form" action="${process.env.API_URL}/users/login" method="POST">
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <p class="error-msg error-msg-login"></p>
@@ -171,7 +171,7 @@ export default class extends AbstractView {
         <div class="form">
           <i class="fa fa-times form-close" aria-hidden="true"></i>
           <h1>New here? Register...</h1>
-          <form id="register-form" action="http://localhost:5000/users/register" method="POST">
+          <form id="register-form" action="${process.env.API_URL}/users/register" method="POST">
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="password" name="passwordCheck" placeholder="Retype password" required>

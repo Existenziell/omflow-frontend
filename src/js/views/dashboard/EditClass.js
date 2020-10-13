@@ -8,7 +8,7 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    this.practice = await (await fetch(`http://localhost:5000/practices/${this.practiceId}`)).json();
+    this.practice = await (await fetch(`${process.env.API_URL}/practices/${this.practiceId}`)).json();
     this.setTitle(`Dashboard | Edit ${this.practice.name}`);
     return this.html();
   }
@@ -19,7 +19,7 @@ export default class extends AbstractView {
     let output = `
       <div>
         <h3>Edit Class</h3>
-        <form id="edit-class" action="http://localhost:5000/practices/update/${this.practiceId}" method="POST">
+        <form id="edit-class" action="${process.env.API_URL}/practices/update/${this.practiceId}" method="POST">
           <div class="form-group">
             <label>Name:</label>
             <input type="text" required class="form-control practice-name" value="${this.practice.name}" />

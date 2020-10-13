@@ -72,7 +72,7 @@ export default class extends AbstractView {
       button.addEventListener("click", (e) => {
         e.preventDefault();
         const id = e.target.getAttribute('data-id');
-        axios.delete(`http://localhost:5000/practices/${id}`)
+        axios.delete(`${process.env.API_URL}/practices/${id}`)
           .then(response => {
             // history.back();
             location.reload();

@@ -128,9 +128,9 @@ window.addEventListener("popstate", router);
 document.addEventListener("DOMContentLoaded", async () => {
 
   // Fetch all necessary data from backend
-  const practices = await (await fetch('http://localhost:5000/practices/')).json();
-  const teachers = await (await fetch('http://localhost:5000/teachers/')).json();
-  const mapdata = await (await fetch('http://localhost:5000/maps/')).json();
+  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
+  const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
+  const mapdata = await (await fetch(`${process.env.API_URL}/maps/`)).json();
   data = {
     practices,
     teachers,

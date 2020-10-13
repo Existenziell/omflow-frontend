@@ -7,6 +7,7 @@
     "@fullcalendar/core": "^5.3.1",
     "@fullcalendar/daygrid": "^5.3.2",
     "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
@@ -28,6 +29,7 @@
     "sass": "^1.26.11"
   },
   "scripts": {
+    "start": "npm run dev",
     "dev": "npm run clean && npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
     "serve": "parcel serve src/index.html",
     "build": "parcel build src/index.html",

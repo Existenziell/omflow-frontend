@@ -14,7 +14,7 @@ export default class extends AbstractView {
     let output = `
       <div>
         <h3>Create Class</h3>
-        <form id="create-class" action="http://localhost:5000/practices/create" method="POST">
+        <form id="create-class" action="${process.env.API_URL}/practices/create" method="POST">
           <div class="form-group">
             <label>Name:</label>
             <input type="text" required class="form-control practice-name" value="" />
