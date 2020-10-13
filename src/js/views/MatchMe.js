@@ -139,7 +139,7 @@ export default class extends AbstractView {
       $('.loader').addClass('is-active');
       $('.matched-results').html('');
 
-      fetch('http://localhost:3000/teachers/match')
+      fetch(`${process.env.API_URL}/teachers/match`)
         .then(response => response.json())
         .then(teachers => {
           loader.removeClass('is-active');
