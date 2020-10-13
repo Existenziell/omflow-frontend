@@ -1,9 +1,162 @@
 import AbstractView from "./AbstractView.js";
+import '../../scss/matchme.scss';
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("MatchMe");
+
+    this.data = {
+      style: "",
+      level: "",
+      type: "",
+      date: "",
+      budget: 0
+    }
+  }
+
+  initForms = () => {
+    this.initFormNavigation();
+    this.initDateTimeZone();
+    this.initBudgetForm();
+    this.initInfoPopups();
+    $("#step-1").fadeIn();
+  }
+
+  initFormNavigation = () => {
+    // Handle clicks on options list and save in data
+    $('.options-list li').on('click', (e) => {
+      $(e.currentTarget).closest('.options-list').find("li").removeClass('border');
+      $(e.currentTarget).addClass('border');
+      //saveData(e);
+    });
+
+    // Handle previous step
+    $(".prev-step").on("click", (e) => {
+      this.navigateToStep(e);
+      e.preventDefault();
+    });
+
+    // Handle next step - save data to data object
+    $(".next-step").on('click', (e) => {
+      this.saveData(e);
+      this.navigateToStep(e);
+      e.preventDefault();
+    });
+
+    $('.unsure').on('click', (e) => {
+      this.navigateToStep(e);
+      e.preventDefault();
+    });
+  }
+
+  saveData = (e) => {
+    var id = $(e.target).data('current');
+    if (id == 4) {   // Datetime
+      this.data.date = $('.datetimepicker').datetimepicker('getValue');
+    } else if (id == 5) {    // Budget
+      this.data.budget = $('.budget-input').val();
+      this.setReviewValues();
+    } else if (id == 6) {    // Review
+      return;
+    } else {    // All other IDs
+      const choice = $(`#step-${id}`).find('li.border');
+      var key = $(`#step-${id}`).closest(".matchme-form").data("key");
+      var value = $(choice).find("span.option").text();
+      this.data[key] = value;
+    }
+  }
+
+  navigateToStep = (e) => {
+    e.preventDefault();
+    $(".matchme-form").hide();
+    var id = $(e.target).data('target');
+    var target = `#step-${id}`;
+    $(target).fadeIn();
+  }
+
+  setReviewValues = () => {
+    const dateFormatted = this.data.date ?
+      $.format.date(this.data.date, "ddd, MMMM D, yyyy") :
+      $.format.date(new Date(), "ddd, MMMM D, yyyy");
+    const timeFormatted = this.data.time ?
+      $.format.date(this.data.date, "HH:mm") :
+      $.format.date(new Date(), "HH:mm");
+    $(".review-style").text(this.data.style || 'Not set');
+    $(".review-level").text(this.data.level || 'Not set');
+    $(".review-type").text(this.data.type || 'Not set');
+    $(".review-date").text(dateFormatted);
+    $(".review-time").text(timeFormatted);
+    $(".review-budget").text(`${this.data.budget} USD`);
+    this.initChangeHandlers();
+    this.initOmflowConnect();
+  }
+
+  initDateTimeZone = () => {
+    // Call datetimepicker plugin
+    $(".datetimepicker").datetimepicker({
+      // yearStart: 2020,
+      // step: 15,
+      // dayOfWeekStart: 1,
+      // showApplyButton: false,
+      minDate: new Date()
+    });
+    // Call timezones plugin
+    $('select').timezones();
+  }
+
+  initChangeHandlers = () => {
+    $(".review-entry-link").on("click", (e) => {
+      $(".matchme-form").hide();
+      const target = "#step-" + $(e.target).data("key");
+      $(target).show();
+      e.preventDefault();
+    });
+  }
+
+  initBudgetForm = () => {
+    $('.budget-input').on('change keyup', (e) => {
+      let budget = $(e.target).val();
+      // Limit input to 2 numbers
+      if (budget.length > 2) {
+        budget = budget.toString().slice(0, -1);
+      }
+      // Remove invalid characters
+      budget = budget.replace(/[^0-9]/g, '');
+      $(e.target).val(parseInt(budget));
+    });
+  }
+
+  initInfoPopups = () => {
+    $(".learn-more").on("mouseenter mouseleave", function () {
+      $(this).closest("li").find('.popup').toggleClass("show");
+    });
+  }
+
+  initOmflowConnect = () => {
+    $('#omflow-connect').on('click', (e) => {
+      const loader = $('.loader');
+      $('.loader').addClass('is-active');
+      $('.matched-results').html('');
+
+      fetch('http://localhost:3000/teachers/match')
+        .then(response => response.json())
+        .then(teachers => {
+          loader.removeClass('is-active');
+          teachers.forEach(teacher => {
+            const { name, location, email, picture } = teacher;
+            $('.matched-results')
+              .append(`
+                      <li>
+                          <h2>${name}</h2>
+                          <span>${location}</span>
+                          <img src="${picture}" alt="${name}" />
+                          <a href='teachers.html'>Let's Omflow!</a>
+                      </li>`);
+          })
+        });
+      e.preventDefault();
+    });
   }
 
   async getHtml() {
@@ -126,6 +279,7 @@ export default class extends AbstractView {
           </div>
           <div class="button-wrapper">
             <a class="prev-step" data-target="4" href="">Back</a>
+            <a class="unsure" data-target="6" href="">Not sure</a>
             <a class="next-step" data-target="6" data-current='5' href="">Continue</a>
           </div>
         </div>

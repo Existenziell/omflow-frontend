@@ -30,9 +30,8 @@ export default class extends AbstractView {
           <div class="form-group">
             <label>Date:</label>
             <div>
-              <div class="datetimepicker_wrapper">
-                <input type="text" class="datetimepicker" value="Select Date" />
-                <select class="form-control  practice-date"></select>
+              <div class="input-group date" data-provide="datetimepicker">
+                <input type="text" class="form-control practice-date datetimepicker">
               </div>
             </div>
           </div>
@@ -42,6 +41,7 @@ export default class extends AbstractView {
           </div>
         </form>
       </div>
+
     `;
     return output;
   }

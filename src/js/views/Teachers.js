@@ -1,4 +1,6 @@
 import AbstractView from './AbstractView.js';
+import '../../scss/teachers.scss';
+
 
 export default class extends AbstractView {
   constructor(params) {

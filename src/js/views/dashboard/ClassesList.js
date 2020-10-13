@@ -1,4 +1,7 @@
 export const ClassesList = (practices) => {
+
+  var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+
   let output = `
       <div>
         <table class="table table-hover table-condensed">
@@ -21,7 +24,7 @@ export const ClassesList = (practices) => {
               <td>${p.description}</td>
               <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
-              <td>${p.date.substring(0, 10)}</td>
+              <td>${new Date(p.date).toLocaleDateString("en-US", options)}</td>
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
                 <a href="/dashboard/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |

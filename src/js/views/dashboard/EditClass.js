@@ -14,6 +14,8 @@ export default class extends AbstractView {
   }
 
   html = () => {
+    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+
     let output = `
       <div>
         <h3>Edit Class</h3>
@@ -33,9 +35,8 @@ export default class extends AbstractView {
           <div class="form-group">
             <label>Date:</label>
             <div>
-              <div class="datetimepicker_wrapper">
-                <input type="text" class="datetimepicker" value="Select Date" />
-                <select class="form-control  practice-date"></select>
+              <div class="input-group date" data-provide="datetimepicker">
+                <input type="text" class="form-control practice-date datetimepicker" value="${new Date(this.practice.date).toLocaleDateString("en-US", options)}">
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ export default class extends AbstractView {
     super(params);
     this.setTitle("Classes");
     this.practices = [];
+    this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
   async getHtml({ practices }) {
@@ -36,7 +37,7 @@ export default class extends AbstractView {
               <td>${p.description}</td>
               <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
-              <td>${p.date.substring(0, 10)}</td>
+              <td>${new Date(p.date).toLocaleDateString("en-US", this.options)}</td>
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a>
               </td>
@@ -50,23 +51,4 @@ export default class extends AbstractView {
     `;
     return output;
   }
-
-  // loadPractices = async () => {
-  //   axios.get('http://localhost:5000/practices/')
-  //     .then(response => {
-  //       return response.data
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  // }
-
-  // deletePractice = (id) => {
-  //   axios.delete('http://localhost:5000/practices/' + id)
-  //     .then(response => { console.log(response.data) });
-  //   this.setState({
-  //     practices: this.state.practices.filter(el => el._id !== id) // _id comes from MongoDB
-  //   })
-  // }
-
 }

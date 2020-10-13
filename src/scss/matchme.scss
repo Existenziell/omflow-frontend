@@ -18,6 +18,7 @@ email: bauer.christof@gmail.com
   .matchme-form {
     display: none;
     text-align: center;
+    height: 300px;
   }
 
   .matchme-form h1 {
@@ -132,6 +133,8 @@ email: bauer.christof@gmail.com
 
   .unsure {
     font-size: 10px;
+    position: relative;
+    top: 3px;
   }
 
   .datetimepicker_wrapper {

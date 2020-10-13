@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import '../../scss/about.scss';
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,7 +9,6 @@ export default class extends AbstractView {
 
   async getHtml() {
     return `
-      <link rel="stylesheet" type="text/css" href="/css/about.css" />
       <div class="about">
         <section class="header">
           <h1>About</h1>
@@ -26,7 +26,7 @@ export default class extends AbstractView {
             <p>With 16 certified yoga teachers from all over the world, Omflow is in its first phase of development. We welcome you into our community and hope that you will join us on the yoga mat soon!</p>
           </div>
           <div class="bio-img">
-            <img src="/img/about.jpg" />
+            <img src="/img/layout/about.jpg" />
           </div>
         </section>
         <hr />

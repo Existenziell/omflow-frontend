@@ -14,10 +14,7 @@ import Dashboard from "./views/Dashboard.js";
 import EditClass from "./views/dashboard/EditClass.js";
 import CreateClass from "./views/dashboard/CreateClass.js";
 
-import { initHeaderForms } from './header.js';
-import { initMatchForm } from './matchme.js';
 import { initMap } from './map.js';
-import { createPractice, editPractice, deletePractice } from './dashboard.js';
 
 let data = {
   practices: [],
@@ -53,7 +50,7 @@ const router = async () => {
     { path: "/classes", view: Classes },
     { path: "/classes/:id", view: Class },
     { path: "/matchme", view: MatchMe, id: 'matchme' },
-    { path: "/schedule", view: Schedule },
+    { path: "/schedule", view: Schedule, id: 'schedule' },
     { path: "/dashboard", view: Dashboard, id: 'dashboard' },
     { path: "/dashboard/classes/create", view: CreateClass, id: 'dashboard-create' },
     { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard-edit' },
@@ -85,28 +82,34 @@ const router = async () => {
   // And call its getHtml class method
   document.querySelector("#app").innerHTML = await view.getHtml(data);
   document.querySelector("#header").innerHTML = await header.getHtml();
-  // document.querySelector("#footer").innerHTML = await footer.getHtml();
+  document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // Add js requirements for route
   switch (match.route.id) {
     case 'map': {
+      // new Map().initMap(data);
       initMap(data);
       break;
     }
     case 'matchme': {
-      initMatchForm();
+      new MatchMe().initForms();
       break;
     }
+    case 'schedule': {
+      new Schedule().initCalendar();
+    }
     case 'dashboard': {
-      deletePractice();
+      new Dashboard().deletePractice();
       break;
     }
     case 'dashboard-edit': {
-      editPractice();
+      new Dashboard().editPractice();
+      new Dashboard().initDatetimePicker();
       break;
     }
     case 'dashboard-create': {
-      createPractice();
+      new Dashboard().createPractice();
+      new Dashboard().initDatetimePicker();
       break;
     }
     // Always do:
@@ -114,7 +117,7 @@ const router = async () => {
       break;
     }
   }
-  initHeaderForms();
+  new Header().initHeaderForms();
 };
 
 // Run router if user navigates in browser
@@ -133,14 +136,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     mapdata
   }
 
-  // Initialize Calendar for Schedule
-  // var calendarEl = document.getElementById('calendar');
-  // console.log(calendarEl);
-  // var calendar = new Calendar(calendarEl, {
-  //   plugins: [dayGridPlugin]
-  // });
-  // calendar.render();
-
   // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
@@ -148,6 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       navigateTo(e.target.href);
     }
   });
+
   // Initiate router when DOMContentLoaded
   router();
 });
