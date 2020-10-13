@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import axios from 'axios';
 
 export default class extends AbstractView {
   constructor(params) {
@@ -40,6 +41,8 @@ export default class extends AbstractView {
         document.getElementById('welcomeMsg').innerHTML = `Welcome to Omflow ${res.data.email}<br />You are now registered, logged-in and ready to go!`;
 
       } catch (err) {
+        console.log("err");
+        console.log(err);
         const msg = document.querySelector(".error-msg-login");
         msg.style.display = 'block';
         msg.innerHTML = err.response.data.msg;

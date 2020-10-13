@@ -5,8 +5,6 @@
 $brand: #077D84;
 $orange: #F78F52;
 $text: #646060;
-$yellow: #fab81e;
-$darkFont: #333;
 $error: #802000;
 
 /* ==========================================================================
@@ -116,7 +114,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  // color: $darkFont;
+  // color: $text;
 }
 
 
@@ -146,8 +144,7 @@ a:hover {
   background-color: #666666;
   text-shadow: 1px 2px 2px #555;
   text-align: center;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
+  background-clip: text;
 }
 
 /*
