@@ -24,7 +24,7 @@
     "build": "parcel build src/index.html",
     "clean": "rm -rf ./.cache && rm -rf ./dist",
     "mkdirs": "mkdir -p dist/img/teachers/ && mkdir -p dist/img/layout/",
-    "copy:assets": "cp -r src/img/teachers/* dist/img/teachers && cp -r src/img/layout/* dist/img/layout",
+    "copy:assets": "cp -r src/img/teachers/* dist/img/teachers && cp -r src/img/layout/* dist/img/layout && cp robots.txt dist/",
     "parcel": "npx parcel src/index.html src/*"
   },
   "repository": {
