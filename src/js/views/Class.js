@@ -15,7 +15,7 @@ export default class extends AbstractView {
 
   html(practice) {
     return `
-      <small>Class ID: ${practice._id}</small>
+      <small>${practice._id}</small>
       <h2>${practice.name}</h2>
       <p>With teacher: ${practice.teacher.name}</p>
       <p>${practice.description}</p>

@@ -21,7 +21,7 @@ export const ClassesList = (practices) => {
     output += `
             <tr>
               <td>${p.name}</td>
-              <td>${p.description}</td>
+              <td class="practice-description">${p.description}</td>
               <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
               <td>${new Date(p.date).toLocaleDateString("en-US", options)}</td>

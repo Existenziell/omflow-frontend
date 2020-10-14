@@ -1,6 +1,8 @@
 import AbstractView from "./AbstractView.js";
 import { ClassesList } from "./dashboard/ClassesList.js";
 import axios from 'axios';
+import '../../scss/dashboard.scss';
+
 
 export default class extends AbstractView {
   constructor(params) {
@@ -18,7 +20,7 @@ export default class extends AbstractView {
       let duration = document.querySelector('.practice-duration').value;
       let date = Date.parse(document.querySelector('.practice-date').value);
       if (date === '') date = new Date();
-      let teacher = '5f6f59850098330d2e30e7b6';
+      let teacher = '5f6f5ae599d33f0e4e6f77b6';
 
       let formData = {
         name: name,
