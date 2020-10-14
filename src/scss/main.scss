@@ -68,39 +68,19 @@ Login Form & Overlay
   }
 }
 
-#login-overlay, #register-overlay {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background: rgba(0, 0, 0, 0.7);
-  font-family: 'Gotu', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-}
+.login-form, .register-form {
+  width: 350px;
+  text-align: center;
+  margin: 0 auto;
 
-.form {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 25px 40px;
-  width: 250px;
-  position: relative;
-}
-
-.form h1 {
+  h1 {
     color: #4d4d4d;
     font-size: 20px;
     margin-top: 0px;
-}
+  }
 
-.form input[type="password"],
-.form input[type="text"] {
+  input[type="password"],
+  input[type="text"] {
     width: 100%;
     padding: 8px 10px;
     border: 1px solid #dddddd;
@@ -110,30 +90,21 @@ Login Form & Overlay
     &:focus {
       border: 1px solid $brand;
     }
-}
+  }
 
-.form input[type="submit"] {
+  input[type="submit"] {
     width: 100%;
+  }
+
+  .error-msg {
+    color: $error;
+    font-size: 14px;
+    margin: 0px 0px 10px;
+    display: none;
+    position: relative;
+  }
 }
 
-.form-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-}
-
-.form-close:hover {
-  cursor: pointer;
-  color: $brand;
-}
-
-.error-msg {
-  color: $error;
-  font-size: 12px;
-  margin: 0px 0px 10px;
-  display: none;
-  position: relative;
-}
 
 /* --------------------------------------------------------
 Footer

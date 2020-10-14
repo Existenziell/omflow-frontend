@@ -10,6 +10,10 @@ import Classes from "./views/Classes.js";
 import MatchMe from "./views/MatchMe.js";
 import Schedule from "./views/Schedule.js";
 
+import User from './views/User.js';
+import Login from "./views/Login.js";
+import Register from "./views/Register.js";
+
 import Dashboard from "./views/Dashboard.js";
 import EditClass from "./views/dashboard/EditClass.js";
 import CreateClass from "./views/dashboard/CreateClass.js";
@@ -42,17 +46,19 @@ const navigateTo = url => {
 const router = async () => {
   const routes = [
     { path: "/", view: Home },
+    { path: "/login", view: Login, js: 'login' },
+    { path: "/register", view: Register, js: 'register' },
     { path: "/about", view: About },
-    { path: "/map", view: Map, id: 'map' },
+    { path: "/map", view: Map, js: 'map' },
     { path: "/teachers", view: Teachers },
     { path: "/teachers/:id", view: Teacher },
     { path: "/classes", view: Classes },
     { path: "/classes/:id", view: Class },
-    { path: "/matchme", view: MatchMe, id: 'matchme' },
-    { path: "/schedule", view: Schedule, id: 'schedule' },
-    { path: "/dashboard", view: Dashboard, id: 'dashboard' },
-    { path: "/dashboard/classes/create", view: CreateClass, id: 'dashboard-create' },
-    { path: "/dashboard/classes/:id", view: EditClass, id: 'dashboard-edit' },
+    { path: "/matchme", view: MatchMe, js: 'matchme' },
+    { path: "/schedule", view: Schedule, js: 'schedule' },
+    { path: "/dashboard", view: Dashboard, js: 'dashboard' },
+    { path: "/dashboard/classes/create", view: CreateClass, js: 'dashboard-create' },
+    { path: "/dashboard/classes/:id", view: EditClass, js: 'dashboard-edit' },
   ];
 
   // Test each route for potential match
@@ -91,7 +97,15 @@ const router = async () => {
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // Add js requirements for route
-  switch (match.route.id) {
+  switch (match.route.js) {
+    case 'login': {
+      new Login().initLoginForm();
+      break;
+    }
+    case 'register': {
+      new Register().initRegisterForm();
+      break;
+    }
     case 'map': {
       // new Map().initMap(data);
       initMap(data);
@@ -121,10 +135,15 @@ const router = async () => {
     }
     // Always do:
     default: {
+
+      // If path is /logout run logout method from User
+      if (location.pathname === '/logout') {
+        await new User().logout();
+      }
+
       break;
     }
   }
-  new Header().initHeaderForms();
 };
 
 // Run router if user navigates in browser
