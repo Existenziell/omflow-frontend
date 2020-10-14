@@ -72,7 +72,6 @@ export default class extends AbstractView {
   }
 
   initRegisterForm = () => {
-
     const register = document.getElementById('register-form');
     register.onsubmit = async (e) => {
       const email = register.elements['email'].value;
@@ -86,9 +85,8 @@ export default class extends AbstractView {
           `${process.env.API_URL}/users/register`,
           registerUser
         );
-        document.getElementById('login-overlay').style.display = "flex";
-        document.getElementById('register-overlay').style.display = "none";
-
+        history.pushState(null, null, '/');
+        window.location = '/';
       } catch (err) {
         const msg = document.querySelector(".error-msg-register");
         msg.style.display = 'block';
