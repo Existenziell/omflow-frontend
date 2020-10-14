@@ -8,7 +8,7 @@ export default class extends AbstractView {
 
   async getHtml() {
     return `
-        <h1 id="welcomeMsg">Welcome to Omflow</h1>
+        <h1>Welcome to Omflow</h1>
         <a href="/teachers" data-link>View teachers</a>
         <a href="/classes" data-link>View classes</a>
     `;

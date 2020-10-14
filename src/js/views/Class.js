@@ -21,6 +21,7 @@ export default class extends AbstractView {
       <p>${practice.description}</p>
       <p>Duration: ${practice.duration}</p>
       <p>Date: ${new Date(practice.date).toLocaleDateString("en-US", this.options)}</p>
+      <a href="/classes" class="link" data-link>Back</a>
     `;
   }
 }

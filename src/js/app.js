@@ -73,13 +73,20 @@ const router = async () => {
     };
   }
 
+  // Is this user loggedIn? Pass down id...
+  const currentUser = {
+    token: window.localStorage.getItem("auth-token"),
+    id: window.localStorage.getItem("user-id"),
+    name: window.localStorage.getItem("user-name")
+  }
+
   // Create new instance of the view at matched route...
   const view = new match.route.view(getParams(match));
   const header = new Header();
   const footer = new Footer();
 
   // And call its getHtml class method
-  document.querySelector("#app").innerHTML = await view.getHtml(data);
+  document.querySelector("#app").innerHTML = await view.getHtml(data, currentUser);
   document.querySelector("#header").innerHTML = await header.getHtml();
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 

@@ -1,4 +1,4 @@
-export const ClassesList = (practices) => {
+export const ClassesList = (practices, currentUser) => {
 
   var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
@@ -21,7 +21,7 @@ export const ClassesList = (practices) => {
     output += `
             <tr>
               <td>${p.name}</td>
-              <td class="practice-description">${p.description}</td>
+              <td class="practicelist-description">${p.description}</td>
               <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
               <td>${new Date(p.date).toLocaleDateString("en-US", options)}</td>

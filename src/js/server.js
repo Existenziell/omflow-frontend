@@ -11,7 +11,7 @@ require('dotenv').config();
 app.use(express.static(path.resolve(__dirname, "src")));
 
 // All requests go to index.html
-app.get("/*", (req, res) => {
+app.get("/*", auth, (req, res) => {
   res.sendFile(path.resolve(__dirname, "src", "index.html"));
 });
 

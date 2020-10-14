@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import User from './User.js';
 import axios from 'axios';
 
 export default class extends AbstractView {
@@ -20,8 +21,14 @@ export default class extends AbstractView {
     });
   }
 
-  initLoginForm = () => {
+  initLogout = () => {
+    $(".logout-user").on("click", (e) => {
+      new User().logout();
+      e.preventDefault();
+    });
+  }
 
+  initLoginForm = () => {
     const login = document.getElementById('login-form');
     login.onsubmit = async (e) => {
       const email = login.elements['email'].value;
@@ -30,19 +37,19 @@ export default class extends AbstractView {
       e.preventDefault();
       try {
         const loginUser = { email, password };
-        console.log(loginUser);
         const res = await axios.post(
           `${process.env.API_URL}/users/login`,
           loginUser
         );
-        localStorage.setItem("auth-token", res.data.token);
-        history.pushState(null, null, '/');
-        document.getElementById('login-overlay').style.display = "none";
-        document.getElementById('welcomeMsg').innerHTML = `Welcome to Omflow ${res.data.email}<br />You are now registered, logged-in and ready to go!`;
 
+        // Set JWT x-auth-token in client localStorage
+        localStorage.setItem("auth-token", res.data.token);
+        localStorage.setItem("user-id", res.data.user.id);
+        localStorage.setItem("user-name", res.data.user.displayName);
+
+        history.pushState(null, null, '/');
+        window.location = '/';
       } catch (err) {
-        console.log("err");
-        console.log(err);
         const msg = document.querySelector(".error-msg-login");
         msg.style.display = 'block';
         msg.innerHTML = err.response.data.msg;
@@ -79,9 +86,6 @@ export default class extends AbstractView {
           `${process.env.API_URL}/users/register`,
           registerUser
         );
-
-        // console.log(res.data);
-        // localStorage.setItem("auth-token", res.data.token);
         document.getElementById('login-overlay').style.display = "flex";
         document.getElementById('register-overlay').style.display = "none";
 
@@ -94,11 +98,14 @@ export default class extends AbstractView {
   }
 
   initHeaderForms = () => {
-    this.initLoginOverlay()
-    this.initRegisterOverlay()
+    this.initLoginOverlay();
+    this.initRegisterOverlay();
+    this.initLogout();
   }
 
   async getHtml() {
+
+    const isLoggedIn = await new User().isLoggedIn();
     return `
 
       <!--Navbar-->
@@ -138,24 +145,24 @@ export default class extends AbstractView {
               <li class="nav-item">
                 <a href="/schedule" class="nav-link" data-link>Schedule</a>
               </li>
-              <li class="nav-item">
-                <a href="/dashboard" class="nav-link" data-link>Dashboard</a>
-              </li>
+              ${isLoggedIn ?
+        `<li class="nav-item">
+                  <a href="/dashboard" class="nav-link" data-link>Dashboard</a>
+                </li>`
+        : ``}
             </ul>
           </div>
-
-          <!-- Right-->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button class="btn btn-sm btn-outline-info show-login-layer">Login</button>
-            </li>
-            <li class="nav-item">
-              <button class="btn btn-sm btn-outline-info show-register-layer">Register</button>
-            </li>
-          </ul>
-
         </div>
       </nav>
+
+      <div class="header-forms">
+        ${isLoggedIn ?
+        `<button class="btn btn-sm btn-outline-info logout-user">Logout</button>`
+        :
+        `<button class="btn btn-sm btn-outline-info show-login-layer">Login</button>
+        <button class="btn btn-sm btn-outline-info show-register-layer">Register</button>`
+      }
+      </div>
 
       <div id="login-overlay">
         <div class="form">

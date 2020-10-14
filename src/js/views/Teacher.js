@@ -32,6 +32,7 @@ export default class extends AbstractView {
     output += `
         </ul>
       </section>
+      <a href="/teachers" class="link" data-link>Back</a>
     `;
 
     return output;

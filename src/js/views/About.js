@@ -30,11 +30,6 @@ export default class extends AbstractView {
           </div>
         </section>
         <hr />
-        <section class="testimonial">
-          <h2>CLICK BELOW TO HEAR A MESSAGE FROM OMFLOW TEACHERS</h2>
-          <iframe src="https://player.vimeo.com/video/430023667?app_id=122963&amp;wmode=opaque" width="426" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" title="Omflow Unity Ad Video" id="yui_3_17_2_1_1602524991078_74"></iframe>
-        </section>
-        <hr />
       </div>
     `;
   }
