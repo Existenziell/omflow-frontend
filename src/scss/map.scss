@@ -54,8 +54,20 @@ email: bauer.christof@gmail.com
       font-size: 24px;
     }
 
+    h2 {
+      font-size: 16px;
+      line-height: 22px;
+      width: 80%;
+    }
+
     p {
       max-width: 300px;
+    }
+
+    a {
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 30px;
     }
   }
 }
@@ -121,12 +133,10 @@ email: bauer.christof@gmail.com
 }
 
 /* --------------------------------------------------------
-Vimeo Embed
+Video Embed
 ----------------------------------------------------------*/
 
 .embed-container {
-  // position: relative;
-  // padding-bottom: 56.25%;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -136,7 +146,6 @@ Vimeo Embed
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
-  // position: absolute;
   top: 0;
   left: 0;
   width: 100%;

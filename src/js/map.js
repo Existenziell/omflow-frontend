@@ -6,7 +6,6 @@ let map = {},
 
 const initMap = (data) => {
   mapdata = createMapData(data.teachers, data.practices);
-
   mapboxgl.accessToken = accessToken;
   map = new mapboxgl.Map({
     container: 'map',
@@ -30,7 +29,8 @@ const initMap = (data) => {
       source: 'places',
       filter: ['has', 'point_count'],
       paint: {
-        'circle-color': '#237a9a',
+        // 'circle-color': '#237a9a',
+        'circle-color': '#FFFFFF',
         'circle-radius': 20,
         'circle-opacity': .8
       }
@@ -53,7 +53,8 @@ const initMap = (data) => {
       source: 'places',
       filter: ['!', ['has', 'point_count']],
       paint: {
-        'circle-color': '#237a9a',
+        // 'circle-color': '#237a9a',
+        'circle-color': '#FFFFFF',
         'circle-radius': 10,
         'circle-stroke-width': 1,
         'circle-stroke-color': '#ddd',
@@ -87,7 +88,6 @@ const initMap = (data) => {
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
-
       let html = createMarkerHtml(e.features[0]);
       new mapboxgl.Popup()
         .setLngLat(coordinates)
@@ -198,8 +198,7 @@ const createGeo = () => {
 }
 
 const createMarkerHtml = data => {
-  const { name, image, video, description, classes, tag } = data.properties;
-
+  const { id, name, image, video, description, classes, tag } = data.properties;
   return `
     <div class="popup">
       <section class="popup-left">
@@ -208,8 +207,10 @@ const createMarkerHtml = data => {
       <section class="popup-right">
         <h1>${name}</h1>
         <p>${description}</p>
-        <ul>${classes}</ul>
-      </section>
+        <a href="/teachers/${id}" data-link>More about ${name}</a>
+        <h2>${name} is offering the following classes:</h2>
+        <span>${classes}</span>
+        </section>
     </div>
   `;
 }
@@ -224,7 +225,7 @@ const removeMap = () => {
 const createMapData = (teachers, practices) => {
   let template = `{
     "type":"FeatureCollection",
-    "features":[`;
+    "features": [`;
   for (let teacher of teachers) {
     let teacherClasses = practices.filter((p) => {
       return p.teacher._id === teacher._id;
@@ -232,22 +233,22 @@ const createMapData = (teachers, practices) => {
     teacherClasses = teacherClasses.map((c) => {
       return c.name;
     })
-
     template += `
     {
-      "type":"Feature",
-      "id":"${teacher.name}, Omflow teacher",
-      "properties":{
-         "name":"${teacher.name}",
-         "tag":"${teacher.tag}",
-         "image":"${teacher.image}",
-         "video":"${teacher.video}",
-         "description":"${teacher.description}",
-         "classes":["${teacherClasses}"]
+      "type": "Feature",
+      "id": "${teacher.name}, Omflow teacher",
+      "properties": {
+        "id": "${teacher._id}",
+        "name": "${teacher.name}",
+        "tag": "${teacher.tag}",
+        "image": "${teacher.image}",
+        "video": "${teacher.video}",
+        "description": "${teacher.description}",
+        "classes": "${teacherClasses.join(" ")}"
       },
-      "geometry":{
+      "geometry": {
          "type":"Point",
-         "coordinates":["${teacher.coordinates[0]}", "${teacher.coordinates[1]}"]
+         "coordinates": ["${teacher.coordinates[0]}", "${teacher.coordinates[1]}"]
       }
     },
    `;
