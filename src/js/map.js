@@ -198,17 +198,20 @@ const createGeo = () => {
 }
 
 const createMarkerHtml = data => {
-  const { name, image, video, description, classes } = data.properties;
+  const { name, image, video, description, classes, tag } = data.properties;
 
   return `
-        <div class='popup'>
-            <h1>${name}</h1>
-            <img src='/img/teachers/${image}' />
-            <div class='embed-container'>${video}</div>
-            <p>${description}</p>
-            <ul>${classes}</ul>
-        </div>
-    `;
+    <div class="popup">
+      <section class="popup-left">
+        <img src="/img/teachers/${tag}.jpg" />
+      </section>
+      <section class="popup-right">
+        <h1>${name}</h1>
+        <p>${description}</p>
+        <ul>${classes}</ul>
+      </section>
+    </div>
+  `;
 }
 
 const removeMap = () => {

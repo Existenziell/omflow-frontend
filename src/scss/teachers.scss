@@ -13,13 +13,14 @@ email: bauer.christof@gmail.com
 .teachers-list {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 
   > li {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 15px 20px;
-    // height: 300px;
     width: 30%;
     overflow: hidden;
+    margin-bottom: 30px;
 
     > a {
       color: $text;
@@ -31,4 +32,15 @@ email: bauer.christof@gmail.com
   }
 }
 
+.teacher-container {
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  span {
+    display: block;
+    margin: 20px 0;
+  }
+}
 

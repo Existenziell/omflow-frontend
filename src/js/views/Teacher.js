@@ -21,7 +21,7 @@ export default class extends AbstractView {
         <p>${this.teacher.description}</p>
         <p>${this.teacher.address}</p>
         <img src="/img/teachers/${this.teacher.tag}.jpg" />
-        <h3>${this.teacher.name} offers the following classes:</h3>
+        <span>${this.teacher.name} offers the following classes:</span>
         <ul>
     `;
     for (let p of this.teacher.practices) {

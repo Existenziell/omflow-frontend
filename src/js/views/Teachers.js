@@ -24,8 +24,6 @@ export default class extends AbstractView {
           <li>
             <h3><a href="/teachers/${t._id}" data-link>${t.name}</a></h3>
             <img src="/img/teachers/${t.tag}.jpg" />
-            <p>${t.description}</p>
-            <p>${t.address}</p>
           </li>
       `;
     }

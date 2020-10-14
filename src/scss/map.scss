@@ -19,13 +19,8 @@ email: bauer.christof@gmail.com
 }
 
 .mapboxgl-popup {
-  // min-width: 50%;
   overflow: hidden;
   max-width: 100% !important;
-}
-
-.mapboxgl-popup-content {
-  padding: 12px;
 }
 
 .mapboxgl-popup-content a {
@@ -34,39 +29,34 @@ email: bauer.christof@gmail.com
 }
 
 .mapboxgl-popup-close-button {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .popup {
-
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: baseline;
+  padding: 10px 20px;
 
-  h1 {
-    font-size: 22px;
-    line-height: 24px;
-    margin: 0px 0px 10px;
+  .popup-left {
+    margin-right: 20px;
+
+    img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left center;
+      width: 300px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
   }
-  h2 {
-    font-size: 14px;
-    margin-top: 20px;
-  }
-  span {
-    font-size: 11px;
-    margin: 10px 0px 0px;
-  }
-  img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left center;
-    // width: 100%;
-    // height: 0;
-    // padding-top: 56.25%;
-    margin-bottom: 20px;
-    width: 300px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  .popup-right {
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      max-width: 300px;
+    }
   }
 }
 
