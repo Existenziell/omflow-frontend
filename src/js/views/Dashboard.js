@@ -8,6 +8,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Dashboard");
+    this.token = window.localStorage.getItem("auth-token");
   }
 
   createPractice = () => {
@@ -18,10 +19,12 @@ export default class extends AbstractView {
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
       let duration = document.querySelector('.practice-duration').value;
-      let date = Date.parse(document.querySelector('.practice-date').value);
-      if (date === '') date = new Date();
-      let teacher = '5f6f5ae599d33f0e4e6f77b6'; // ToDo: REMOVE
+      let date;
+      document.querySelector('.practice-date').value === '' ?
+        date = Date.now() :
+        date = Date.parse(document.querySelector('.practice-date').value);
 
+      let teacher = '5f6f5ae599d33f0e4e6f77b6'; // ToDo: REMOVE
       let formData = {
         name: name,
         description: description,
@@ -30,7 +33,7 @@ export default class extends AbstractView {
         teacher: teacher,
       }
 
-      axios.post(form.action, formData)
+      axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
           window.location = '/dashboard';
           // location.reload();
@@ -49,8 +52,10 @@ export default class extends AbstractView {
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
       let duration = document.querySelector('.practice-duration').value;
-      let date = document.querySelector('.practice-date').value;
-      if (date === '') date = new Date();
+      let date;
+      document.querySelector('.practice-date').value === '' ?
+        date = Date.now() :
+        date = Date.parse(document.querySelector('.practice-date').value);
 
       let formData = {
         name: name,
@@ -58,7 +63,7 @@ export default class extends AbstractView {
         date: date,
         duration: duration
       }
-      axios.post(form.action, formData)
+      axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
           window.location = '/dashboard';
           // location.reload();
@@ -74,7 +79,7 @@ export default class extends AbstractView {
       button.addEventListener("click", (e) => {
         e.preventDefault();
         const id = e.target.getAttribute('data-id');
-        axios.delete(`${process.env.API_URL}/practices/${id}`)
+        axios.delete(`${process.env.API_URL}/practices/${id}`, { headers: { "x-auth-token": this.token } })
           .then(response => {
             // history.back();
             location.reload();
