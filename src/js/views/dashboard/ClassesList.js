@@ -3,7 +3,6 @@ export const ClassesList = (practices) => {
   var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
   let output = `
-      <h1>My Classes</h1>
       <div>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
@@ -37,7 +36,7 @@ export const ClassesList = (practices) => {
   output += `
             </tbody>
           </table>
-          <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
+          <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
         </div>
       `;
   return output;

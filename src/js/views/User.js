@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import { ClassesList } from "./dashboard/ClassesList.js";
+import { TeachersList } from "./dashboard/TeachersList.js";
 import axios from 'axios';
 import '../../scss/users.scss';
 
@@ -66,7 +67,7 @@ export default class extends AbstractView {
   }
 
   html = () => {
-    // If user is of role teacher show his/her classes
+    // If user is of role teacher show only his/her own classes
     // ToDo: Matching on IDs will not work...
     if (this.user.role === 'teacher') {
       this.teacherClasses = this.data.practices.filter((p) => {
@@ -109,11 +110,11 @@ export default class extends AbstractView {
       </div>
 
       ${this.user.role === 'admin' ?
-        ClassesList(this.data.practices) : ''
-      }
-      ${this.user.role === 'teacher' ?
-        ClassesList(this.teacherClasses) : ''
-      }
-`;
+        `<h1>All Classes</h1>
+        ${ClassesList(this.data.practices)}`
+        : ''}
+      ${this.user.role === 'admin' ? TeachersList(this.data.teachers) : ''}
+      ${this.user.role === 'teacher' ? ClassesList(this.teacherClasses) : ''}
+    `;
   }
 }

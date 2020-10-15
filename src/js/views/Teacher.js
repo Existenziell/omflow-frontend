@@ -30,8 +30,12 @@ export default class extends AbstractView {
     `;
     for (let p of this.teacher.practices) {
       output += `
-          <li>${p.name} -  ${p.description} - ${p.duration} min</li>
-    `;
+          <li>
+            <a href="/classes/${p._id}" data-link>
+              ${p.name} -  ${p.description} - ${p.duration} min
+            </a>
+          </li>
+      `;
     }
     output += `
         </ul>
