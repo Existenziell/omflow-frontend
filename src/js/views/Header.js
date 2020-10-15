@@ -1,13 +1,12 @@
 import AbstractView from "./AbstractView.js";
-import User from './User.js';
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
   }
 
-  async getHtml() {
-    const isLoggedIn = await new User().isLoggedIn();
+  async getHtml(data) {
+    const { isLoggedIn } = data;
     return `
 
       <!--Navbar-->

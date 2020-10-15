@@ -1,8 +1,9 @@
-export const ClassesList = (practices, currentUser) => {
+export const ClassesList = (practices) => {
 
   var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
   let output = `
+      <h1>My Classes</h1>
       <div>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">

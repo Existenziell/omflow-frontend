@@ -23,7 +23,7 @@ export default class extends AbstractView {
         // Set JWT x-auth-token in client localStorage
         localStorage.setItem("auth-token", res.data.token);
         localStorage.setItem("user-id", res.data.user.id);
-        localStorage.setItem("user-name", res.data.user.displayName);
+        localStorage.setItem("user-name", res.data.user.name);
 
         history.pushState(null, null, '/');
         window.location = '/';

@@ -11,9 +11,36 @@ export default class extends AbstractView {
     this.token = window.localStorage.getItem("auth-token");
   }
 
+  editUser = () => {
+    const form = document.getElementById('edit-user');
+    const formBtn = document.getElementById('save-user');
+
+    if (!formBtn) return false;
+    formBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      let name = document.querySelector('.user-name').value;
+      let email = document.querySelector('.user-email').value;
+      let location = document.querySelector('.user-location').value;
+
+      let formData = {
+        name,
+        email,
+        location
+      }
+
+      axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
+        .then(response => {
+          const msg = document.querySelector(".server-msg");
+          msg.style.display = 'block';
+          msg.innerHTML = response.data;
+        })
+        .catch(error => console.error('error'));
+    });
+  }
+
   createPractice = () => {
     const form = document.getElementById('create-class');
-    const formBtn = document.getElementById('saveFormBtn');
+    const formBtn = document.getElementById('save-practice');
     formBtn.addEventListener("click", (e) => {
       e.preventDefault();
       let name = document.querySelector('.practice-name').value;
@@ -45,7 +72,7 @@ export default class extends AbstractView {
 
   editPractice = () => {
     const form = document.getElementById('edit-class');
-    const formBtn = document.getElementById('saveFormBtn');
+    const formBtn = document.getElementById('save-practice');
 
     formBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -94,16 +121,12 @@ export default class extends AbstractView {
     $('.datetimepicker').datetimepicker().data('datetimepicker');
   }
 
-  async getHtml(data, currentUser) {
-    const { practices } = data;
-    const isLoggedIn = await new User().isLoggedIn();
-    if (!isLoggedIn) return `Please login to access this page`;
+  async getHtml(data) {
+    const { practices, isLoggedIn } = data;
+    if (!isLoggedIn) return `<div class="not-logged-in">Please login to access this page</div>`;
 
     return `
-      <h1>My Data</h1>
-      <p>...</p>
-      <h1>My Classes</h1>
-        ${ClassesList(practices, currentUser)}
+      ${await new User().getHtml(data)}
     `;
   }
 }
