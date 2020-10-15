@@ -75,7 +75,7 @@ export default class extends AbstractView {
       })
     }
     return `
-      <div class='user-space'>
+      <section class='user-space'>
         <h2>Welcome to your personal space ${this.user.name}</h2>
         <form id="edit-user" action="${process.env.API_URL}/users/update/${this.user.id}" method="POST">
           <div class="form-group">
@@ -107,14 +107,11 @@ export default class extends AbstractView {
             <a href="" id="save-user" class="btn btn-primary">Save</a>
           </div>
         </form>
-      </div>
+      </section>
 
-      ${this.user.role === 'admin' ?
-        `<h1>All Classes</h1>
-        ${ClassesList(this.data.practices)}`
-        : ''}
+      ${this.user.role === 'admin' ? ClassesList(this.data.practices, this.user.role) : ''}
       ${this.user.role === 'admin' ? TeachersList(this.data.teachers) : ''}
-      ${this.user.role === 'teacher' ? ClassesList(this.teacherClasses) : ''}
+      ${this.user.role === 'teacher' ? ClassesList(this.data.practices) : ''}
     `;
   }
 }

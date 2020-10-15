@@ -1,9 +1,15 @@
-export const ClassesList = (practices) => {
-
+export const ClassesList = (practices, role) => {
+  if (practices === undefined || practices.length == 0) {
+    return ``;
+  }
   var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
+  let msg;
+  role === 'admin' ? msg = `All Classes` : msg = "My Classes";
+
   let output = `
-      <div>
+      <section class="admin-practices-list">
+        <h1>${msg}</h1>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>
@@ -37,7 +43,7 @@ export const ClassesList = (practices) => {
             </tbody>
           </table>
           <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
-        </div>
+        </section>
       `;
   return output;
 }

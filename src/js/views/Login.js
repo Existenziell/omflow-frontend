@@ -43,7 +43,7 @@ export default class extends AbstractView {
           <input type="text" name="email" placeholder="Email" required>
           <input type="password" name="password" placeholder="Password" required>
           <p class="error-msg error-msg-login"></p>
-          <input type="submit" class="btn btn-info">
+          <input type="submit" class="btn btn-info" value="Login">
         </form>
       </div>
     `;

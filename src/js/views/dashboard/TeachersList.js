@@ -2,7 +2,7 @@ export const TeachersList = (teachers) => {
 
   let output = `
 
-    <section class="teachers-list">
+    <section class="admin-teachers-list">
       <h1>Omies:</h1>
       <div>
         <table class="table table-hover table-condensed">
@@ -11,7 +11,6 @@ export const TeachersList = (teachers) => {
               <th>Name</th>
               <th>Description</th>
               <th>Address</th>
-              <th>Tag</th>
               <th>Image</th>
               <th>Styles</th>
               <th>Levels</th>
@@ -33,8 +32,7 @@ export const TeachersList = (teachers) => {
               <td>${t.name}</td>
               <td>${t.description}</td>
               <td>${t.address}</td>
-              <td>${t.tag}</td>
-              <td>${t.image}</td>
+              <td><img src="img/teachers/${t.tag}.jpg" /></td>
               <td>${t.styles}</td>
               <td>${t.levels}</td>
               <td>${practices}</td>

@@ -13,9 +13,9 @@ export default class extends AbstractView {
   editUser = () => {
     const form = document.getElementById('edit-user');
     const formBtn = document.getElementById('save-user');
-
     if (!formBtn) return false;
-    formBtn.addEventListener("click", (e) => {
+
+    formBtn.onclick = (e) => {
       e.preventDefault();
       let name = document.querySelector('.user-name').value;
       let email = document.querySelector('.user-email').value;
@@ -34,13 +34,13 @@ export default class extends AbstractView {
           msg.innerHTML = response.data;
         })
         .catch(error => console.error('error'));
-    });
+    }
   }
 
   createPractice = () => {
     const form = document.getElementById('create-class');
-    const formBtn = document.getElementById('save-practice');
-    formBtn.addEventListener("click", (e) => {
+
+    form.onsubmit = async (e) => {
       e.preventDefault();
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
@@ -66,14 +66,13 @@ export default class extends AbstractView {
           // history.back();
         })
         .catch(error => console.error('error'));
-    });
+    }
   }
 
   editPractice = () => {
     const form = document.getElementById('edit-class');
-    const formBtn = document.getElementById('save-practice');
 
-    formBtn.addEventListener("click", (e) => {
+    form.onsubmit = async (e) => {
       e.preventDefault();
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
@@ -96,13 +95,14 @@ export default class extends AbstractView {
           // history.back();
         })
         .catch(error => console.error('error'));
-    });
+    }
   }
 
   deletePractice = () => {
     const deleteBtns = document.querySelectorAll('.delete-practice');
     for (let button of deleteBtns) {
-      button.addEventListener("click", (e) => {
+
+      button.onclick = ((e) => {
         e.preventDefault();
         const id = e.target.getAttribute('data-id');
         axios.delete(`${process.env.API_URL}/practices/${id}`, { headers: { "x-auth-token": this.token } })
@@ -111,7 +111,7 @@ export default class extends AbstractView {
             location.reload();
           })
           .catch(error => console.error('error'));
-      });
+      })
     }
   }
 

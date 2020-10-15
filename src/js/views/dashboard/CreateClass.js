@@ -36,7 +36,7 @@ export default class extends AbstractView {
             </div>
           </div>
           <div class="form-group">
-            <a href="" id="save-practice" class="btn btn-primary">Save</a>
+            <input type="submit" id="save-practice" class="btn btn-primary" value="Save" />
             <a href="/dashboard" value="Cancel" class="btn btn-link" data-link>Cancel</a>
           </div>
         </form>

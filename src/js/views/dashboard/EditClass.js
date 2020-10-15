@@ -22,11 +22,11 @@ export default class extends AbstractView {
         <form id="edit-class" action="${process.env.API_URL}/practices/update/${this.practiceId}" method="POST">
           <div class="form-group">
             <label>Name:</label>
-            <input type="text" required class="form-control practice-name" value="${this.practice.name}" />
+            <input type="text" class="form-control practice-name" value="${this.practice.name}" required />
           </div>
           <div class="form-group">
             <label>Description:</label>
-            <input type="text" required class="form-control practice-description" value="${this.practice.description}" />
+            <input type="text" class="form-control practice-description" value="${this.practice.description}" required />
           </div>
           <div class="form-group">
             <label>Duration (in minutes):</label>
@@ -41,7 +41,7 @@ export default class extends AbstractView {
             </div>
           </div>
           <div class="form-group">
-            <a href="" id="save-practice" class="btn btn-primary">Save</a>
+            <input type="submit" id="save-practice" class="btn btn-primary" value="Save" />
             <a href="/dashboard" value="Cancel" class="btn btn-link" data-link>Cancel</a>
           </div>
         </form>
