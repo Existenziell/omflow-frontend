@@ -20,11 +20,6 @@ import CreateClass from "./views/dashboard/CreateClass.js";
 
 import { initMap } from './map.js';
 
-let data = {
-  practices: [],
-  teachers: []
-}
-
 const pathToRegex = path =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -37,12 +32,16 @@ const getParams = match => {
   }));
 };
 
-// Use history API
+// Navigate to url and initiate router
 const navigateTo = url => {
+  // Abort if current route is equal to clicked route
+  if (url === location.href) return;
+  // Use history API
   history.pushState(null, null, url);
   router();
 };
 
+// Frontend routes
 const router = async () => {
   const routes = [
     { path: "/", view: Home },
@@ -84,12 +83,9 @@ const router = async () => {
   const header = new Header();
   const footer = new Footer();
 
-  const isLoggedIn = await new User().isLoggedIn();
-  data.isLoggedIn = isLoggedIn;
-
-  // And call its getHtml class method
-  document.querySelector("#app").innerHTML = await view.getHtml(data);
-  document.querySelector("#header").innerHTML = await header.getHtml(data);
+  // ...and call its getHtml class method
+  document.querySelector("#header").innerHTML = await header.getHtml();
+  document.querySelector("#app").innerHTML = await view.getHtml();
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // Add js requirements for route
@@ -103,8 +99,8 @@ const router = async () => {
       break;
     }
     case 'map': {
-      // new Map().initMap(data);
-      initMap(data);
+      // new Map().initMap();
+      initMap();
       break;
     }
     case 'matchme': {
@@ -140,6 +136,9 @@ const router = async () => {
       break;
     }
   }
+  // Finally, highlight active navigation link
+  new Header().setActiveNavItem();
+
 };
 
 // Run router if user navigates in browser
@@ -147,15 +146,6 @@ window.addEventListener("popstate", router);
 
 // Fetch all clicks on data-links // prevent page reload // Let router handle the navigation
 document.addEventListener("DOMContentLoaded", async () => {
-
-  // Fetch all necessary data from backend
-  const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
-  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
-  data = {
-    teachers,
-    practices
-  }
-
   // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {

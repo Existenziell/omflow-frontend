@@ -8,8 +8,9 @@ export default class extends AbstractView {
     this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
-  async getHtml({ practices }) {
-    this.practices = practices;
+  async getHtml() {
+    // Fetch all necessary data from backend
+    this.practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
     return this.html();
   }
 

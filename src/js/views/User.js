@@ -7,6 +7,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
 
+    this.data = {};
     this.user = {};
     this.teacherClasses = {};
   }
@@ -37,22 +38,38 @@ export default class extends AbstractView {
     window.location = '/';
   }
 
-  async getHtml(data) {
+  async getHtml() {
+
+    // Fetch all necessary data from backend
+    const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
+    const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
+    this.data = {
+      teachers,
+      practices
+    }
+
     const authToken = window.localStorage.getItem("auth-token");
     await axios.get(`${process.env.API_URL}/users/`, { headers: { "x-auth-token": authToken } })
       .then(response => {
         this.user = response.data;
       })
       .catch(error => console.error(error));
-    return this.html(data);
+    return this.html();
   }
 
-  html = (data) => {
+  // Calculate the number of days since user registered
+  calculateDays = () => {
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const createdAt = Date.parse(this.user.createdAt);
+    const now = Date.now();
+    return Math.round(Math.abs((now - createdAt) / oneDay));
+  }
 
+  html = () => {
     // If user is of role teacher show his/her classes
     // ToDo: Matching on IDs will not work...
     if (this.user.role === 'teacher') {
-      this.teacherClasses = data.practices.filter((p) => {
+      this.teacherClasses = this.data.practices.filter((p) => {
         return p.teacher._id === this.user.id;
       })
     }
@@ -77,6 +94,10 @@ export default class extends AbstractView {
             <input type="text" required class="form-control user-role" value="${this.user.role}" disabled />
           </div>
           <div class="form-group">
+            <label>Omflower since:</label>
+            <input type="text" required class="form-control user-role" value="${this.calculateDays()} days" disabled />
+          </div>
+          <div class="form-group">
             <label>Omflow ID:</label>
             <input type="text" class="form-control user-id" value="${this.user.id}" disabled />
           </div>
@@ -88,7 +109,7 @@ export default class extends AbstractView {
       </div>
 
       ${this.user.role === 'admin' ?
-        ClassesList(data.practices) : ''
+        ClassesList(this.data.practices) : ''
       }
       ${this.user.role === 'teacher' ?
         ClassesList(this.teacherClasses) : ''

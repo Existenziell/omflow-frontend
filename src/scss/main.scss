@@ -34,6 +34,7 @@ body > .container {
 
 .navbar-light .navbar-nav .nav-link {
   color: rgba(0,0,0,.8);
+  font-size: 20px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
@@ -53,6 +54,11 @@ body > .container {
   margin: 0 auto;
 }
 
+.nav-item .active {
+  color: $brand !important;
+  font-weight: bold;
+}
+
 /* --------------------------------------------------------
 Login Form & Overlay
 ----------------------------------------------------------*/
@@ -63,7 +69,7 @@ Login Form & Overlay
   top: 20px;
   display: flex;
 
-  button {
+  a {
     margin-left: 8px;
   }
 }

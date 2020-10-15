@@ -4,8 +4,11 @@ let map = {},
   geolocate = {},
   mapdata = {};
 
-const initMap = (data) => {
-  mapdata = createMapData(data.teachers, data.practices);
+const initMap = async () => {
+  const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
+  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
+
+  mapdata = createMapData(teachers, practices);
   mapboxgl.accessToken = accessToken;
   map = new mapboxgl.Map({
     container: 'map',

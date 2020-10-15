@@ -9,7 +9,9 @@ export default class extends AbstractView {
     this.teachers = [];
   }
 
-  async getHtml({ teachers }) {
+  async getHtml() {
+    // Fetch all necessary data from backend
+    const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
     this.teachers = teachers;
     return this.html();
   }

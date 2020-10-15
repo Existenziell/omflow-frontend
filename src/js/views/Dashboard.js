@@ -1,5 +1,4 @@
 import AbstractView from "./AbstractView.js";
-import { ClassesList } from "./dashboard/ClassesList.js";
 import User from './User.js';
 import axios from 'axios';
 import '../../scss/dashboard.scss';
@@ -121,12 +120,11 @@ export default class extends AbstractView {
     $('.datetimepicker').datetimepicker().data('datetimepicker');
   }
 
-  async getHtml(data) {
-    const { practices, isLoggedIn } = data;
+  async getHtml() {
+    const isLoggedIn = await new User().isLoggedIn();
     if (!isLoggedIn) return `<div class="not-logged-in">Please login to access this page</div>`;
-
     return `
-      ${await new User().getHtml(data)}
+      ${await new User().getHtml()}
     `;
   }
 }
