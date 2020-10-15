@@ -32,7 +32,7 @@ export const TeachersList = (teachers) => {
               <td>${t.name}</td>
               <td>${t.description}</td>
               <td>${t.address}</td>
-              <td><img src="img/teachers/${t.tag}.jpg" /></td>
+              <td><img src="img/teachers/${t.tag}.jpg" alt="${t.tag}" /></td>
               <td>${t.styles}</td>
               <td>${t.levels}</td>
               <td>${practices}</td>

@@ -205,7 +205,7 @@ const createMarkerHtml = data => {
   return `
     <div class="popup">
       <section class="popup-left">
-        <img src="/img/teachers/${tag}.jpg" />
+        <img src="/img/teachers/${tag}.jpg" alt="${tag}" />
       </section>
       <section class="popup-right">
         <h1>${name}</h1>
