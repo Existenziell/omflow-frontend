@@ -4,7 +4,6 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.practiceId = params.id;
-    this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
   async getHtml() {
@@ -21,7 +20,7 @@ export default class extends AbstractView {
       <p>Name: ${practice.name}</p>
       <p>Details: ${practice.description}</p>
       <p>Duration: ${practice.duration}</p>
-      <p>Date: ${new Date(practice.date).toLocaleDateString("en-US", this.options)}</p>
+      <p>Date: ${moment(practice.date).format("dddd, MMMM Do YYYY, h:mm a")}</p>
       <a href="/classes" class="link" data-link>Back</a>
     `;
   }

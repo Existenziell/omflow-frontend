@@ -7,7 +7,6 @@ export default class extends AbstractView {
     this.practice = {};
     this.styles = {};
     this.levels = {};
-    this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
   async getHtml() {
@@ -39,7 +38,7 @@ export default class extends AbstractView {
             <label>Date:</label>
             <div>
               <div class="input-group date" data-provide="datetimepicker">
-                <input type="text" class="form-control practice-date datetimepicker" value="${new Date(this.practice.date).toLocaleDateString("en-US", this.options)}">
+                <input type="text" class="form-control practice-date datetimepicker" value="${moment(this.practice.date).format("MMMM Do YYYY, h:mm a")}">
               </div>
             </div>
           </div>

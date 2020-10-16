@@ -49,19 +49,17 @@ export default class extends AbstractView {
     return response.role;
   }
 
+  getClasses = async () => {
+    const response = await this.fetchData();
+    return response.practices;
+  }
+
   getHtml = async () => {
     await this.fetchData();
     return this.html();
   }
 
   html = () => {
-    // If user is of role teacher show only his/her own classes
-    // ToDo: Matching on IDs will not work...
-    // if (this.user.role === 'teacher') {
-    //   this.teacherClasses = this.data.practices.filter((p) => {
-    //     return p.teacher._id === this.user.id;
-    //   })
-    // }
     return `
       <section class='user-space'>
         <h2>Welcome to your personal space ${this.user.name}</h2>

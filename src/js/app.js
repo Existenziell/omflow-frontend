@@ -127,9 +127,7 @@ const router = async () => {
       new Dashboard().initDatetimePicker();
       break;
     }
-    // Always do:
     default: {
-
       // If path is /logout run logout method from User
       if (location.pathname === '/logout') {
         await new User().logout();
@@ -158,11 +156,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       navigateTo(e.target.href); ``
     }
   });
-  // Show loader also after all form submits
-  document.body.addEventListener("submit", e => {
-    loader.classList.add("is-active");
-  });
-
   // Initiate router when DOMContentLoaded
   router();
 });

@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import User from './dashboard/User.js';
+import Teacher from './Teacher.js';
 import { AdminSpace } from './dashboard/AdminSpace.js';
 import { ClassesList } from "./dashboard/ClassesList.js";
 import axios from 'axios';
@@ -127,9 +128,13 @@ export default class extends AbstractView {
   }
 
   getHtml = async () => {
-    const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
+    let practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
     const isLoggedIn = await new User().isLoggedIn();
     const role = await new User().getRole();
+
+    if (role === 'teacher') {
+      practices = await new User().getClasses();
+    }
 
     if (!isLoggedIn) return `<div class="not-logged-in">Please login to access this page</div>`;
 

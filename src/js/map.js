@@ -5,6 +5,12 @@ let map = {},
   mapdata = {};
 
 const initMap = async () => {
+
+  // Remove header and footer
+  document.querySelector("#header").innerHTML = "";
+  document.querySelector("#footer").innerHTML = "";
+
+  // Fetch necessary data from backend
   const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
   const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
 

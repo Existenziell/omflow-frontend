@@ -4,7 +4,6 @@ export const ClassesList = (practices, role) => {
       <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
     `;
   }
-  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
   let output = `
       <section class="admin-practices-list">
@@ -33,7 +32,7 @@ export const ClassesList = (practices, role) => {
               <td>${p.name}</td>
               <td class="practicelist-description">${p.description}</td>
               <td>${p.duration}</td>
-              <td>${new Date(p.date).toLocaleDateString("en-US", options)}</td>
+              <td>${moment(p.date).format("MMMM Do YYYY, h:mm a")}</td>
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
                 <a href="/dashboard/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |

@@ -5,7 +5,6 @@ export default class extends AbstractView {
     super(params);
     this.setTitle("Classes");
     this.practices = [];
-    this.options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   }
 
   async getHtml() {
