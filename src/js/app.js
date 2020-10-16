@@ -18,8 +18,6 @@ import Dashboard from "./views/Dashboard.js";
 import EditClass from "./views/dashboard/EditClass.js";
 import CreateClass from "./views/dashboard/CreateClass.js";
 
-import { initMap } from './map.js';
-
 const loader = document.getElementById('loader');
 
 const pathToRegex = path =>
@@ -100,8 +98,7 @@ const router = async () => {
       break;
     }
     case 'map': {
-      // new Map().initMap();
-      initMap();
+      new Map().initMap();
       break;
     }
     case 'matchme': {
