@@ -10,7 +10,7 @@ import Classes from "./views/Classes.js";
 import MatchMe from "./views/MatchMe.js";
 import Schedule from "./views/Schedule.js";
 
-import User from './views/User.js';
+import User from './views/dashboard/User.js';
 import Login from "./views/Login.js";
 import Register from "./views/Register.js";
 
@@ -26,7 +26,6 @@ const pathToRegex = path =>
 const getParams = match => {
   const values = match.result.slice(1);
   const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
-
   return Object.fromEntries(keys.map((key, i) => {
     return [key, values[i]];
   }));
@@ -88,7 +87,7 @@ const router = async () => {
   document.querySelector("#app").innerHTML = await view.getHtml();
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 
-  // Add js requirements for route
+  // After html content is set, run needed js for matching route
   switch (match.route.js) {
     case 'login': {
       new Login().initLoginForm();
@@ -144,7 +143,7 @@ const router = async () => {
 // Run router if user navigates in browser
 window.addEventListener("popstate", router);
 
-// Fetch all clicks on data-links // prevent page reload // Let router handle the navigation
+// Fetch all clicks on data-links // Prevent page reload // Let router handle the navigation
 document.addEventListener("DOMContentLoaded", async () => {
   // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {

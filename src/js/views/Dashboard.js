@@ -1,5 +1,7 @@
 import AbstractView from "./AbstractView.js";
-import User from './User.js';
+import User from './dashboard/User.js';
+import { AdminSpace } from './dashboard/AdminSpace.js';
+import { ClassesList } from "./dashboard/ClassesList.js";
 import axios from 'axios';
 import '../../scss/dashboard.scss';
 
@@ -117,7 +119,7 @@ export default class extends AbstractView {
             // history.back();
             location.reload();
           })
-          .catch(error => console.error('error'));
+          .catch(error => console.error(error));
       })
     }
   }
@@ -127,11 +129,17 @@ export default class extends AbstractView {
     $('.datetimepicker').datetimepicker().data('datetimepicker');
   }
 
-  async getHtml() {
+  getHtml = async () => {
+    const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
     const isLoggedIn = await new User().isLoggedIn();
+    const role = await new User().getRole();
+
     if (!isLoggedIn) return `<div class="not-logged-in">Please login to access this page</div>`;
+
     return `
-      ${await new User().getHtml()}
+      ${role === 'user' ? await new User().getHtml() : ''}
+      ${role === 'teacher' ? await ClassesList(practices) : ''}
+      ${role === 'admin' ? await AdminSpace(role) : ''}
     `;
   }
 }

@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import User from './User.js';
+import User from './dashboard/User.js';
 
 export default class extends AbstractView {
   constructor(params) {
@@ -17,9 +17,9 @@ export default class extends AbstractView {
 
   async getHtml() {
     const isLoggedIn = await new User().isLoggedIn();
-
+    let role;
+    if (isLoggedIn) { role = await new User().getRole() };
     return `
-
       <!--Navbar-->
       <nav class="navbar navbar-expand-md navbar-light">
 
@@ -59,7 +59,9 @@ export default class extends AbstractView {
               </li>
               ${isLoggedIn ?
         `<li class="nav-item">
-                  <a href="/dashboard" class="nav-link" data-link>Dashboard</a>
+                  <a href="/dashboard" class="nav-link" data-link>
+                    ${role === 'user' ? "My Account" : "Dashboard"}
+                  </a>
                 </li>`
         : ``}
             </ul>

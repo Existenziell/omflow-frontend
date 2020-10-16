@@ -1,8 +1,6 @@
-import AbstractView from "./AbstractView.js";
-import { ClassesList } from "./dashboard/ClassesList.js";
-import { TeachersList } from "./dashboard/TeachersList.js";
+import AbstractView from "../AbstractView.js";
 import axios from 'axios';
-import '../../scss/users.scss';
+import '../../../scss/users.scss';
 
 export default class extends AbstractView {
   constructor(params) {
@@ -10,7 +8,7 @@ export default class extends AbstractView {
 
     this.data = {};
     this.user = {};
-    this.teacherClasses = {};
+    // this.teacherClasses = {};
   }
 
   isLoggedIn = async () => {
@@ -39,41 +37,31 @@ export default class extends AbstractView {
     window.location = '/';
   }
 
-  async getHtml() {
-
-    // Fetch all necessary data from backend
-    const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
-    const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
-    this.data = {
-      teachers,
-      practices
-    }
-
+  fetchData = async () => {
     const authToken = window.localStorage.getItem("auth-token");
-    await axios.get(`${process.env.API_URL}/users/`, { headers: { "x-auth-token": authToken } })
-      .then(response => {
-        this.user = response.data;
-      })
-      .catch(error => console.error(error));
-    return this.html();
+    const response = await axios.get(`${process.env.API_URL}/users/`, { headers: { "x-auth-token": authToken } })
+    this.user = response.data;
+    return response.data
   }
 
-  // Calculate the number of days since user registered
-  calculateDays = () => {
-    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-    const createdAt = Date.parse(this.user.createdAt);
-    const now = Date.now();
-    return Math.round(Math.abs((now - createdAt) / oneDay));
+  getRole = async () => {
+    const response = await this.fetchData();
+    return response.role;
+  }
+
+  getHtml = async () => {
+    await this.fetchData();
+    return this.html();
   }
 
   html = () => {
     // If user is of role teacher show only his/her own classes
     // ToDo: Matching on IDs will not work...
-    if (this.user.role === 'teacher') {
-      this.teacherClasses = this.data.practices.filter((p) => {
-        return p.teacher._id === this.user.id;
-      })
-    }
+    // if (this.user.role === 'teacher') {
+    //   this.teacherClasses = this.data.practices.filter((p) => {
+    //     return p.teacher._id === this.user.id;
+    //   })
+    // }
     return `
       <section class='user-space'>
         <h2>Welcome to your personal space ${this.user.name}</h2>
@@ -96,7 +84,7 @@ export default class extends AbstractView {
           </div>
           <div class="form-group">
             <label>Omflower since:</label>
-            <input type="text" required class="form-control user-role" value="${this.calculateDays()} days" disabled />
+            <input type="text" required class="form-control user-role" value="${moment(this.user.createdAt).fromNow()}" disabled />
           </div>
           <div class="form-group">
             <label>Omflow ID:</label>
@@ -108,10 +96,6 @@ export default class extends AbstractView {
           </div>
         </form>
       </section>
-
-      ${this.user.role === 'admin' ? ClassesList(this.data.practices, this.user.role) : ''}
-      ${this.user.role === 'admin' ? TeachersList(this.data.teachers) : ''}
-      ${this.user.role === 'teacher' ? ClassesList(this.data.practices) : ''}
     `;
   }
 }

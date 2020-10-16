@@ -3,7 +3,7 @@ export const TeachersList = (teachers) => {
   let output = `
 
     <section class="admin-teachers-list">
-      <h1>Omies:</h1>
+      <h2>All teachers:</h2>
       <div>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">

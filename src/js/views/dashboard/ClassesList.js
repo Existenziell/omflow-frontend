@@ -6,12 +6,9 @@ export const ClassesList = (practices, role) => {
   }
   const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
-  let msg;
-  role === 'admin' ? msg = `All Classes` : msg = "My Classes";
-
   let output = `
       <section class="admin-practices-list">
-        <h1>${msg}</h1>
+        <h2>${role === 'admin' ? 'All classes' : 'My classes'}</h2>
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>

@@ -9,7 +9,6 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    // Fetch all necessary data from backend
     this.practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
     return this.html();
   }
@@ -42,7 +41,7 @@ export default class extends AbstractView {
               <td>${p.name}</td>
               <td>${p.description}</td>
               <td>${p.duration}</td>
-              <td>${new Date(p.date).toLocaleDateString("en-US", this.options)}</td>
+              <td>${moment(p.date).fromNow()}</td>
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a>
               </td>
