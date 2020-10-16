@@ -42,7 +42,7 @@ export default class extends AbstractView {
   createPractice = () => {
     const form = document.getElementById('create-class');
 
-    form.onsubmit = async (e) => {
+    form.onsubmit = (e) => {
       e.preventDefault();
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
@@ -64,11 +64,11 @@ export default class extends AbstractView {
         style: style,
         level: level
       }
+
       axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
-          window.location = '/dashboard';
-          // location.reload();
-          // history.back();
+          // history.pushState(null, null, '/dashboard');
+          history.back();
         })
         .catch(error => console.error('error'));
     }
@@ -77,7 +77,7 @@ export default class extends AbstractView {
   editPractice = () => {
     const form = document.getElementById('edit-class');
 
-    form.onsubmit = async (e) => {
+    form.onsubmit = (e) => {
       e.preventDefault();
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
@@ -99,24 +99,21 @@ export default class extends AbstractView {
       }
       axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
-          window.location = '/dashboard';
-          // location.reload();
-          // history.back();
+          history.back();
         })
         .catch(error => console.error('error'));
     }
   }
 
-  deletePractice = () => {
+  deletePractice = async () => {
     const deleteBtns = document.querySelectorAll('.delete-practice');
-    for (let button of deleteBtns) {
 
-      button.onclick = ((e) => {
+    for (let button of deleteBtns) {
+      button.onclick = (async (e) => {
         e.preventDefault();
         const id = e.target.getAttribute('data-id');
         axios.delete(`${process.env.API_URL}/practices/${id}`, { headers: { "x-auth-token": this.token } })
-          .then(response => {
-            // history.back();
+          .then(async response => {
             location.reload();
           })
           .catch(error => console.error(error));

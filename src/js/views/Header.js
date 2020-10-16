@@ -77,8 +77,6 @@ export default class extends AbstractView {
         <a href="/register" class="btn btn-sm btn-outline-info" data-link>Register</a>`
       }
       </div>
-
-      <div class="loader loader-bouncing"></div>
     `;
   }
 }

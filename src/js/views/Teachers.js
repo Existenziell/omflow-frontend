@@ -24,10 +24,9 @@ export default class extends AbstractView {
     for (let t of this.teachers) {
       output += `
           <li>
-            <a href="/teachers/${t._id}" data-link>
-              <h3>${t.name}</h3>
-              <img src="/img/teachers/${t.tag}.jpg" alt="${t.tag}" />
-            </a>
+            <a href="/teachers/${t._id}" class="teacher-name" data-link>${t.name}</a>
+            <img src="/img/teachers/${t.tag}.jpg" alt="${t.tag}" />
+            <a href="/teachers/${t._id}" class="link" data-link>More details</a>
           </li>
       `;
     }

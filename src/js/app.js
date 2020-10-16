@@ -20,6 +20,8 @@ import CreateClass from "./views/dashboard/CreateClass.js";
 
 import { initMap } from './map.js';
 
+const loader = document.getElementById('loader');
+
 const pathToRegex = path =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -138,6 +140,8 @@ const router = async () => {
   // Finally, highlight active navigation link
   new Header().setActiveNavItem();
 
+  // When everything is loaded, deactivate loader
+  loader.classList.remove("is-active");
 };
 
 // Run router if user navigates in browser
@@ -149,8 +153,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault();
-      navigateTo(e.target.href);
+      // Activate loader
+      loader.classList.add("is-active");
+      navigateTo(e.target.href); ``
     }
+  });
+  // Show loader also after all form submits
+  document.body.addEventListener("submit", e => {
+    loader.classList.add("is-active");
   });
 
   // Initiate router when DOMContentLoaded

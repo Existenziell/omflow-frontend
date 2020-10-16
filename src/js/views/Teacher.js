@@ -20,10 +20,10 @@ export default class extends AbstractView {
   html = () => {
     let output = `
       <section class="teacher-container">
-        <small>#${this.teacher._id}</small>
         <h2>${this.teacher.name}</h2>
         <p>${this.teacher.description}</p>
         <p>${this.teacher.address}</p>
+        <p>${this.teacher.name} became an Omie ${moment(this.teacher.createdAt).fromNow()}.</p>
         <img src="/img/teachers/${this.teacher.tag}.jpg" alt="${this.teacher.tag}" />
         <span>${this.teacher.name} offers the following classes:</span>
         <ul>
