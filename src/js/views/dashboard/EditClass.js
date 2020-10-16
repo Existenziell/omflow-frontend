@@ -38,7 +38,7 @@ export default class extends AbstractView {
             <label>Date:</label>
             <div>
               <div class="input-group date" data-provide="datetimepicker">
-                <input type="text" class="form-control practice-date datetimepicker" value="${moment(this.practice.date).format("MMMM Do YYYY, h:mm a")}">
+                <input type="text" class="form-control practice-date datetimepicker" value="${moment(this.practice.date).format("YYYY/MM/D hh:mm")}">
               </div>
             </div>
           </div>
