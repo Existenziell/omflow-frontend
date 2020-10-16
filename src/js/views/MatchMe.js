@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import { fadeIn, fadeOut } from '../helpers.js';
 import '../../scss/matchme.scss';
 
 export default class extends AbstractView {
@@ -20,7 +21,7 @@ export default class extends AbstractView {
     this.initDateTimeZone();
     this.initBudgetForm();
     this.initInfoPopups();
-    $("#step-1").fadeIn();
+    fadeIn(document.querySelector("#step-1"));
   }
 
   initFormNavigation = () => {
@@ -69,10 +70,15 @@ export default class extends AbstractView {
 
   navigateToStep = (e) => {
     e.preventDefault();
-    $(".matchme-form").hide();
-    const id = $(e.target).data('target');
-    const target = `#step-${id}`;
-    $(target).fadeIn();
+
+    // Hide all forms
+    [...document.querySelectorAll('.matchme-form')].forEach((form) => {
+      form.style.display = 'none';
+    });
+
+    // Fade in next
+    const id = e.target.dataset.target;
+    fadeIn(document.querySelector(`#step-${id}`));
   }
 
   setReviewValues = () => {

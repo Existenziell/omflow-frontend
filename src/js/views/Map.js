@@ -205,8 +205,8 @@ export default class extends AbstractView {
     // Open corresponding popup if result is clicked
     geocoder.on('result', (e) => {
       // Close all open popups
-      $(".mapboxgl-popup").remove();
-
+      const popup = document.querySelector('.mapboxgl-popup');
+      if (popup) popup.parentNode.removeChild(popup);
       // Create new poppup only if own result
       if (e.result.properties.name) {
 
