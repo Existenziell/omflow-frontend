@@ -13,7 +13,7 @@ export const ClassesList = (practices, role) => {
             <tr>
               <th>Style</th>
               <th>Level</th>
-              <th>Teacher</th>
+              ${role === 'admin' ? `<th>Teacher</th>` : ''}
               <th>Name</th>
               <th>Description</th>
               <th>Duration</th>
@@ -28,7 +28,7 @@ export const ClassesList = (practices, role) => {
             <tr>
               <td>${p.style.identifier}</td>
               <td>${p.level.identifier}</td>
-              <td>${p.teacher.name}</td>
+              ${role === 'admin' ? `<td>${p.teacher.name}</td>` : ''}
               <td>${p.name}</td>
               <td class="practicelist-description">${p.description}</td>
               <td>${p.duration}</td>

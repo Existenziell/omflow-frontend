@@ -153,6 +153,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       navigateTo(e.target.href); ``
     }
   });
+  document.body.addEventListener("submit", e => {
+    loader.classList.add("is-active");
+  });
+
   // Initiate router when DOMContentLoaded
   router();
 });

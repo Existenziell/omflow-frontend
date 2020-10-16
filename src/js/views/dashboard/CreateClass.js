@@ -1,4 +1,5 @@
-import AbstractView from "../AbstractView.js";
+import AbstractView from '../AbstractView.js';
+import User from './User.js';
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,16 +9,20 @@ export default class extends AbstractView {
     this.teachers = {};
     this.styles = {};
     this.levels = {};
+
+    this.role = '';
+    this.teacherId = '';
   }
 
   async getHtml() {
     this.teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
     this.styles = await (await fetch(`${process.env.API_URL}/practices/styles/`)).json();
     this.levels = await (await fetch(`${process.env.API_URL}/practices/levels/`)).json();
-    return this.html();
-  }
+    const teacher = await new User().getTeacherData();
+    this.role = teacher.role;
+    this.teacherName = teacher.teacherName;
+    this.teacherId = teacher.teacherId;
 
-  html = () => {
     let output = `
       <div>
         <h3>Create Class</h3>
@@ -44,11 +49,14 @@ export default class extends AbstractView {
           </div>
           <div class="form-group">
             <label for="teacher-dropdown">Teacher:</label>
-            <select class="form-control practice-teacher">
-            ${this.teachers.map((item) => `
-              <option value="${item._id}">${item.name}</option>
-            `)}
-            </select>
+            ${this.role === 'admin' ? `
+              <select class="form-control practice-teacher">
+              ${this.teachers.map((item) => `
+                <option value="${item._id}">${item.name}</option>
+              `)}
+              </select>` : `
+              <input type="text" class="form-control practice-teacher" value="${this.teacherId}" disabled />
+            `}
           </div>
           <div class="form-group">
             <label for="style-dropdown">Style:</label>
@@ -72,9 +80,7 @@ export default class extends AbstractView {
           </div>
         </form>
       </div>
-
-      `;
+    `;
     return output;
   }
-
 }

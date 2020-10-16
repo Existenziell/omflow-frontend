@@ -44,14 +44,19 @@ export default class extends AbstractView {
     return response.data
   }
 
+  getTeacherData = async () => {
+    const response = await this.fetchData();
+    return {
+      role: response.role,
+      practices: response.practices,
+      teacherId: response.teacherId,
+      teacherName: response.teacherName
+    }
+  }
+
   getRole = async () => {
     const response = await this.fetchData();
     return response.role;
-  }
-
-  getClasses = async () => {
-    const response = await this.fetchData();
-    return response.practices;
   }
 
   getHtml = async () => {
