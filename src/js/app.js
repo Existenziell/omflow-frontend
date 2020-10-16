@@ -35,6 +35,8 @@ const getParams = match => {
 const navigateTo = url => {
   // Abort if current route is equal to clicked route
   if (url === location.href) return;
+  // Activate loader as long as data is getting fetched
+  loader.classList.add("is-active");
   // Use history API
   history.pushState(null, null, url);
   router();
@@ -148,8 +150,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault();
-      // Activate loader
-      loader.classList.add("is-active");
       navigateTo(e.target.href); ``
     }
   });
