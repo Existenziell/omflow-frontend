@@ -4,9 +4,16 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle(`Dashboard | Create class`);
+
+    this.teachers = {};
+    this.styles = {};
+    this.levels = {};
   }
 
   async getHtml() {
+    this.teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
+    this.styles = await (await fetch(`${process.env.API_URL}/practices/styles/`)).json();
+    this.levels = await (await fetch(`${process.env.API_URL}/practices/levels/`)).json();
     return this.html();
   }
 
@@ -36,13 +43,37 @@ export default class extends AbstractView {
             </div>
           </div>
           <div class="form-group">
+            <label for="teacher-dropdown">Teacher:</label>
+            <select class="form-control practice-teacher">
+            ${this.teachers.map((item) => `
+              <option value="${item._id}">${item.name}</option>
+            `)}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="style-dropdown">Style:</label>
+            <select class="form-control practice-style">
+            ${this.styles.map((item) => `
+              <option value="${item._id}">${item.identifier}</option>
+            `)}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="level-dropdown">Level:</label>
+            <select class="form-control practice-level">
+            ${this.levels.map((item) => `
+              <option value="${item._id}">${item.identifier}</option>
+            `)}
+            </select>
+          </div>
+          <div class="form-group">
             <input type="submit" id="save-practice" class="btn btn-primary" value="Save" />
             <a href="/dashboard" value="Cancel" class="btn btn-link" data-link>Cancel</a>
           </div>
         </form>
       </div>
 
-    `;
+      `;
     return output;
   }
 

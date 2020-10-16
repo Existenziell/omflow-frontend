@@ -11,8 +11,8 @@ export default class extends AbstractView {
 
   // https://fullcalendar.io/docs
   initCalendar = () => {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new Calendar(calendarEl, {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new Calendar(calendarEl, {
       plugins: [dayGridPlugin]
     });
     calendar.render();

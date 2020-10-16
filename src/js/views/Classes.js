@@ -21,9 +21,11 @@ export default class extends AbstractView {
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>
+              <th>Style</th>
+              <th>Level</th>
+              <th>Teacher</th>
               <th>Name</th>
               <th>Description</th>
-              <th>Teacher</th>
               <th>Duration</th>
               <th>Date</th>
               <th>Actions</th>
@@ -34,9 +36,11 @@ export default class extends AbstractView {
     for (let p of this.practices) {
       output += `
             <tr>
+              <td>${p.style.identifier}</td>
+              <td>${p.level.identifier}</td>
+              <td>${p.teacher.name}</td>
               <td>${p.name}</td>
               <td>${p.description}</td>
-              <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
               <td>${new Date(p.date).toLocaleDateString("en-US", this.options)}</td>
               <td>

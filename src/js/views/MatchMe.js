@@ -51,7 +51,7 @@ export default class extends AbstractView {
   }
 
   saveData = (e) => {
-    var id = $(e.target).data('current');
+    const id = $(e.target).data('current');
     if (id == 4) {   // Datetime
       this.data.date = $('.datetimepicker').datetimepicker('getValue');
     } else if (id == 5) {    // Budget
@@ -61,8 +61,8 @@ export default class extends AbstractView {
       return;
     } else {    // All other IDs
       const choice = $(`#step-${id}`).find('li.border');
-      var key = $(`#step-${id}`).closest(".matchme-form").data("key");
-      var value = $(choice).find("span.option").text();
+      const key = $(`#step-${id}`).closest(".matchme-form").data("key");
+      const value = $(choice).find("span.option").text();
       this.data[key] = value;
     }
   }
@@ -70,8 +70,8 @@ export default class extends AbstractView {
   navigateToStep = (e) => {
     e.preventDefault();
     $(".matchme-form").hide();
-    var id = $(e.target).data('target');
-    var target = `#step-${id}`;
+    const id = $(e.target).data('target');
+    const target = `#step-${id}`;
     $(target).fadeIn();
   }
 

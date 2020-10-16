@@ -16,9 +16,10 @@ export default class extends AbstractView {
   html(practice) {
     return `
       <small>${practice._id}</small>
-      <h2>${practice.name}</h2>
-      <p>With teacher: ${practice.teacher.name}</p>
-      <p>${practice.description}</p>
+      <h2>${practice.level.identifier} ${practice.style.identifier}</h2>
+      <p>With Omie: ${practice.teacher.name}</p>
+      <p>Name: ${practice.name}</p>
+      <p>Details: ${practice.description}</p>
       <p>Duration: ${practice.duration}</p>
       <p>Date: ${new Date(practice.date).toLocaleDateString("en-US", this.options)}</p>
       <a href="/classes" class="link" data-link>Back</a>

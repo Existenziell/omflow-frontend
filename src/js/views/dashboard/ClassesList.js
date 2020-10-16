@@ -1,8 +1,10 @@
 export const ClassesList = (practices, role) => {
   if (practices === undefined || practices.length == 0) {
-    return ``;
+    return `
+      <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
+    `;
   }
-  var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
   let msg;
   role === 'admin' ? msg = `All Classes` : msg = "My Classes";
@@ -13,9 +15,11 @@ export const ClassesList = (practices, role) => {
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>
+              <th>Style</th>
+              <th>Level</th>
+              <th>Teacher</th>
               <th>Name</th>
               <th>Description</th>
-              <th>Teacher</th>
               <th>Duration</th>
               <th>Date</th>
               <th>Actions</th>
@@ -26,9 +30,11 @@ export const ClassesList = (practices, role) => {
   for (let p of practices) {
     output += `
             <tr>
+              <td>${p.style.identifier}</td>
+              <td>${p.level.identifier}</td>
+              <td>${p.teacher.name}</td>
               <td>${p.name}</td>
               <td class="practicelist-description">${p.description}</td>
-              <td>${p.teacher.name}</td>
               <td>${p.duration}</td>
               <td>${new Date(p.date).toLocaleDateString("en-US", options)}</td>
               <td>

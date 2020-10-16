@@ -17,7 +17,7 @@ export default class extends AbstractView {
           <a href="/matchme" data-link>Let's Omflow</a>
         </div>
       </div>
-      <a href="/" class="back-home back-home-white" name="back-home" data-link></a>
+      <a href="/" class="back-home back-home-white" name="back-home" data-link>Home</a>
       <div id="map"></div>
     `;
   }

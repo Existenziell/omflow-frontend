@@ -45,20 +45,23 @@ export default class extends AbstractView {
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
       let duration = document.querySelector('.practice-duration').value;
+      let teacher = document.querySelector('.practice-teacher').value;
+      let style = document.querySelector('.practice-style').value;
+      let level = document.querySelector('.practice-level').value;
       let date;
       document.querySelector('.practice-date').value === '' ?
         date = Date.now() :
         date = Date.parse(document.querySelector('.practice-date').value);
 
-      let teacher = '5f6f5ae599d33f0e4e6f77b6'; // ToDo: REMOVE
       let formData = {
         name: name,
         description: description,
         date: date,
         duration: duration,
         teacher: teacher,
+        style: style,
+        level: level
       }
-
       axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
           window.location = '/dashboard';
@@ -77,6 +80,8 @@ export default class extends AbstractView {
       let name = document.querySelector('.practice-name').value;
       let description = document.querySelector('.practice-description').value;
       let duration = document.querySelector('.practice-duration').value;
+      let style = document.querySelector('.practice-style').value;
+      let level = document.querySelector('.practice-level').value;
       let date;
       document.querySelector('.practice-date').value === '' ?
         date = Date.now() :
@@ -86,7 +91,9 @@ export default class extends AbstractView {
         name: name,
         description: description,
         date: date,
-        duration: duration
+        duration: duration,
+        style: style,
+        level: level
       }
       axios.post(form.action, formData, { headers: { "x-auth-token": this.token } })
         .then(response => {
