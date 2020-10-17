@@ -19,7 +19,7 @@ import Dashboard from "./views/Dashboard"
 import EditClass from "./views/dashboard/EditClass"
 import CreateClass from "./views/dashboard/CreateClass"
 
-import { createPractice, editPractice, deletePractice, editUser, setActiveNavItem, initDatetimePicker } from './functions';
+import { createPractice, editPractice, deletePractice, editUser, deleteUser, setActiveNavItem, initDatetimePicker } from './functions';
 
 const loader = document.getElementById('loader');
 
@@ -67,6 +67,14 @@ const router = async () => {
     { path: "/dashboard/classes/:id", view: EditClass, js: 'editClass' },
   ];
 
+  // Check if user is loggedIn and if so, which role the user has
+  const isLoggedIn = await new User().isLoggedIn();
+  let role, token;
+  if (isLoggedIn) {
+    role = await new User().getRole()
+    token = window.localStorage.getItem("auth-token");
+  };
+
   // Test each route for potential match
   const potentialMatches = routes.map(route => {
     return {
@@ -95,14 +103,6 @@ const router = async () => {
   const view = new match.route.view(getParams(match));
   const header = new Header();
   const footer = new Footer();
-
-  // Check if user is loggedIn and if so, which role the user has
-  const isLoggedIn = await new User().isLoggedIn();
-  let role, token;
-  if (isLoggedIn) {
-    role = await new User().getRole()
-    token = window.localStorage.getItem("auth-token");
-  };
 
   // ...and call its getHtml class method
   document.querySelector("#header").innerHTML = await header.getHtml(isLoggedIn, role);
@@ -133,6 +133,7 @@ const router = async () => {
     }
     case 'dashboard': {
       editUser(token);
+      deleteUser(token);
       deletePractice(token);
       break;
     }

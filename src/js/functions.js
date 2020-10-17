@@ -87,6 +87,19 @@ const editUser = (token) => {
   }
 }
 
+const deleteUser = (token) => {
+  const deleteBtns = document.querySelectorAll('.delete-user');
+  for (let button of deleteBtns) {
+    button.onclick = ((e) => {
+      e.preventDefault();
+      const id = e.target.getAttribute('data-id');
+      axios.delete(`${process.env.API_URL}/users/${id}`, { headers: { "x-auth-token": token } })
+        .then(() => location.reload())
+        .catch(error => console.error(error));
+    })
+  }
+}
+
 const setActiveNavItem = () => {
   let links = [...document.querySelectorAll('.nav-link')];  // Convert from NodeList to Arrat by spreading
   for (let link of links) {
@@ -101,4 +114,4 @@ const initDatetimePicker = () => {
   $('.datetimepicker').datetimepicker().data('datetimepicker');
 }
 
-export { createPractice, editPractice, deletePractice, editUser, setActiveNavItem, initDatetimePicker }
+export { createPractice, editPractice, deletePractice, editUser, deleteUser, setActiveNavItem, initDatetimePicker }
