@@ -36,13 +36,13 @@ export default class extends AbstractView {
                 <a href="/classes" class="nav-link" data-link>Classes</a>
               </li>
               <li class="nav-item">
+                <a href="/schedule" class="nav-link" data-link>Schedule</a>
+              </li>
+              <li class="nav-item">
                 <a href="/matchme" class="nav-link" data-link>MatchMe</a>
               </li>
               <li class="nav-item">
                 <a href="/map" class="nav-link" data-link>Map</a>
-              </li>
-              <li class="nav-item">
-                <a href="/schedule" class="nav-link" data-link>Schedule</a>
               </li>
               ${isLoggedIn ?
         `<li class="nav-item">
