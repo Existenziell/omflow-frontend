@@ -9,6 +9,7 @@ import Class from "./views/Class.js";
 import Classes from "./views/Classes.js";
 import MatchMe from "./views/MatchMe.js";
 import Schedule from "./views/Schedule.js";
+import Signup from "./views/Signup.js";
 
 import User from './views/dashboard/User.js';
 import Login from "./views/Login.js";
@@ -56,6 +57,7 @@ const router = async () => {
     { path: "/classes/:id", view: Class },
     { path: "/matchme", view: MatchMe, js: 'matchme' },
     { path: "/schedule", view: Schedule, js: 'schedule' },
+    { path: "/signup/:id", view: Signup, js: 'signup' },
     { path: "/dashboard", view: Dashboard, js: 'dashboard' },
     { path: "/dashboard/classes/create", view: CreateClass, js: 'dashboard-create' },
     { path: "/dashboard/classes/:id", view: EditClass, js: 'dashboard-edit' },
