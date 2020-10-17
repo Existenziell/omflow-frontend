@@ -91,6 +91,19 @@ email: bauer.christof@gmail.com
     }
   }
 
+  .teacher-social {
+
+    display: flex;
+    align-items: center;
+
+    .fa-instagram {
+      font-size: 40px;
+      color: $brand;
+      margin-right: 5px;
+    }
+  }
+
+
   .back {
     display: inline-block;
     margin-top: 40px;

@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -36,7 +37,9 @@ export default class extends AbstractView {
       output += `
           <li>
             <a href="/classes/${p._id}" data-link>
-              ${p.name} -  ${p.description} - ${p.duration} min
+              ${p.level.identifier} ${p.style.identifier} -
+              ${moment(p.date).format("dddd, MMMM Do YYYY, h:mm a")} -
+              ${p.duration} min
             </a>
           </li>
       `;
@@ -46,7 +49,10 @@ export default class extends AbstractView {
         <h3>Preferred Pose:</h3>
         <p>${this.teacher.pose}</p>
         <h3>Follow ${this.teacher.name} on Instagram:</h3>
-        <a href="https://www.instagram.com/${this.teacher.instagram}/" target="_blank">@${this.teacher.instagram}</a>
+        <a href="https://www.instagram.com/${this.teacher.instagram}/" class="teacher-social" target="_blank">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          <span>@${this.teacher.instagram}</span>
+        </a>
       </section>
       <a href="/teachers" class="btn btn-outline-secondary btn-sm back" data-link>Back</a>
       `;
