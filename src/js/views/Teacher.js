@@ -17,13 +17,21 @@ export default class extends AbstractView {
     let output = `
       <section class="teacher-container">
         <h2>${this.teacher.name}</h2>
+        <h3>Bio:</h3>
         <p>${this.teacher.description}</p>
+        <h3>Currently teaching from:</h3>
         <p>${this.teacher.address}</p>
-        <p>${this.teacher.name} became an Omie ${moment(this.teacher.createdAt).fromNow()}.</p>
-        <img src="/img/teachers/${this.teacher.tag}.jpg" alt="${this.teacher.tag}" />
-        <span>${this.teacher.name} offers the following classes:</span>
+        <h3>Some impressions:</h3>
+        <section class="teacher-media">
+          <img src="/img/teachers/${this.teacher.tag}.jpg" alt="${this.teacher.tag}" />
+          ${this.teacher.video}
+        </section>
+        <small>${this.teacher.name} has been an Omie since ${moment(this.teacher.createdAt).fromNow(true)}.</small>
+      ${this.teacher.practices.length > 0 ?
+        `<h3>${this.teacher.name} offers the following classes:</h3>` : ``
+      }
         <ul>
-    `;
+      `;
     for (let p of this.teacher.practices) {
       output += `
           <li>
@@ -35,9 +43,13 @@ export default class extends AbstractView {
     }
     output += `
         </ul>
+        <h3>Preferred Pose:</h3>
+        <p>${this.teacher.pose}</p>
+        <h3>Follow ${this.teacher.name} on Instagram:</h3>
+        <a href="https://www.instagram.com/${this.teacher.instagram}/" target="_blank">@${this.teacher.instagram}</a>
       </section>
-      <a href="/teachers" class="link" data-link>Back</a>
-    `;
+      <a href="/teachers" class="btn btn-outline-secondary btn-sm back" data-link>Back</a>
+      `;
 
     return output;
   }

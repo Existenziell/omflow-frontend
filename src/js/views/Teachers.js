@@ -1,7 +1,6 @@
 import AbstractView from './AbstractView.js';
 import '../../scss/teachers.scss';
 
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -10,7 +9,6 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    // Fetch all necessary data from backend
     const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
     this.teachers = teachers;
     return this.html();
@@ -24,9 +22,10 @@ export default class extends AbstractView {
     for (let t of this.teachers) {
       output += `
           <li>
-            <a href="/teachers/${t._id}" class="teacher-name" data-link>${t.name}</a>
+            <a href="/teachers/${t._id}" class="teacher-link" data-link></a>
+            <h2 class="teacher-name" >${t.name}</h2>
+            <small>${t.address}</small>
             <img src="/img/teachers/${t.tag}.jpg" alt="${t.tag}" />
-            <a href="/teachers/${t._id}" class="link" data-link>More details</a>
           </li>
       `;
     }

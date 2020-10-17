@@ -13,7 +13,8 @@ export default class extends AbstractView {
       const email = register.elements['email'].value;
       const password = register.elements['password'].value;
       const passwordCheck = register.elements['passwordCheck'].value;
-      const registerUser = { email, password, passwordCheck };
+      const name = register.elements['name'].value;
+      const registerUser = { email, password, passwordCheck, name };
       e.preventDefault();
 
       try {

@@ -21,12 +21,21 @@ email: bauer.christof@gmail.com
     width: 30%;
     overflow: hidden;
     margin-bottom: 30px;
+    position: relative;
+
+    .teacher-link {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
 
     .teacher-name {
       font-size: 26px;
-      margin-bottom: 10px;
       color: $brand;
       display: block;
+      margin-bottom: 0;
     }
 
     > a {
@@ -41,18 +50,50 @@ email: bauer.christof@gmail.com
 }
 
 .teacher-container {
-
+  margin-bottom: 40px;
   p {
     margin-bottom: 20px;
   }
 
-  span {
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  small {
+    margin-bottom: 20px;
     display: block;
-    margin: 20px 0;
   }
 
-  img {
-    max-width: 100%;
+  ul {
+    margin-bottom: 20px;
   }
+
+  .teacher-media {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0px;
+
+    > img, iframe {
+      box-shadow: 2px 2px 20px -4px rgba(0,0,0,0.8);
+      margin-right: 20px;
+      padding: 15px;
+    }
+    > img {
+      height: 300px;
+    }
+    iframe {
+      padding: 15px 0px;
+    }
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 40px;
+  }
+
 }
-
