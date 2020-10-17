@@ -24,8 +24,7 @@ export default class extends AbstractView {
     return result.data;
   }
 
-  logout = () => {
-    let token = window.localStorage.getItem("auth-token");
+  logout = token => {
     localStorage.setItem("auth-token", "");
     localStorage.setItem("user-id", "");
     localStorage.setItem("user-name", "");

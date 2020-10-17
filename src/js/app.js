@@ -81,7 +81,7 @@ const router = async () => {
   if (!match) {
     // If path is /logout run logout method from User
     if (location.pathname === '/logout') {
-      new User().logout();
+      new User().logout(token);
       return;
     }
     // Set route to first in routes array, Home in this case
