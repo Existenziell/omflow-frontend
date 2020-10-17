@@ -6,12 +6,7 @@ export default class extends AbstractView {
     this.practiceId = params.id;
   }
 
-  async getHtml() {
-
-    return this.html();
-  }
-
-  html = () => {
+  getHtml = async () => {
     return `
       <h1>Signup</h1>
     `;

@@ -48,7 +48,7 @@ export default class extends AbstractView {
           buttonText: 'Day'
         }
       },
-      eventClick: function (info) {
+      eventClick: (info) => {
         info.jsEvent.preventDefault(); // don't let the browser navigate
         if (info.event.url) {
           location.href = info.event.url;
@@ -58,7 +58,7 @@ export default class extends AbstractView {
     calendar.render();
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
       <div id="calendar"></div>
     `;

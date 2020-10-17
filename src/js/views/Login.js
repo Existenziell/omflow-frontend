@@ -24,7 +24,7 @@ export default class extends AbstractView {
         `${process.env.API_URL}/users/login`,
         loginUser
       );
-      await this.setLocalStorage(res.data);
+      this.setLocalStorage(res.data);
 
       history.pushState(null, null, '/');
       window.location = '/';

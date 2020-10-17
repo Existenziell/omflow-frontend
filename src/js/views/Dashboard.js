@@ -16,7 +16,10 @@ export default class extends AbstractView {
       const teacherData = await new User().getTeacherData();
       practices = teacherData.practices;
     }
-    if (!isLoggedIn) return `<div class="not-logged-in">Please login to access this page</div>`;
+    if (!isLoggedIn) {
+      history.pushState(null, null, '/login');
+      window.location = "/login";
+    }
 
     return `
       ${role === 'user' ? await new User().getHtml() : ''}

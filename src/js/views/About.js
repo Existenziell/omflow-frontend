@@ -7,7 +7,7 @@ export default class extends AbstractView {
     this.setTitle("About");
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
       <div class="about">
         <section class="header">

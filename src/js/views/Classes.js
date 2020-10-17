@@ -7,7 +7,7 @@ export default class extends AbstractView {
     this.practices = [];
   }
 
-  async getHtml() {
+  getHtml = async () => {
     this.practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
     return this.html();
   }

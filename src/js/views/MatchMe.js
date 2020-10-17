@@ -134,7 +134,7 @@ export default class extends AbstractView {
   }
 
   initInfoPopups = () => {
-    $(".learn-more").on("mouseenter mouseleave", function () {
+    $(".learn-more").on("mouseenter mouseleave", () => {
       $(this).closest("li").find('.popup').toggleClass("show");
     });
   }
@@ -165,7 +165,7 @@ export default class extends AbstractView {
     });
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
       <div id="matchme">
 

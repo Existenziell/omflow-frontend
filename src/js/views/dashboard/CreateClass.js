@@ -15,7 +15,7 @@ export default class extends AbstractView {
     this.teacherId = '';
   }
 
-  async getHtml() {
+  getHtml = async () => {
     this.teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
     this.styles = await (await fetch(`${process.env.API_URL}/practices/styles/`)).json();
     this.levels = await (await fetch(`${process.env.API_URL}/practices/levels/`)).json();

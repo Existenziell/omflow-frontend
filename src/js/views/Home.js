@@ -6,7 +6,7 @@ export default class extends AbstractView {
     this.setTitle("Yoga");
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
         <h1>Welcome to Omflow</h1>
         <a href="/teachers" data-link>View teachers</a>

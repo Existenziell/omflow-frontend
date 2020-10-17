@@ -281,7 +281,7 @@ export default class extends AbstractView {
     return result;
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
       <div id="overlay">
         <div class="overlay-button overlay-hide">

@@ -40,7 +40,7 @@ export default class extends AbstractView {
     msg.innerHTML = error;
   }
 
-  async getHtml() {
+  getHtml = async () => {
     return `
       <div class="register-form">
         <h1>New here? Register:</h1>
