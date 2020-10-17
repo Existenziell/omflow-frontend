@@ -61,7 +61,6 @@ export default class extends AbstractView {
         source: 'places',
         filter: ['has', 'point_count'],
         paint: {
-          // 'circle-color': '#237a9a',
           'circle-color': '#FFFFFF',
           'circle-radius': 20,
           'circle-opacity': .8
@@ -85,7 +84,6 @@ export default class extends AbstractView {
         source: 'places',
         filter: ['!', ['has', 'point_count']],
         paint: {
-          // 'circle-color': '#237a9a',
           'circle-color': '#FFFFFF',
           'circle-radius': 10,
           'circle-stroke-width': 1,
@@ -93,7 +91,6 @@ export default class extends AbstractView {
           'circle-opacity': .8
         }
       });
-
     });
     this.initListeners(map);
   }

@@ -1,23 +1,25 @@
-import Header from "./views/Header.js";
-import Footer from "./views/Footer.js";
-import Home from "./views/Home.js";
-import About from "./views/About.js";
-import Map from "./views/Map.js";
-import Teacher from "./views/Teacher.js";
-import Teachers from "./views/Teachers.js";
-import Class from "./views/Class.js";
-import Classes from "./views/Classes.js";
-import MatchMe from "./views/MatchMe.js";
-import Schedule from "./views/Schedule.js";
-import Signup from "./views/Signup.js";
+import Header from "./views/Header"
+import Footer from "./views/Footer"
+import Home from "./views/Home"
+import About from "./views/About"
+import Map from "./views/Map"
+import Teacher from "./views/Teacher"
+import Teachers from "./views/Teachers"
+import Class from "./views/Class"
+import Classes from "./views/Classes"
+import MatchMe from "./views/MatchMe"
+import Schedule from "./views/Schedule"
+import Signup from "./views/Signup"
 
-import User from './views/dashboard/User.js';
-import Login from "./views/Login.js";
-import Register from "./views/Register.js";
+import User from './views/dashboard/User'
+import Login from "./views/Login"
+import Register from "./views/Register"
 
-import Dashboard from "./views/Dashboard.js";
-import EditClass from "./views/dashboard/EditClass.js";
-import CreateClass from "./views/dashboard/CreateClass.js";
+import Dashboard from "./views/Dashboard"
+import EditClass from "./views/dashboard/EditClass"
+import CreateClass from "./views/dashboard/CreateClass"
+
+import { createPractice, editPractice, deletePractice, editUser, setActiveNavItem, initDatetimePicker } from './functions';
 
 const loader = document.getElementById('loader');
 
@@ -35,7 +37,9 @@ const getParams = match => {
 // Navigate to url and initiate router
 const navigateTo = url => {
   // Abort if current route is equal to clicked route
-  if (url === location.href) return;
+  if (url === location.href) {
+    return;
+  }
   // Activate loader as long as data is getting fetched
   loader.classList.add("is-active");
   // Use history API
@@ -59,8 +63,8 @@ const router = async () => {
     { path: "/schedule", view: Schedule, js: 'schedule' },
     { path: "/signup/:id", view: Signup, js: 'signup' },
     { path: "/dashboard", view: Dashboard, js: 'dashboard' },
-    { path: "/dashboard/classes/create", view: CreateClass, js: 'dashboard-create' },
-    { path: "/dashboard/classes/:id", view: EditClass, js: 'dashboard-edit' },
+    { path: "/dashboard/classes/create", view: CreateClass, js: 'createClass' },
+    { path: "/dashboard/classes/:id", view: EditClass, js: 'editClass' },
   ];
 
   // Test each route for potential match
@@ -75,6 +79,12 @@ const router = async () => {
 
   // Catch unmatched url // Redirect to first route (Home)
   if (!match) {
+    // If path is /logout run logout method from User
+    if (location.pathname === '/logout') {
+      new User().logout();
+      return;
+    }
+    // Set route to first in routes array, Home in this case
     match = {
       route: routes[0],
       result: [location.pathname]
@@ -86,9 +96,17 @@ const router = async () => {
   const header = new Header();
   const footer = new Footer();
 
+  // Check if user is loggedIn and if so, which role the user has
+  const isLoggedIn = await new User().isLoggedIn();
+  let role, token;
+  if (isLoggedIn) {
+    role = await new User().getRole()
+    token = window.localStorage.getItem("auth-token");
+  };
+
   // ...and call its getHtml class method
-  document.querySelector("#header").innerHTML = await header.getHtml();
-  document.querySelector("#app").innerHTML = await view.getHtml();
+  document.querySelector("#header").innerHTML = await header.getHtml(isLoggedIn, role);
+  document.querySelector("#app").innerHTML = await view.getHtml(isLoggedIn, role);
   document.querySelector("#footer").innerHTML = await footer.getHtml();
 
   // After html content is set, run needed js for matching route
@@ -114,30 +132,23 @@ const router = async () => {
       break;
     }
     case 'dashboard': {
-      new Dashboard().editUser();
-      new Dashboard().deletePractice();
+      editUser(token);
+      deletePractice(token);
       break;
     }
-    case 'dashboard-edit': {
-      new Dashboard().editPractice();
-      new Dashboard().initDatetimePicker();
+    case 'createClass': {
+      createPractice(token);
+      initDatetimePicker();
       break;
     }
-    case 'dashboard-create': {
-      new Dashboard().createPractice();
-      new Dashboard().initDatetimePicker();
-      break;
-    }
-    default: {
-      // If path is /logout run logout method from User
-      if (location.pathname === '/logout') {
-        await new User().logout();
-      }
+    case 'editClass': {
+      editPractice(token);
+      initDatetimePicker();
       break;
     }
   }
   // Finally, highlight active navigation link
-  new Header().setActiveNavItem();
+  setActiveNavItem();
 
   // When everything is loaded, deactivate loader
   loader.classList.remove("is-active");
@@ -147,7 +158,7 @@ const router = async () => {
 window.addEventListener("popstate", router);
 
 // Fetch all clicks on data-links // Prevent page reload // Let router handle the navigation
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Catch all clicks on data-link anchors
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {

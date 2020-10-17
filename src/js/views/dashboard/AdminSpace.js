@@ -3,9 +3,8 @@ import { TeachersList } from "./TeachersList.js";
 import { UsersList } from "./UsersList.js";
 import axios from 'axios';
 
-export const AdminSpace = async (role) => {
+export const AdminSpace = async (practices, role) => {
   const teachers = await (await fetch(`${process.env.API_URL}/teachers/`)).json();
-  const practices = await (await fetch(`${process.env.API_URL}/practices/`)).json();
   const authToken = window.localStorage.getItem("auth-token");
   const users = await axios.get(`${process.env.API_URL}/users/all`, { headers: { "x-auth-token": authToken } });
 

@@ -14,16 +14,18 @@ export default class extends AbstractView {
   }
 
   html(practice) {
+    const { level, style, teacher, name, description, duration, date, _id } = practice;
+
     return `
       <section class="practice-container">
-        <h2>${practice.level.identifier} ${practice.style.identifier}</h2>
-        <p>With Omie: ${practice.teacher.name}</p>
-        <p>Name: ${practice.name}</p>
-        <p>Details: ${practice.description}</p>
-        <p>Duration: ${practice.duration}</p>
-        <p>Date: ${moment(practice.date).format("dddd, MMMM Do YYYY, h:mm a")} (${moment(practice.date).fromNow()})</p >
+        <h2>${level.identifier} ${style.identifier}</h2>
+        <p>With Omie: ${teacher.name}</p>
+        <p>Name: ${name}</p>
+        <p>Details: ${description}</p>
+        <p>Duration: ${duration}</p>
+        <p>Date: ${moment(date).format("dddd, MMMM Do YYYY, h:mm a")} (${moment(date).fromNow()})</p >
       </section >
-      <a href="/signup/${practice._id}/" class="btn btn-primary" data-link>Signup!</a>
+      <a href="/signup/${_id}/" class="btn btn-primary" data-link>Signup!</a>
       <a href="/classes" class="link" data-link>Back</a>
     `;
   }

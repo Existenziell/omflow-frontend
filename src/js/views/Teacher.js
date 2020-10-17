@@ -1,5 +1,4 @@
 import AbstractView from "./AbstractView.js";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,7 +7,7 @@ export default class extends AbstractView {
     this.teacher = {};
   }
 
-  async getHtml() {
+  getHtml = async () => {
     this.teacher = await (await fetch(`${process.env.API_URL}/teachers/${this.teacherId}`)).json();
     this.setTitle(this.teacher.name);
     return this.html();

@@ -6,8 +6,4 @@ export default class {
   setTitle(title) {
     document.title = `${title} | Omflow`;
   }
-
-  async getHtml() {
-    return "";
-  }
 }

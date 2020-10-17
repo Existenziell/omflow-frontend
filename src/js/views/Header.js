@@ -1,24 +1,11 @@
 import AbstractView from "./AbstractView.js";
-import User from './dashboard/User.js';
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
   }
 
-  setActiveNavItem = () => {
-    let links = [...document.querySelectorAll('.nav-link')];  // Convert from NodeList to Arrat by spreading
-    for (let link of links) {
-      if (link.getAttribute("href") === location.pathname) {
-        link.classList.add('active');
-      }
-    }
-  }
-
-  async getHtml() {
-    const isLoggedIn = await new User().isLoggedIn();
-    let role;
-    if (isLoggedIn) { role = await new User().getRole() };
+  async getHtml(isLoggedIn, role) {
     return `
       <!--Navbar-->
       <nav class="navbar navbar-expand-md navbar-light">

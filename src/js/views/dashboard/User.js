@@ -5,10 +5,8 @@ import '../../../scss/users.scss';
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-
     this.data = {};
     this.user = {};
-    // this.teacherClasses = {};
   }
 
   isLoggedIn = async () => {

@@ -8,29 +8,36 @@ export default class extends AbstractView {
   }
 
   initRegisterForm = () => {
-    const register = document.getElementById('register-form');
-    register.onsubmit = async (e) => {
-      const email = register.elements['email'].value;
-      const password = register.elements['password'].value;
-      const passwordCheck = register.elements['passwordCheck'].value;
-      const name = register.elements['name'].value;
-      const registerUser = { email, password, passwordCheck, name };
+    const registerForm = document.getElementById('register-form');
+    registerForm.onsubmit = (e) => {
       e.preventDefault();
-
-      try {
-        const res = await axios.post(
-          `${process.env.API_URL}/users/register`,
-          registerUser
-        );
-        history.pushState(null, null, '/');
-        window.location = '/';
-      } catch (err) {
-        document.getElementById('loader').classList.remove("is-active");
-        const msg = document.querySelector(".error-msg-register");
-        msg.style.display = 'block';
-        msg.innerHTML = err.response.data.msg;
-      }
+      this.submitRegisterForm(registerForm)
     }
+  }
+
+  submitRegisterForm = async (registerForm) => {
+    const email = registerForm.elements['email'].value;
+    const password = registerForm.elements['password'].value;
+    const passwordCheck = registerForm.elements['passwordCheck'].value;
+    const name = registerForm.elements['name'].value;
+    const registerUser = { email, password, passwordCheck, name };
+    try {
+      const res = await axios.post(
+        `${process.env.API_URL}/users/register`,
+        registerUser
+      );
+      history.pushState(null, null, '/');
+      window.location = '/';
+    } catch (err) {
+      this.displayError(err.response.data.msg);
+    }
+  }
+
+  displayError = (error) => {
+    document.getElementById('loader').classList.remove("is-active");
+    const msg = document.querySelector(".error-msg-register");
+    msg.style.display = 'block';
+    msg.innerHTML = error;
   }
 
   async getHtml() {

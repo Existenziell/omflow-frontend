@@ -1,5 +1,6 @@
 import AbstractView from '../AbstractView.js';
 import User from './User.js';
+import axios from 'axios';
 
 export default class extends AbstractView {
   constructor(params) {
