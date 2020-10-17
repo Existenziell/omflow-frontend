@@ -28,6 +28,7 @@ export default class extends AbstractView {
         history.pushState(null, null, '/');
         window.location = '/';
       } catch (err) {
+        document.getElementById('loader').classList.remove("is-active");
         const msg = document.querySelector(".error-msg-login");
         msg.style.display = 'block';
         msg.innerHTML = err.response.data.msg;
