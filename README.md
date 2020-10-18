@@ -1,5 +1,12 @@
 # omflow-frontend
-JavaScript Single Page Application for omflow.yoga
+Single Page Application for omflow.yoga
+
+## Build status
+![Heroku](https://heroku-badge.herokuapp.com/?app=omflow-frontend&svg=1)
+
+
+## Tech
+Vanilla JS - ES6 - parcel bundler - SCSS - bootstrap
 
 ## URLs
 - [Local](http://localhost:1234)
@@ -13,12 +20,12 @@ npm run build
 
 ## Heroku
 
-[Link](https://omflow-frontend.herokuapp.com/)
-
 ```
 heroku login
 heroku logs --tail -a omflow-frontend
 ```
+[Link](https://omflow-frontend.herokuapp.com/)
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
