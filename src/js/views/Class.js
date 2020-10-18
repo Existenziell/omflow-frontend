@@ -25,7 +25,7 @@ export default class extends AbstractView {
         <p>Duration: ${duration}</p>
         <p>Date: ${moment(date).format("dddd, MMMM Do YYYY, h:mm a")} (${moment(date).fromNow()})</p >
       </section >
-      <a href="/signup/${_id}/" class="btn btn-primary" data-link>Signup!</a>
+      <a href="/signup/${_id}/" class="btn btn-sm btn-outline-info" data-link>Signup!</a>
       <a href="/classes" class="link" data-link>Back</a>
     `;
   }

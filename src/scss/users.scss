@@ -8,20 +8,18 @@ email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
 
 .user-space {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 60vw;
-  margin: 0 auto 20px;
+  width: 50%;
+  margin: 0 auto;
 
   h2 {
     font-size: 24px;
     line-height: 32px;
-    width: 50%;
     margin-bottom: 40px;
   }
 
   form {
-    width: 50%;
+    label {
+      margin-bottom: 0;
+    }
   }
 }

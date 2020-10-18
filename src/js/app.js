@@ -19,7 +19,12 @@ import Dashboard from "./views/Dashboard"
 import EditClass from "./views/dashboard/EditClass"
 import CreateClass from "./views/dashboard/CreateClass"
 
-import { createPractice, editPractice, deletePractice, editUser, deleteUser, setActiveNavItem, initDatetimePicker } from './functions';
+import {
+  createPractice, editPractice, deletePractice,
+  editUser, deleteUser,
+  editTeacher,
+  setActiveNavItem, initDatetimePicker
+} from './functions';
 
 const loader = document.getElementById('loader');
 
@@ -134,6 +139,7 @@ const router = async () => {
     case 'dashboard': {
       editUser(token);
       deleteUser(token);
+      editTeacher(token);
       deletePractice(token);
       break;
     }

@@ -1,13 +1,18 @@
 export const ClassesList = (practices, role) => {
   if (practices === undefined || practices.length == 0) {
     return `
-      <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
+      <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
     `;
   }
 
   let output = `
       <section class="admin-practices-list">
-        <h2>${role === 'admin' ? 'All classes' : 'My classes'}</h2>
+
+        <div class="table-header">
+          <h2>${role === 'admin' ? 'All Classes' : 'My Classes'}</h2>
+          <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>Create Class</a>
+        </div>
+
         <table class="table table-hover table-condensed">
           <thead class="thead-light">
             <tr>
@@ -44,7 +49,6 @@ export const ClassesList = (practices, role) => {
   output += `
             </tbody>
           </table>
-          <a href="/dashboard/classes/create" class="btn btn-sm btn-outline-info" data-link>New Class</a>
         </section>
       `;
   return output;

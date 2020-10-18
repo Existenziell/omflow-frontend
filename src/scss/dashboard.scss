@@ -7,8 +7,12 @@ author: Christof Bauer
 email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
 
-.practicelist-description {
-  max-width: 300px;
+.table-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .server-msg {
@@ -18,9 +22,11 @@ email: bauer.christof@gmail.com
   display: none;
   position: relative;
 }
+.server-msg-error {
+  color: red;
+}
 
 .admin-teachers-list {
-
   img {
     width: 100px;
   }
@@ -28,4 +34,32 @@ email: bauer.christof@gmail.com
 
 .admin-practices-list {
   margin-bottom: 40px;
+}
+
+.teacher-space {
+  width: 50%;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  form {
+    label {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.create-class {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.practicelist-description {
+  max-width: 300px;
 }
