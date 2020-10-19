@@ -27,8 +27,8 @@ export default class extends AbstractView {
         <section class="teacher-media">
           <img src="/img/teachers/${tag}.jpg" alt="${tag}" />
           ${video}
+          <span>${name} has been an Omie since ${moment(createdAt).fromNow(true)}.</span>
         </section>
-        <small>${name} has been an Omie since ${moment(createdAt).fromNow(true)}.</small>
       ${practices.length > 0 ?
         `<h3>${name} offers the following classes:</h3>` : ``
       }
@@ -47,6 +47,11 @@ export default class extends AbstractView {
     }
     output += `
         </ul>
+
+        <div class="teacher-quote">
+          <span class="quote-mark">“</span>
+          <span class="quote-text">${quote}</spam>
+        </div>
         <h3>Preferred Pose:</h3>
         <p>${pose}</p>
         <h3>Follow ${name} on Instagram:</h3>
@@ -54,8 +59,8 @@ export default class extends AbstractView {
           <i class="fa fa-instagram" aria-hidden="true"></i>
           <span>@${instagram}</span>
         </a>
-      </section>
-      <a href="/teachers" class="btn btn-outline-secondary btn-sm back" data-link>Back</a>
+        <a href="/teachers" class="btn btn-outline-secondary btn-sm back" data-link>Back</a>
+        </section>
       `;
 
     return output;

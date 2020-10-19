@@ -11,6 +11,7 @@ export const TeacherSpace = async (data, role) => {
     <section class='teacher-space'>
       <h2>Welcome to your personal space ${name}</h2>
       <p>Here you can edit your information.</p>
+      <img src="/img/teachers/${tag}.jpg" alt="${tag}" width="200px" />
       <form id="edit-teacher" action="${process.env.API_URL}/teachers/edit/${_id}" method="POST">
         <div class="form-group">
           <label>Name:</label>

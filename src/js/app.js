@@ -57,7 +57,7 @@ const router = async () => {
   const routes = [
     { path: "/", view: Home },
     { path: "/login", view: Login, js: 'login' },
-    { path: "/register", view: Register, js: 'register' },
+    { path: "/signup", view: Register, js: 'register' },
     { path: "/about", view: About },
     { path: "/map", view: Map, js: 'map' },
     { path: "/teachers", view: Teachers },

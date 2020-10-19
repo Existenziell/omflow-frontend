@@ -10,6 +10,7 @@ email: bauer.christof@gmail.com
 @import 'defaults';
 
 
+//  /teachers
 .teachers-list {
   display: flex;
   justify-content: space-evenly;
@@ -49,10 +50,20 @@ email: bauer.christof@gmail.com
   }
 }
 
+
+//  /teacher/:id
 .teacher-container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 40px;
+  padding: 0 40px;
+
   p {
     margin-bottom: 20px;
+    width: fit-content;
+    max-width: 50%;
   }
 
   h2 {
@@ -64,11 +75,6 @@ email: bauer.christof@gmail.com
     margin-bottom: 5px;
   }
 
-  small {
-    margin-bottom: 20px;
-    display: block;
-  }
-
   ul {
     margin-bottom: 20px;
   }
@@ -77,6 +83,8 @@ email: bauer.christof@gmail.com
     display: flex;
     align-items: flex-start;
     padding: 20px 0px;
+    position: relative;
+    margin-bottom: 40px;
 
     > img, iframe {
       box-shadow: 2px 2px 20px -4px rgba(0,0,0,0.8);
@@ -88,6 +96,39 @@ email: bauer.christof@gmail.com
     }
     iframe {
       padding: 15px 0px;
+    }
+
+    span {
+      position: absolute;
+      bottom: 70px;
+      right: 55px;
+      width: 260px;
+    }
+  }
+
+  .teacher-quote {
+    width: fit-content;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+
+    .quote-mark {
+      font-weight: 700;
+      font-size: 80px;
+      color: #fff;
+      font-family: Times New Roman,Georgia,Serif;
+      text-shadow: 1px 1px 2px #666;
+      margin-right: -25px;
+    }
+
+    .quote-text {
+      padding: 10px 20px;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,.4);
+      font-size: 20px;
+      color: #fff;
+      border-radius: 3px;
+      text-shadow: 0 0 5px rgba(0,0,0,.8);
     }
   }
 
@@ -102,7 +143,6 @@ email: bauer.christof@gmail.com
       margin-right: 5px;
     }
   }
-
 
   .back {
     display: inline-block;

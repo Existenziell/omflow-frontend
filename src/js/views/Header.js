@@ -61,7 +61,7 @@ export default class extends AbstractView {
         `<a href="/logout" class="btn btn-sm btn-outline-info" id="logout-user" data-link>Logout</a>`
         :
         `<a href="/login" class="btn btn-sm btn-outline-info" data-link>Login</a>
-        <a href="/register" class="btn btn-sm btn-outline-info" data-link>Register</a>`
+        <a href="/signup" class="btn btn-sm btn-outline-info" data-link>Signup</a>`
       }
       </div>
     `;

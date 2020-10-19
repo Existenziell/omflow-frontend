@@ -18,15 +18,19 @@ export default class extends AbstractView {
 
     return `
       <section class="practice-container">
-        <h2>${level.identifier} ${style.identifier}</h2>
-        <p>With Omie: ${teacher.name}</p>
+        <h2>${style.identifier}</h2>
+        <h3>For ${level.identifier} students</h3>
+        <p>Teacher: ${teacher.name}</p>
+        <p>Duration: ${duration} minutes</p>
+        <p>${moment(date).format("dddd, MMMM Do YYYY")}</p>
+        <p>At: ${moment(date).format("h:mm a")} (${moment(date).fromNow()})</p>
         <p>Name: ${name}</p>
         <p>Details: ${description}</p>
-        <p>Duration: ${duration}</p>
-        <p>Date: ${moment(date).format("dddd, MMMM Do YYYY, h:mm a")} (${moment(date).fromNow()})</p >
-      </section >
-      <a href="/signup/${_id}/" class="btn btn-sm btn-outline-info" data-link>Signup!</a>
-      <a href="/classes" class="link" data-link>Back</a>
+        <div>
+          <a href="/signup/${_id}/" class="btn btn-sm btn-outline-info" data-link>Signup!</a>
+          <a href="/classes" class="btn btn-outline-secondary btn-sm back" data-link>Back</a>
+        </div>
+      </section>
     `;
   }
 }

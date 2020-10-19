@@ -23,7 +23,7 @@ export default class extends AbstractView {
       output += `
           <li>
             <a href="/teachers/${t._id}" class="teacher-link" data-link></a>
-            <h2 class="teacher-name" >${t.name}</h2>
+            <h2 class="teacher-name">${t.name}</h2>
             <small>${t.address}</small>
             <img src="/img/teachers/${t.tag}.jpg" alt="${t.tag}" />
           </li>

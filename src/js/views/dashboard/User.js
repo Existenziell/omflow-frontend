@@ -56,7 +56,7 @@ export default class extends AbstractView {
   }
 
   html = () => {
-    const { id, name, email, location, role, createdAt } = this.user;
+    const { id, name, email, location, createdAt } = this.user;
 
     return `
       <section class='user-space'>
@@ -76,7 +76,7 @@ export default class extends AbstractView {
           </div>
           <div class="form-group">
             <label>Omflower since:</label>
-            <input type="text" required class="form-control user-role" value="${moment(createdAt).fromNow()}" disabled />
+            <input type="text" required class="form-control user-createdAt" value="${moment(createdAt).fromNow()}" disabled />
           </div>
           <div class="form-group">
             <label>Omflow ID:</label>

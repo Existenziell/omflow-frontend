@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import { RegisterSuccess } from "./RegisterSuccess.js";
 import axios from 'axios';
 
 export default class extends AbstractView {
@@ -23,11 +24,13 @@ export default class extends AbstractView {
     const registerUser = { email, password, passwordCheck, name };
     try {
       const res = await axios.post(
-        `${process.env.API_URL}/users/register`,
+        `${process.env.API_URL}/signup`,
         registerUser
       );
-      history.pushState(null, null, '/');
-      window.location = '/';
+      if (res) {
+        document.getElementById('loader').classList.remove("is-active");
+        document.getElementById('app').innerHTML = RegisterSuccess(registerUser, res);
+      }
     } catch (err) {
       this.displayError(err.response.data.msg);
     }
@@ -44,7 +47,7 @@ export default class extends AbstractView {
     return `
       <div class="register-form">
         <h1>New here? Register:</h1>
-        <form id="register-form" action="${process.env.API_URL}/users/register" method="POST">
+        <form id="register-form" action="${process.env.API_URL}/signup" method="POST">
         <input type="text" name="name" placeholder="Name (optional)">
         <input type="text" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
