@@ -19,7 +19,6 @@ export default class extends AbstractView {
   }
 
   html = () => {
-    console.log(this.practice);
     const { id, description, duration, date, level, style, price } = this.practice;
 
     let output = `
