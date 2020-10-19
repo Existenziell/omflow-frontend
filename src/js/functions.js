@@ -26,18 +26,18 @@ const createPractice = (token) => {
 
   form.onsubmit = (e) => {
     e.preventDefault();
-    const name = document.querySelector('.practice-name').value;
     const description = document.querySelector('.practice-description').value;
     const duration = document.querySelector('.practice-duration').value;
     const teacher = document.querySelector('.practice-teacher').value;
     const style = document.querySelector('.practice-style').value;
     const level = document.querySelector('.practice-level').value;
+    const price = document.querySelector('.practice-price').value;
     let date;
     document.querySelector('.practice-date').value === '' ?
       date = Date.now() :
       date = Date.parse(document.querySelector('.practice-date').value);
 
-    let formData = { name, description, date, duration, teacher, style, level }
+    let formData = { description, date, duration, teacher, style, level, price }
 
     axios.post(form.action, formData, { headers: { "x-auth-token": token } })
       .then(() => history.back())
@@ -49,17 +49,17 @@ const editPractice = (token) => {
   const form = document.getElementById('edit-class');
   form.onsubmit = (e) => {
     e.preventDefault();
-    const name = document.querySelector('.practice-name').value;
     const description = document.querySelector('.practice-description').value;
     const duration = document.querySelector('.practice-duration').value;
     const style = document.querySelector('.practice-style').value;
     const level = document.querySelector('.practice-level').value;
+    const price = document.querySelector('.practice-price').value;
     let date;
     document.querySelector('.practice-date').value === '' ?
       date = Date.now() :
       date = Date.parse(document.querySelector('.practice-date').value);
 
-    const formData = { name, description, date, duration, style, level }
+    const formData = { description, date, duration, style, level, price }
 
     axios.post(form.action, formData, { headers: { "x-auth-token": token } })
       .then(() => history.back())

@@ -22,10 +22,11 @@ export default class extends AbstractView {
               <th>Style</th>
               <th>Level</th>
               <th>Teacher</th>
-              <th>Name</th>
               <th>Description</th>
               <th>Duration</th>
               <th>Date</th>
+              <th>Time</th>
+              <th>Price</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -37,10 +38,11 @@ export default class extends AbstractView {
               <td>${p.style.identifier}</td>
               <td>${p.level.identifier}</td>
               <td>${p.teacher.name}</td>
-              <td>${p.name}</td>
-              <td>${p.description}</td>
+\              <td>${p.description}</td>
               <td>${p.duration}</td>
-              <td>${moment(p.date).fromNow()}</td>
+              <td>${moment(p.date).format("MMMM Do YYYY")}</td>
+              <td>${moment(p.date).format("h:mm a")}</td>
+              <td>${p.price.toFixed(2)} $</td>
               <td>
                 <a href="/classes/${p._id}" class="btn btn-sm btn-outline-info" data-link>view</a>
               </td>

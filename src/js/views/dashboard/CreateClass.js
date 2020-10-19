@@ -21,7 +21,17 @@ export default class extends AbstractView {
     let output = `
       <section class="create-class">
         <h3>Create Class</h3>
+
         <form id="create-class" action="${process.env.API_URL}/practices/create" method="POST">
+          ${role === 'admin' ? `
+          <div class="form-group">
+            <label for="teacher-dropdown">Teacher:</label>
+              <select class="form-control practice-teacher">
+              ${teachers.map((item) => `
+                <option value="${item._id}">${item.name}</option>
+              `)}
+              </select>
+          </div>` : ``}
           <div class="form-group">
             <label for="style-dropdown">Style:</label>
             <select class="form-control practice-style">
@@ -39,16 +49,12 @@ export default class extends AbstractView {
             </select>
           </div>
           <div class="form-group">
-            <label>Name:</label>
-            <input type="text" required class="form-control practice-name" value="" />
-          </div>
-          <div class="form-group">
             <label>Description:</label>
-            <input type="text" required class="form-control practice-description" value="" />
+            <input type="text" class="form-control practice-description" value="" />
           </div>
           <div class="form-group">
             <label>Duration (in minutes):</label>
-            <input type="number" required class="form-control practice-duration" id="duration" value="" />
+            <input type="number" class="form-control practice-duration" id="duration" value="" required />
           </div>
           <div class="form-group">
             <label>Date:</label>
@@ -59,15 +65,8 @@ export default class extends AbstractView {
             </div>
           </div>
           <div class="form-group">
-            <label for="teacher-dropdown">Teacher:</label>
-            ${role === 'admin' ? `
-              <select class="form-control practice-teacher">
-              ${teachers.map((item) => `
-                <option value="${item._id}">${item.name}</option>
-              `)}
-              </select>` : `
-              <input type="text" class="form-control practice-teacher" value="${teacher._id}" disabled />
-            `}
+            <label>Price (in USD):</label>
+            <input type="number" class="form-control practice-price" value="" required />
           </div>
 
           <div class="form-group">
@@ -75,6 +74,7 @@ export default class extends AbstractView {
             <a href="/dashboard" value="Cancel" class="btn btn-link" data-link>Cancel</a>
           </div>
         </form>
+
       </section>
     `;
     return output;
