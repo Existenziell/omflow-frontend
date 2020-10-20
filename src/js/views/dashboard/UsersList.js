@@ -34,7 +34,7 @@ export const UsersList = (users) => {
             <td>${moment(lastLogin).fromNow()}</td>
             <td>${role.name}</td>
             <td>
-              <a href="/users/${_id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
+              <a href="/dashboard/users/promote/${_id}" class="btn btn-sm btn-outline-info" data-link>Promote!</a> |
               <a href="/dashboard/users/${_id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |
               <a href="/dashboard/users/${_id}" class="btn btn-sm btn-outline-info delete-user" data-id="${_id}">delete</a>
             </td>

@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import { fadeIn, fadeOut } from '../helpers.js';
+import { fadeIn } from '../helpers.js';
 import '../../scss/matchme.scss';
 
 export default class extends AbstractView {

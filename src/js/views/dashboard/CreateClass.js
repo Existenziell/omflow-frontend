@@ -31,7 +31,9 @@ export default class extends AbstractView {
                 <option value="${item._id}">${item.name}</option>
               `)}
               </select>
-          </div>` : ``}
+          </div>` : `
+          <input type="hidden" class="form-control practice-teacher" value="${teacher._id}" disabled />
+          `}
           <div class="form-group">
             <label for="style-dropdown">Style:</label>
             <select class="form-control practice-style">

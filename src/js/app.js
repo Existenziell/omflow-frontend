@@ -18,6 +18,8 @@ import Register from "./views/Register"
 import Dashboard from "./views/Dashboard"
 import EditClass from "./views/dashboard/EditClass"
 import CreateClass from "./views/dashboard/CreateClass"
+import EditTeacher from "./views/dashboard/EditTeacher"
+import CreateTeacher from "./views/dashboard/CreateTeacher"
 
 import {
   createPractice, editPractice, deletePractice,
@@ -25,6 +27,8 @@ import {
   editTeacher,
   setActiveNavItem, initDatetimePicker
 } from './functions';
+
+import { adminCreateTeacher, adminEditTeacher } from './functionsAdmin';
 
 const loader = document.getElementById('loader');
 
@@ -70,6 +74,8 @@ const router = async () => {
     { path: "/dashboard", view: Dashboard, js: 'dashboard' },
     { path: "/dashboard/classes/create", view: CreateClass, js: 'createClass' },
     { path: "/dashboard/classes/:id", view: EditClass, js: 'editClass' },
+    { path: "/dashboard/teacher/create", view: CreateTeacher, js: 'createTeacher' },
+    { path: "/dashboard/teacher/:id", view: EditTeacher, js: 'editTeacher' },
   ];
 
   // Check if user is loggedIn and if so, which role the user has
@@ -151,6 +157,14 @@ const router = async () => {
     case 'editClass': {
       editPractice(token);
       initDatetimePicker();
+      break;
+    }
+    case 'createTeacher': {
+      adminCreateTeacher(token);
+      break;
+    }
+    case 'editTeacher': {
+      adminEditTeacher(token);
       break;
     }
   }

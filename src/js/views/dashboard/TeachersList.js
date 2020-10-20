@@ -5,7 +5,7 @@ export const TeachersList = (teachers) => {
 
       <div class="table-header">
         <h2>All Teachers</h2>
-        <a href="/dashboard/teachers/create" class="btn btn-sm btn-outline-info" data-link>Create Teacher</a>
+        <a href="/dashboard/teacher/create" class="btn btn-sm btn-outline-info" data-link>Create Teacher</a>
       </div>
 
       <table class="table table-hover table-condensed">
@@ -17,7 +17,7 @@ export const TeachersList = (teachers) => {
             <th>Image</th>
             <th>Styles</th>
             <th>Levels</th>
-            <th>Practices</th>
+            <th>#Practices</th>
             <th>Coordinates</th>
             <th>Actions</th>
           </tr>
@@ -26,24 +26,27 @@ export const TeachersList = (teachers) => {
   `;
 
   for (let t of teachers) {
-    const practices = t.practices.map(p => {
-      return `<a href="/classes/${p._id}" data-link>${p.name}</a>`;
-    })
-
+    // ToDo: (Do we need a list of all teacher practices?)
+    // const practices = t.practices.map(p => {
+    //   return `<a href="/classes/${p._id}" data-link>${p.level} ${p.style}</a>`;
+    // })
     output += `
           <tr>
             <td>${t.name}</td>
             <td>${t.description}</td>
             <td>${t.address}</td>
             <td><img src="img/teachers/${t.tag}.jpg" alt="${t.tag}" /></td>
-            <td>${t.styles}</td>
-            <td>${t.levels}</td>
-            <td>${practices}</td>
+            <td>
+            ${t.styles.map((item) => ` ${item.identifier}`)}
+            </td>
+            <td>
+            ${t.levels.map((item) => ` ${item.identifier}`)}
+            </td>
+            <td>${t.practices.length}</td>
             <td>${t.coordinates}</td>
             <td>
               <a href="/teachers/${t._id}" class="btn btn-sm btn-outline-info" data-link>view</a> |
-              <a href="/dashboard/teachers/${t._id}" class="btn btn-sm btn-outline-info" data-link>edit</a> |
-              <a href="/dashboard/teachers/${t._id}" class="btn btn-sm btn-outline-info delete-teacher" data-id="${t._id}" data-link>delete</a>
+              <a href="/dashboard/teacher/${t._id}" class="btn btn-sm btn-outline-info" data-link>edit</a>
             </td>
           </tr>
     `;

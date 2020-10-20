@@ -38,7 +38,7 @@ export default class extends AbstractView {
               <td>${p.style.identifier}</td>
               <td>${p.level.identifier}</td>
               <td>${p.teacher.name}</td>
-\              <td>${p.description}</td>
+              <td>${p.description}</td>
               <td>${p.duration}</td>
               <td>${moment(p.date).format("MMMM Do YYYY")}</td>
               <td>${moment(p.date).format("h:mm a")}</td>
