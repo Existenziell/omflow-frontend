@@ -3,7 +3,7 @@ import axios from 'axios';
 const adminCreateTeacher = (token) => {
   const form = document.getElementById('admin-create-teacher');
 
-  form.onsubmit = (e) => {
+  form.onsubmit = async (e) => {
     e.preventDefault();
 
     let levels = [...document.getElementById('teacher-levels').selectedOptions];
@@ -23,10 +23,25 @@ const adminCreateTeacher = (token) => {
     const pose = document.querySelector('.teacher-pose').value;
     const tag = name.replace(/\s/g, '').toLowerCase();
 
-    const formData = { name, levels, styles, description, address, quote, instagram, pose, coordinates, tag }
-    axios.post(form.action, formData, { headers: { "x-auth-token": token } })
-      .then((res) => history.back())
-      .catch(error => displayServerMsg(error.response.data.msg, true));
+    const file = document.querySelector('#file');
+    const image = file.files[0];
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("tag", tag);
+    formData.append("description", description);
+    formData.append("address", address);
+    formData.append("quote", quote);
+    formData.append("instagram", instagram);
+    formData.append("pose", pose);
+    formData.append("file", image);
+
+    const response = await axios.post(form.action, formData, { headers: { "x-auth-token": token } });
+
+    if (response) {
+      displayServerMsg(response.data);
+      history.back();
+    }
   }
 }
 
@@ -63,10 +78,121 @@ const adminEditTeacher = (token) => {
 }
 
 const displayServerMsg = (msg, isError) => {
+  const loader = document.getElementById('loader');
+  loader.classList.remove("is-active");
   const target = document.querySelector(".server-msg");
   target.style.display = 'block';
   if (isError) target.classList.add('server-msg-error');
   target.innerHTML = msg;
 }
 
-export { adminCreateTeacher, adminEditTeacher }
+const initUpload = (token) => {
+
+  const imageField = document.getElementById('file');
+  const imageContainer = document.getElementById('imageContainer');
+  const errorMessage = document.getElementById('errorMessage');
+  const successMessage = document.getElementById('successMessage');
+  const clearImageLink = document.getElementById('clearImage');
+  // let fileName = "";
+
+  [
+    'drag',
+    'dragstart',
+    'dragend',
+    'dragover',
+    'dragenter',
+    'dragleave',
+    'drop'
+  ].forEach(function (dragEvent) {
+    imageContainer.addEventListener(dragEvent, preventDragDefault);
+  });
+
+  ['dragover', 'dragenter'].forEach(function (dragEvent) {
+    imageContainer.addEventListener(dragEvent, function () {
+      imageContainer.classList.add('dragging');
+    })
+  });
+
+  ['dragleave', 'dragend', 'drop'].forEach(function (dragEvent) {
+    imageContainer.addEventListener(dragEvent, function () {
+      imageContainer.classList.remove('dragging');
+    })
+  });
+
+  imageContainer.addEventListener('drop', function (e) {
+    if (e.dataTransfer.files.length > 1) {
+      errorMessage.innerHTML = "Drag only one file...";
+      errorMessage.classList.remove('hide');
+      return false;
+    }
+
+    // Casting fileList to Array before assigning
+    const fileList = Array.from(e.dataTransfer.files);
+    const file = fileList[0];
+    const imageFieldFiles = Array.from(imageField.files);
+    imageFieldFiles[0] = file;
+
+    if (checkFileProperties(file)) {
+      handleUploadedFile(file);
+    }
+  })
+
+  imageField.onchange = function (e) {
+    let file = e.target.files[0];
+
+    if (checkFileProperties(file)) {
+      handleUploadedFile(file);
+    }
+  }
+
+  function checkFileProperties(file) {
+    errorMessage.classList.add('hide');
+    successMessage.classList.add('hide');
+
+    const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/gif"];
+    if (file.size > 5000000) {
+      errorMessage.innerHTML = "File too large, cannot be more than 5MB";
+      errorMessage.classList.remove('hide');
+      return false;
+    }
+    return true;
+  }
+
+  clearImageLink.onclick = clearImage;
+  function preventDragDefault(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function handleUploadedFile(file) {
+    // fileName = file.name;
+    clearImage();
+    const img = document.createElement("img");
+    img.setAttribute('id', 'imageTag');
+    img.file = file;
+    imageContainer.appendChild(img);
+
+    let reader = new FileReader();
+    reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(img);
+    reader.readAsDataURL(file);
+  }
+
+  function clearImage(e) {
+    if (e) {
+      e.preventDefault();
+    }
+
+    let theImageTag = document.querySelector('#imageTag');
+
+    if (theImageTag) {
+      imageContainer.removeChild(theImageTag);
+      imageField.value = null;
+    }
+
+    errorMessage.classList.add('hide');
+    successMessage.classList.add('hide');
+  }
+}
+
+
+export { adminCreateTeacher, adminEditTeacher, initUpload }

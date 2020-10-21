@@ -35,7 +35,7 @@ export const TeachersList = (teachers) => {
             <td>${t.name}</td>
             <td>${t.description}</td>
             <td>${t.address}</td>
-            <td><img src="img/teachers/${t.tag}.jpg" alt="${t.tag}" /></td>
+            <td><img src="${process.env.API_URL}/${t.image}" alt="${t.tag}" /></td>
             <td>
             ${t.styles.map((item) => ` ${item.identifier}`)}
             </td>

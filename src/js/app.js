@@ -28,7 +28,9 @@ import {
   setActiveNavItem, initDatetimePicker
 } from './functions';
 
-import { adminCreateTeacher, adminEditTeacher } from './functionsAdmin';
+import {
+  adminCreateTeacher, adminEditTeacher, initUpload
+} from './functionsAdmin';
 
 const loader = document.getElementById('loader');
 
@@ -161,6 +163,7 @@ const router = async () => {
     }
     case 'createTeacher': {
       adminCreateTeacher(token);
+      initUpload(token);
       break;
     }
     case 'editTeacher': {

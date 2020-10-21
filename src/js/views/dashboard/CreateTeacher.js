@@ -22,6 +22,16 @@ export default class extends AbstractView {
 
         <form id="admin-create-teacher" action="${process.env.API_URL}/teachers/create/" method="POST">
 
+          <div class="image-upload">
+            <label for="file" id="imageContainer">
+              <input type="file" id="file" name="file" accept="image/png, image/jpeg">
+              Click here to upload or <b>drag-and-drop</b> an image...
+            </label>
+            <p id="errorMessage" class="hide"></p>
+            <p id="successMessage" class="hide"></p>
+            <a href="" id="clearImage">Clear</a>
+          </div>
+
           <div class="form-group">
             <label>Name:</label>
             <input type="text" class="form-control teacher-name" required />
@@ -75,6 +85,7 @@ export default class extends AbstractView {
           </div>
 
           <div class="form-group">
+            <p class="server-msg"></p>
             <input type="submit" id="admin-save-teacher" class="btn btn-sm btn-outline-info" value="Save" />
             <a href="/dashboard" value="Cancel" class="btn btn-link" data-link>Cancel</a>
           </div>

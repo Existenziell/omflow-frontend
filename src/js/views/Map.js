@@ -223,7 +223,7 @@ export default class extends AbstractView {
     return `
       <div class="popup">
         <section class="popup-left">
-          <img src="/img/teachers/${tag}.jpg" alt="${tag}" />
+          <img src="${process.env.API_URL}/${image}" alt="${tag}" />
         </section>
         <section class="popup-right">
           <h1>${name}</h1>

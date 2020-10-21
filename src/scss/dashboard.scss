@@ -67,3 +67,63 @@ email: bauer.christof@gmail.com
 .practicelist-description {
   max-width: 300px;
 }
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+  #file {
+    display: none;
+  }
+
+  #imageContainer {
+    height: 300px;
+    width: 300px;
+    border: 3px dashed darkgrey;
+    color: darkgrey;
+    background-color: #fafafa;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 100px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #imageTag {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 110%;
+    transform: translateX(-50%);
+  }
+
+  #errorMessage, #successMessage {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  #errorMessage {
+    color: red;
+  }
+
+  #successMessage {
+    color: green;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  #imageContainer.dragging {
+    border-color: green;
+    border-width: 10px;
+    opacity: .3;
+  }
+}

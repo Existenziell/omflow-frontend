@@ -25,7 +25,7 @@ export default class extends AbstractView {
         <p>${address}</p>
         <h3>Some impressions:</h3>
         <section class="teacher-media">
-          <img src="/img/teachers/${tag}.jpg" alt="${tag}" />
+          <img src="${process.env.API_URL}/${image}" alt="${tag}">
           ${video}
           <span>${name} has been an Omie since ${moment(createdAt).fromNow(true)}.</span>
         </section>

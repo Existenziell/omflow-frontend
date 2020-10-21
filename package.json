@@ -21,13 +21,12 @@
     "sass": "^1.27.0"
   },
   "scripts": {
-    "start": "npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
-    "dev": "npm run clean && npm run build && npm run mkdirs && npm run copy:assets && npm run serve",
+    "start": "npm run build && npm run copy:assets && npm run serve",
+    "dev": "npm run serve",
     "serve": "parcel serve src/index.html",
     "build": "parcel build src/index.html",
     "clean": "rm -rf ./.cache && rm -rf ./dist",
-    "mkdirs": "mkdir -p dist/img/teachers/ && mkdir -p dist/img/layout/",
-    "copy:assets": "cp -r src/img/teachers/* dist/img/teachers && cp -r src/img/layout/* dist/img/layout && cp robots.txt dist/",
+    "copy:assets": " cp robots.txt dist/",
     "parcel": "npx parcel src/index.html src/*"
   },
   "repository": {
