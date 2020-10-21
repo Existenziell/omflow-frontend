@@ -7,6 +7,8 @@ author: Christof Bauer
 email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
 
+@import 'defaults';
+
 .table-header {
   display: flex;
   width: 100%;
@@ -122,7 +124,7 @@ email: bauer.christof@gmail.com
   }
 
   #imageContainer.dragging {
-    border-color: green;
+    border-color: $brand;
     border-width: 10px;
     opacity: .3;
   }
