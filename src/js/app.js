@@ -168,6 +168,7 @@ const router = async () => {
     }
     case 'editTeacher': {
       adminEditTeacher(token);
+      initUpload(token);
       break;
     }
   }

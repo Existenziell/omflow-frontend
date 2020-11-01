@@ -34,6 +34,21 @@ email: bauer.christof@gmail.com
   }
 }
 
+.admin-create-teacher, .admin-edit-teacher {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.admin-edit-teacher {
+  .teacher-image {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 110%;
+    transform: translateX(-50%);
+  }
+}
+
 .admin-practices-list {
   margin-bottom: 40px;
 }

@@ -19,7 +19,9 @@ export default class extends AbstractView {
   }
 
   html = () => {
-    const { _id, name, description, address, coordinates, levels, styles, quote, instagram, pose } = this.teacher;
+    const {
+      _id, name, description, address, coordinates, image, video, tag, levels, styles, quote, instagram, pose, userId
+    } = this.teacher;
     const teacherLevels = levels.map(l => l._id);
     const teacherStyles = styles.map(s => s._id);
 
@@ -28,6 +30,14 @@ export default class extends AbstractView {
         <h3>Edit Teacher</h3>
 
         <form id="admin-edit-teacher" action="${process.env.API_URL}/teachers/edit/${_id}" method="POST">
+          <div class="image-upload">
+            <label for="file" id="imageContainer">
+              <input type="file" id="file" name="file" accept="image/png, image/jpeg">
+              <img src="${process.env.API_URL}/${image}" alt="${tag}" class="teacher-image" />
+            </label>
+            <p id="errorMessage" class="hide"></p>
+            <p id="successMessage" class="hide"></p>
+          </div>
 
           <div class="form-group">
             <label>Name:</label>
@@ -56,6 +66,10 @@ export default class extends AbstractView {
             </select>
           </div>
 
+          <div class="form-group">
+            <label>Connected user:</label>
+            <input type="text" class="form-control teacher-user" value="${userId}" />
+          </div>
           <div class="form-group">
             <label>Address:</label>
             <input type="text" class="form-control teacher-address" value="${address}" />

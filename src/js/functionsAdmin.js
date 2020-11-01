@@ -29,6 +29,9 @@ const adminCreateTeacher = (token) => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("tag", tag);
+    formData.append("styles", JSON.stringify(styles));
+    formData.append("levels", JSON.stringify(levels));
+    formData.append("coordinates", JSON.stringify(coordinates));
     formData.append("description", description);
     formData.append("address", address);
     formData.append("quote", quote);
@@ -69,7 +72,20 @@ const adminEditTeacher = (token) => {
     const instagram = document.querySelector('.teacher-instagram').value;
     const pose = document.querySelector('.teacher-pose').value;
 
-    const formData = { name, levels, styles, description, address, quote, instagram, pose, coordinates }
+    const file = document.querySelector('#file');
+    const image = file.files[0];
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("tag", tag);
+    formData.append("description", description);
+    formData.append("address", address);
+    formData.append("quote", quote);
+    formData.append("instagram", instagram);
+    formData.append("pose", pose);
+    formData.append("file", image);
+
+    // const formData = { name, levels, styles, description, address, quote, instagram, pose, coordinates }
 
     axios.post(form.action, formData, { headers: { "x-auth-token": token } })
       .then((res) => history.back())
@@ -93,7 +109,6 @@ const initUpload = (token) => {
   const errorMessage = document.getElementById('errorMessage');
   const successMessage = document.getElementById('successMessage');
   const clearImageLink = document.getElementById('clearImage');
-  // let fileName = "";
 
   [
     'drag',
@@ -158,14 +173,16 @@ const initUpload = (token) => {
     return true;
   }
 
-  clearImageLink.onclick = clearImage;
+  if (clearImageLink) {
+    clearImageLink.onclick = clearImage;
+  }
+
   function preventDragDefault(e) {
     e.preventDefault();
     e.stopPropagation();
   }
 
   function handleUploadedFile(file) {
-    // fileName = file.name;
     clearImage();
     const img = document.createElement("img");
     img.setAttribute('id', 'imageTag');

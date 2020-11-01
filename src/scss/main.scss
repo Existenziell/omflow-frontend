@@ -26,6 +26,11 @@ a:hover {
 .loader-bouncing:before, .loader-bouncing:after {
   background-color: $brand;
 }
+
+.btn-outline-info, .btn-link {
+  color: $brand;
+}
+
 /* --------------------------------------------------------
 Navbar overrides
 ----------------------------------------------------------*/
